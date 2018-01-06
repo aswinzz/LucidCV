@@ -20,6 +20,13 @@ Those who wish to contribute are welcome :smile: .
 
 The user enters the data and after the form is submitted a json file is created and depending on the selected theme and the json data CV is prepared.
 
+- File Structure :
+  * The folder `Public` contains the css,javascripts and images needed for the website
+  * The folder `Views` contains the code of homepage and cv templates,they are in ejs format(embedded javascript). 
+    - index.ejs : contains the code for homepage which contains the form that takes the details of the users.I have used materialize css as the frontend framework.
+    - resume.ejs : is the current template of the cv. More theme is to be added.What this code does is, format the json data obtained from the user into a CV.
+  * The folder `routes` contains a file `index.js` this file creates the json file when the user submits the form using a POST request and formats the resume.ejs file.
+
 ## TODO
 
 * Add more themes
