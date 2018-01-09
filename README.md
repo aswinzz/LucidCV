@@ -1,16 +1,16 @@
-# CV-Maker
+# LucidCV
 
 <img align="right" width="120" height="178"
      title="CV" src="http://freevector.co/wp-content/uploads/2010/06/52762-job-search-symbol-of-a-hand-holding-cv.png">
 
-CV Maker as the name suggests, is a simple CV maker which collects data from the user and creates a CV for the user.
+LucidCV is a simple CV maker which collects data from the user and creates a CV for the user.
 It is under development so it doesnt have much features.I will be adding more features in the coming days.
 Those who wish to contribute are welcome :smile: .
 
 ## How to setup locally
 
 * Install nodejs and npm
-* run `git clone https://github.com/aswinzz/CV-Maker.git`
+* run `git clone https://github.com/aswinzz/LucidCV.git`
 * Enter into the cloned folder
 * run `sudo npm install`
 * run `sudo npm start`
