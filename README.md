@@ -1,7 +1,7 @@
 # LucidCV
 
 <img align="right" width="120" height="178"
-     title="CV" src="http://freevector.co/wp-content/uploads/2010/06/52762-job-search-symbol-of-a-hand-holding-cv.png">
+     title="CV" src="./lucidcv.png">
 
 LucidCV is a simple CV maker which collects data from the user and creates a CV for the user.
 It is under development so it doesnt have much features.I will be adding more features in the coming days.
