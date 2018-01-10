@@ -4,8 +4,54 @@
     <title>CV-Maker</title>
      <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <style>
+
+    @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+.heading-correct-pronounciation {
+margin: auto;
+text-align: center;
+position: relative;
+}
+.styled-heading{
+color: #3074cc;
+font-family: 'Cardo', serif;
+font-size: 1em;
+font-weight: normal;
+font-style: italic;
+letter-spacing: 0.1em;
+line-height: 2.2em;
+padding-bottom: 10px;
+
+}
+em {
+font-family: 'EB Garamond', serif;
+font-size: 3.5em;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+display: block;
+font-style: normal;
+padding-top: 0.1em;
+text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
+}
+em::before,
+em::after {
+color:red;
+content: "§";
+display: inline-block;
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+-o-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+transform: rotate(90deg);
+opacity: 0.2;
+margin: 0 0.6em;
+font-size: 0.5em;
+}
+
+    </style>
   </head>
   <body>
     <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">CV Maker</h1>
@@ -13,7 +59,11 @@
         <form method="POST" class="col s12">
             <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
             <li>
-              <h4>&nbsp&nbsp&nbspBasic Info</h4>
+              <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
+                <h4 class="styled-heading heading heading-correct-pronounciation">
+                  <em>Basic Info</em>
+                </h4>
+
           <div class="row">
             <div class="input-field col s4">
                 <input type="text" class="form-control" name="avatar" id="avatar">
@@ -37,7 +87,7 @@
           <div class="row">
             <div class="input-field col s6">
                 <input type="email" class="form-control" name="email" id="email">
-                <label class="blue-text text-darken-2" for="emailid">Email address</label>    
+                <label class="blue-text text-darken-2" for="emailid">Email address</label>
             </div>
               <div class="input-field col s6">
                   <label class="blue-text text-darken-2" for="github">Github Handle</label>
@@ -51,7 +101,7 @@
                 </div>
               <div class="input-field col s6">
                   <label class="blue-text text-darken-2" for="facebook">Facebook</label>
-                  <input type="text" class="form-control" name="facebook" id="facebook">    
+                  <input type="text" class="form-control" name="facebook" id="facebook">
               </div>
             </div>
 
@@ -69,7 +119,11 @@
           </ul>
           <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
           <li>
-              <h4>&nbsp&nbsp&nbspProjects</h4>
+              <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
+              <h4 class="styled-heading heading heading-correct-pronounciation">
+                <em>Projects</em>
+              </h4>
+
               <div id="projects">
                   <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
                       <li>
@@ -81,7 +135,7 @@
                   <div class="input-field col s6">
                       <label class="blue-text text-darken-2" for="link">Link to the project</label>
                       <input type="text" class="form-control" id="link" name="link" value="">
-                      
+
                 </div>
                 </div>
                 <div class="row">
@@ -102,7 +156,11 @@
 
           <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
               <li>
-                  <h4>&nbsp&nbsp&nbspExperience</h4>
+                  <!-- <h4>&nbsp&nbsp&nbspExperience</h4> -->
+                  <h4 class="styled-heading heading heading-correct-pronounciation">
+                    <em>Experience</em>
+                  </h4>
+
                   <div id="experience">
                       <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
                           <li>
@@ -136,7 +194,11 @@
 
               <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
                   <li>
-                      <h4>&nbsp&nbsp&nbspEducation</h4>
+                      <!-- <h4>&nbsp&nbsp&nbspEducation</h4> -->
+                      <h4 class="styled-heading heading heading-correct-pronounciation">
+                        <em>Education</em>
+                      </h4>
+
                       <div id="education">
                           <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
                               <li>
@@ -169,7 +231,11 @@
 
                   <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
                       <li>
-                          <h4>&nbsp&nbsp&nbspLanguages</h4>
+                          <!-- <h4>&nbsp&nbsp&nbspLanguages</h4> -->
+                          <h4 class="styled-heading heading heading-correct-pronounciation">
+                            <em>Language</em>
+                          </h4>
+
                           <div id="language">
                               <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
                                   <li>
@@ -204,7 +270,7 @@
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
-                        
+
                       <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
                         </button>
                       </li>
@@ -235,7 +301,7 @@
         divtest.setAttribute("class", "form-group removeclass"+room);
         var rdiv = 'removeclass'+room;
           divtest.innerHTML = ' <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="namep">Project Name</label> <input type="text" class="form-control" id="name'+room+'" name="name'+room+'" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="link">Link to the project</label> <input type="text" class="form-control" id="link" name="link'+room+'" value=""> </div></div><div class="row"> <div class="input-field col s12"> <label class="blue-text text-darken-2" for="bio1">Description</label> <textarea class="materialize-textarea" id="bio1" name="bio'+room+'" rows="1"></textarea> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_project('+ room +');">Remove </button> <br><br></li></ul>';
-          
+
           objTo.appendChild(divtest)
       }
     }
@@ -253,7 +319,7 @@
         divtest.setAttribute("class", "form-group removeclass"+eroom);
         var rdiv = 'removeclass'+eroom;
           divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="csdate" name="csdate'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="cedate" name="cedate'+eroom+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience('+ eroom +');">Remove </button> <br><br></li></ul>';
-          
+
           objTo.appendChild(divtest)
         }
       }
@@ -272,7 +338,7 @@
         divtest.setAttribute("class", "form-group removeclass"+croom);
         var rdiv = 'removeclass'+croom;
           divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate'+'croom'+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education('+ croom +');">Remove </button> <br><br></li></ul>';
-          
+
           objTo.appendChild(divtest)
         }
       }
@@ -291,7 +357,7 @@
         divtest.setAttribute("class", "form-group removeclass"+lang);
         var rdiv = 'removeclass'+lang;
           divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="cname">Language</label> <input type="text" class="form-control" id="l1" name="l'+lang+'" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="cjob">Percentage</label> <input type="text" class="form-control" id="p1" name="p'+lang+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_lang('+ lang +');">Remove </button> <br><br></li></ul>';
-          
+
           objTo.appendChild(divtest)
         }
       }
