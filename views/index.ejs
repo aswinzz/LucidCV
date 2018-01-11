@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CV-Maker</title>
+     <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+      function validateForm() {
+    var avatar = document.myform.avatar;
+    var name   = document.myform.name;
+    var job    = document.myform.job;
+    var email  = document.myform.email;
+    var github = document.myform.github;
+    var linkedin = document.myform.linkedin;
+    var facebook = document.myform.facebook;
+    var twitter  = document.myform.twitter;
+    var website  = document.myform.website;
+    var namep  = document.myform.namep;
+    var link   = document.myform.link;
+    var bio1   = document.myform.bio1;
+    var cname  = document.myform.cname;
+    var cjob   = document.myform.cjob;
+    var csdate = document.myform.csdate;
+    var cedate = document.myform.cedate;
+    var ename  = document.myform.ename;
+    var ecourse= document.myform.ecourse;
+    var esdate = document.myform.esdate;
+    var eedate = document.myform.eedate;
+    var l1 = document.myform.l1;
+    var p1 = document.myform.p1;
+    
+    if (avatar.value == "") {
+        window.alert("AvatarUrl must be filled out");
+        avatar.focus;
+        return false;
+    }
+    if (name.value == "") {
+        window.alert("Name must be filled out");
+        name.focus;
+        return false;
+    }
+    if (job.value == "") {
+        window.alert("Job must be filled out");
+        job.focus;
+        return false;
+    }
+    if (email.value == "") {
+        window.alert("E-mail must be filled out");
+        email.focus;
+        return false;
+    }
+    if (email.value.indexOf("@", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf(".", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+    if (github.value == "") {
+        window.alert("Github must be filled out");
+        github.focus;
+        return false;
+    }
+    if (linkedin.value == "") {
+        window.alert("LinkedIn must be filled out");
+        linkedin.focus;
+        return false;
+    }
+    if (facebook.value == "") {
+        window.alert("Facebook must be filled out");
+        facebook.focus;
+        return false;
+    }
+    if (twitter.value == "") {
+        window.alert("Twitter must be filled out");
+        twitter.focus;
+        return false;
+    }
+    if (website.value == "") {
+        window.alert("Website must be filled out");
+        twitter.focus;
+        return false;
+    }
+    if (namep.value == "") {
+        window.alert("Name of project must be filled out");
+        namep.focus;
+        return false;
+    }
+    if (link.value == "") {
+        window.alert("Link must be filled out");
+        link.focus;
+        return false;
+    }
+    if (bio1.value == "") {
+        window.alert("Description must be filled out");
+        bio1.focus;
+        return false;
+    }
+    if (cname.value == "") {
+        window.alert("Company Name must be filled out");
+        cname.focus;
+        return false;
+    }
+    if (cjob.value == "") {
+        window.alert("Company Job must be filled out");
+        cjob.focus;
+        return false;
+    }
+    if (csdate.value == "") {
+        window.alert("AvatarUrl must be filled out");
+        csdate.focus;
+        return false;
+    }
+    if (cedate.value== "") {
+        window.alert("Company start date must be filled out");
+        cedate.focus;
+        return false;
+    }
+    if (ename.value == "") {
+        window.alert("Education must be filled out");
+        ename.focus;
+        return false;
+    }
+    if (ecourse.value == "") {
+        window.alert("Course must be filled out");
+        ecourse.focus;
+        return false;
+    }
+    if (esdate.value == "") {
+        window.alert("Start must be filled out");
+        esdate.focus;
+        return false;
+    }
+    if (eedate.value == "") {
+        window.alert("End must be filled out");
+        eedate.focus;
+        return false;
+    }
+    if (l1.value == "") {
+        window.alert("Language must be filled out");
+        l1.focus;
+        return false;
+    }
+    if (p1.value == "") {
+        window.alert("Percentage must be filled out");
+        p1.focus;
+        return false;
+    }
+    return true;
+}
+    </script>
+
+    <style>
+
+    @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+.heading-correct-pronounciation {
+margin: auto;
+text-align: center;
+position: relative;
+}
+.styled-heading{
+color: #3074cc;
+font-family: 'Cardo', serif;
+font-size: 1em;
+font-weight: normal;
+font-style: italic;
+letter-spacing: 0.1em;
+line-height: 2.2em;
+padding-bottom: 10px;
+
+}
+em {
+font-family: 'EB Garamond', serif;
+font-size: 3.5em;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+display: block;
+font-style: normal;
+padding-top: 0.1em;
+text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
+}
+em::before,
+em::after {
+color:red;
+content: "§";
+display: inline-block;
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+-o-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+transform: rotate(90deg);
+opacity: 0.2;
+margin: 0 0.6em;
+font-size: 0.5em;
+}
+::placeholder{
+  color: #3e1dd1;
+}
+:-ms-input-placeholder { 
+   color: #6241f4;
+}
+
+::-ms-input-placeholder { 
+   color: #6241f4;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background: #1cbbd1; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 16px;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">CV Maker</h1>
+    <div class="row">
+        <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
+            <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
+            <li>
+              <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
+                <h4 class="styled-heading heading heading-correct-pronounciation">
+                  <em>Basic Info</em>
+                </h4>
+
+          <div class="row">
+            <div class="input-field col s4">
+                <input type="text" class="form-control" name="avatar" id="avatar" placeholder="AvatarUrl" class= "text-darken-2"/>
+            <!--  <label class="blue-text text-darken-2" for="avatar"></label>-->
+            </div>
+            <div class="input-field col s4">
+                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                <!--<label class="blue-text text-darken-2" for="name">Name</label>-->
+            </div>
+            <div class="input-field col s4">
+                <input type="text" class="form-control" name="job" id="job" placeholder="Job/Specialization">
+                <!--<label class="blue-text text-darken-2" for="job">Job/Specialization</label>-->
+            </div>
+        </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <textarea class="materialize-textarea" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
+               <!-- <label class="blue-text text-darken-2" for="bio">Bio</label>-->
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
+                <!--<label class="blue-text text-darken-2" for="emailid">Email address</label>-->
+            </div>
+              <div class="input-field col s6">
+                  <!--<label class="blue-text text-darken-2" for="github">Github Handle</label>-->
+                  <input type="text" class="form-control" name="github" id="github" placeholder="Github Handle">
+                </div>
+            </div>
+          <div class="row">
+                <div class="input-field col s6">
+                    <!--<label class="blue-text text-darken-2" for="linkedin">LinkedIn</label>-->
+                    <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">
+                </div>
+              <div class="input-field col s6">
+                  <!--<label class="blue-text text-darken-2" for="facebook">Facebook</label>-->
+                  <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Facebook">
+              </div>
+            </div>
+
+          <div class="row">
+              <div class="input-field col s6">
+                  <!--<label class="blue-text text-darken-2" for="twitter">Twitter</label>-->
+                  <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter">
+               </div>
+              <div class="input-field col s6">
+                  <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
+                  <input type="text" class="form-control" name="website" id="website" placeholder="website">
+            </div>
+          </div>
+          </li>
+          </ul>
+          
+          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+          <li>
+               <!--<h4>&nbsp&nbsp&nbspProjects</h4> -->
+              <h4 class="styled-heading heading heading-correct-pronounciation">
+                <em>Projects</em>
+              </h4>
+
+              <div id="projects">
+                  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                      <li>
+                <div class="row">
+                  <div class="input-field col s6">
+                     <!-- <label class="blue-text text-darken-2" for="namep">Project Name</label>-->
+                      <input type="text" class="form-control" id="namep" name="namep" value="" placeholder="Project Name">
+                    </div>
+                  <div class="input-field col s6">
+                      <!--<label class="blue-text text-darken-2" for="link">Link to the project</label>-->
+                      <input type="text" class="form-control" id="link" name="link" value="" placeholder="Link to the project">
+
+                </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <!--<label class="blue-text text-darken-2" for="bio1">Description</label>-->
+                        <textarea class="materialize-textarea" id="bio1" name="bio1" rows="1" placeholder="Description"></textarea>
+                    </div>
+                    </div>
+
+                </div>
+                <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="projectfn();">Add
+                  </button>
+                <!--<input type="submit" class="button" style="margin-left: 45%;" onclick="projectfn();" value="Add">-->
+                  <br><br>
+                  </li>
+                  </ul>
+          </li>
+          </ul>
+
+          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+              <li>
+                  <!-- <h4>&nbsp&nbsp&nbspExperience</h4>-->
+                  <h4 class="styled-heading heading heading-correct-pronounciation">
+                    <em>Experience</em>
+                  </h4>
+
+                  <div id="experience">
+                      <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                          <li>
+                    <div class="row">
+                      <div class="input-field col s3">
+                          <!--<label class="blue-text text-darken-2" for="cname">Company Name</label>-->
+                          <input type="text" class="form-control" id="cname" name="cname" value="" placeholder="Company Name">
+                        </div>
+                      <div class="input-field col s3">
+                          <!--<label class="blue-text text-darken-2" for="cjob">Job</label>-->
+                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="job">
+                    </div>
+                    <div class="input-field col s3">
+                        <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                        <input type="text" class="form-control" id="csdate" name="csdate" value="" placeholder="Start (YYYY)">
+                      </div>
+                      <div class="input-field col s3">
+                           <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                          <input type="text" class="form-control" id="cedate" name="cedate" value="" placeholder="End (YYYY)">
+                        </div>
+                    </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="experiencefn();">Add
+                      </button>
+                      <br><br>
+                      </li>
+                      </ul>
+              </li>
+              </ul>
+
+
+              <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                  <li>
+                      <!-- <h4>&nbsp&nbsp&nbspEducation</h4> -->
+                      <h4 class="styled-heading heading heading-correct-pronounciation">
+                        <em>Education</em>
+                      </h4>
+
+                      <div id="education">
+                          <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                              <li>
+                        <div class="row">
+                          <div class="input-field col s3">
+                              <!--<label class="blue-text text-darken-2" for="cname">Institute Name</label>-->
+                              <input type="text" class="form-control" id="ename" name="ename" value="" placeholder="Institute Name">
+                            </div>
+                          <div class="input-field col s3">
+                              <!--<label class="blue-text text-darken-2" for="cjob">Course</label>-->
+                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course">
+                            </div>
+                        <div class="input-field col s3">
+                            <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                            <input type="text" class="form-control" id="esdate" name="esdate" value="" placeholder="Start (YYYY)">
+                          </div>
+                          <div class="input-field col s3">
+                              <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                              <input type="text" class="form-control" id="eedate" name="eedate" value="" placeholder="End (YYYY)">
+                            </div>
+                        </div>
+                        </div>
+                        <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="educationfn();">Add
+                          </button>
+                          <br><br>
+                          </li>
+                          </ul>
+                  </li>
+                  </ul>
+
+                  <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                      <li>
+                          <!-- <h4>&nbsp&nbsp&nbspLanguages</h4> -->
+                          <h4 class="styled-heading heading heading-correct-pronounciation">
+                            <em>Language</em>
+                          </h4>
+
+                          <div id="language">
+                              <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                                  <li>
+                            <div class="row">
+                              <div class="input-field col s6">
+                                  <!-- <label class="blue-text text-darken-2" for="cname">Language</label>-->
+                                  <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language">
+                                </div>
+                              <div class="input-field col s6">
+                                  <!--<label class="blue-text text-darken-2" for="cjob">Percentage</label>-->
+                                  <input type="text" class="form-control" id="p1" name="p1" value="" placeholder="Percentage">
+                                </div>
+                            </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="langfn();">Add
+                              </button>
+                              <br><br>
+                              </li>
+                              </ul>
+                      </li>
+                      </ul>
+                      <br>
+                      <br>
+                      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                        <li>
+                      <div class="input-field col s12">
+                          <select class="icons">
+                            <option value="" disabled selected>Choose your Theme</option>
+                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 1</option>
+                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 2</option>
+                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 3</option>
+                          </select>
+                          <label class="blue-text text-darken-2">Theme</label>
+                        </div>
+
+                      <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
+                        </button>-->
+                      <input type="submit" class="button" style="margin-left: 45%;" value="Create">
+                    </ul>
+              </form>
+      </div>
+      <br>
+      <footer class="footer center">
+          <div class="text-center">
+                  <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+                  <large class="copyright">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);" href="http://aswinzz.com" target="_blank">aswinzz</a></large>
+          </div><!--//container-->
+      </footer><!--//footer-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/bf3ce4ee85.js"></script>
+      <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+      var room = 1;
+      function projectfn() {
+        if(room<3){
+        room++;
+        var objTo = document.getElementById('projects')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass"+room);
+        var rdiv = 'removeclass'+room;
+          divtest.innerHTML = ' <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="namep">Project Name</label> <input type="text" class="form-control" id="name'+room+'" name="name'+room+'" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="link">Link to the project</label> <input type="text" class="form-control" id="link" name="link'+room+'" value=""> </div></div><div class="row"> <div class="input-field col s12"> <label class="blue-text text-darken-2" for="bio1">Description</label> <textarea class="materialize-textarea" id="bio1" name="bio'+room+'" rows="1"></textarea> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_project('+ room +');">Remove </button> <br><br></li></ul>';
+
+          objTo.appendChild(divtest)
+      }
+    }
+      function remove_project(rid) {
+        $('.removeclass'+rid).remove();
+        room--;
+      }
+
+      var eroom=1;
+      function experiencefn() {
+        if(eroom<3){
+        eroom++;
+        var objTo = document.getElementById('experience')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass"+eroom);
+        var rdiv = 'removeclass'+eroom;
+          divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="csdate" name="csdate'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="cedate" name="cedate'+eroom+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience('+ eroom +');">Remove </button> <br><br></li></ul>';
+
+          objTo.appendChild(divtest)
+        }
+      }
+      function remove_experience(rid) {
+        $('.removeclass'+rid).remove();
+        eroom--;
+
+      }
+
+      var croom=1;
+      function educationfn() {
+        if(croom<3){
+        croom++;
+        var objTo = document.getElementById('education')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass"+croom);
+        var rdiv = 'removeclass'+croom;
+          divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate'+'croom'+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education('+ croom +');">Remove </button> <br><br></li></ul>';
+
+          objTo.appendChild(divtest)
+        }
+      }
+      function remove_education(rid) {
+        $('.removeclass'+rid).remove();
+        croom--;
+      }
+
+
+      var lang=1;
+      function langfn() {
+        if(lang<10){
+        lang++;
+        var objTo = document.getElementById('language')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass"+lang);
+        var rdiv = 'removeclass'+lang;
+          divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="cname">Language</label> <input type="text" class="form-control" id="l1" name="l'+lang+'" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="cjob">Percentage</label> <input type="text" class="form-control" id="p1" name="p'+lang+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_lang('+ lang +');">Remove </button> <br><br></li></ul>';
+
+          objTo.appendChild(divtest)
+        }
+      }
+      function remove_lang(rid) {
+        $('.removeclass'+rid).remove();
+        lang--;
+      }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+@import (css) "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
+body {
+  background-image: url(https://images.freecreatives.com/wp-content/uploads/2016/03/Free-Material-Design-Background-For-You.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  padding: 50px;
+  font-weight: 300;
+}
+
+a {
+  color: #00B7FF;
+}

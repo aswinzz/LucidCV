@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>CV Maker</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="images/favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="./stylesheets/cv.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head> 
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <img class="profile" src="<%= out.header.avatar %>" style="max-height:150px;max-width:150px;" alt="" />
+                <h1 class="name"><%= out.header.name %></h1>
+                <h3 class="tagline"><%= out.header.job %></h3>
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto: <%= out.header.email %>">Email</a></li>
+                    <li class="website"><i class="fa fa-globe"></i><a href="<%= out.header.icon.website %>" target="_blank">Website</a></li>
+                    <li class="linkedin"><i class="fa fa-linkedin"></i><a href="<%= out.header.icon.linkdin %>" target="_blank">LinkedIn</a></li>
+                    <li class="github"><i class="fa fa-github"></i><a href="<%= out.header.icon.github %>" target="_blank">Github</a></li>
+                    <li class="twitter"><i class="fa fa-twitter"></i><a href="<%= out.header.icon.twitter %>" target="_blank">Twitter</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Education</h2>
+              <% for(var i=0;i<out.eduandcert.edu.length;i++){ %>
+                <div class="item">
+                    <h4 class="degree"><a href="<%= out.eduandcert.edu[i].link %>" target="_blank"><%= out.eduandcert.edu[i].title %></a></h4>
+                    <h5 class="meta"><%= out.eduandcert.edu[i].name %></h5>
+                    <div class="time"><%= out.eduandcert.edu[i].date.start %> - <%= out.eduandcert.edu[i].date.end %></div>
+                </div><!--//item-->
+              <% } %>
+            </div><!--//education-container-->
+            
+         <!--   <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>English <span class="lang-desc">(Native)</span></li>
+                    <li>French <span class="lang-desc">(Professional)</span></li>
+                    <li>Spanish <span class="lang-desc">(Professional)</span></li>
+                </ul>
+            </div>-->
+            
+           <!-- <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>Climbing</li>
+                    <li>Snowboarding</li>
+                    <li>Cooking</li>
+                </ul>
+            </div>-->
+            
+        </div><!--//sidebar-wrapper-->
+        
+        <div class="main-wrapper">
+            
+            <section class="section summary-section">
+                <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
+                <div class="summary">
+                    <p><%= out.header.bio %></p>
+                </div><!--//summary-->
+            </section><!--//section-->
+            
+            <section class="section experiences-section">
+                <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
+                <% for(var i=0;i<out.experience.length;i++){ %>
+                  <% if(out.experience[i]){ %>
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title"><%= out.experience[i].job %></h3>
+                            <div class="time"><%= out.experience[i].date.start %> - <%= out.experience[i].date.end %></div>
+                        </div><!--//upper-row-->
+                        <div class="company"><%= out.experience[i].name %></div>
+                    </div><!--//meta-->
+                </div><!--//item-->
+                <% } %>
+                <% } %>
+               
+            </section><!--//section-->
+            
+            <section class="section projects-section">
+                <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+                <div class="intro">
+                    <p>The Projects that i have done</p>
+                  </div><!--//intro-->
+                    <% for(var i=0;i<out.experience.length;i++){ %>
+                <div class="item">
+                    <span class="project-title"><a href="<%= out.projects[i].link %>"><%= out.projects[i].name %></a></span> - <span class="project-tagline"><%= out.projects[i].desc %></span>
+                </div><!--//item-->
+                    <% } %>
+              
+            </section><!--//section-->
+            
+            <section class="skills-section section">
+                <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+                <div class="skillset">       
+                        <% for(var i=0;i<out.language.length;i++){ %> 
+                    <div class="item">
+                        <h3 class="level-title"><%= out.language[i].lang %></h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="<%= out.language[i].perc %>">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                        <% } %>
+                    
+                </div>  
+            </section><!--//skills-section-->
+            
+        </div><!--//main-body-->
+    </div>
+ 
+    <footer class="footer">
+        <div class="text-center">
+                <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="http://aswinzz.com" target="_blank">aswinzz</a></small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+ 
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
+    <!-- custom js -->
+    <script type="text/javascript" src="assets/js/main.js"></script>            
+</body>
+</html> 
+
