@@ -5,7 +5,8 @@
      <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='../public/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500i" rel="stylesheet">
 
     <script type="text/javascript">
       function validateForm() {
@@ -210,7 +211,8 @@ font-size: 0.5em;
 }
 
 ::placeholder{
-  color: #3e1dd1;
+  color: #586F7C;
+  font-family:'Roboto', sans-serif;
 }
 :-ms-input-placeholder { 
    color: #6241f4;
@@ -235,7 +237,7 @@ input[type=submit] {
   <body>
     <div>
       <div style="text-align: center;">
-        <img src="images/lucidcv.png" alt="icon" height=100px>
+        <img src="../images/lucidcv.png" alt="icon" height=100px>
       </div>
       <hr class="line">
       <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1>   
@@ -244,21 +246,21 @@ input[type=submit] {
 
         <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
 
-            <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
+            <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
             <li>
               <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
                 <h4 class="styled-heading heading heading-correct-pronounciation">
                   <em>Basic Info</em>
                 </h4>
 
-          <div class="row">
+          <div class="row" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
             <div class="input-field col s4">
 
                 <input type="text" class="form-control" name="avatar" id="avatar" placeholder="AvatarUrl" class= "text-darken-2"/>
             <!--  <label class="blue-text text-darken-2" for="avatar"></label>-->
             </div>
             <div class="input-field col s4">
-                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 <!--<label class="blue-text text-darken-2" for="name">Name</label>-->
             </div>
             <div class="input-field col s4">
@@ -266,7 +268,7 @@ input[type=submit] {
                 <!--<label class="blue-text text-darken-2" for="job">Job/Specialization</label>-->
             </div>
         </div>
-          <div class="row">
+          <div class="row" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
             <div class="input-field col s12">
                 <textarea class="materialize-textarea" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
                <!-- <label class="blue-text text-darken-2" for="bio">Bio</label>-->
@@ -306,7 +308,7 @@ input[type=submit] {
                </div>
               <div class="input-field col s6">
                   <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
-                  <input type="text" class="form-control" name="website" id="website" placeholder="website">
+                  <input type="text" class="form-control" name="website" id="website" placeholder="Website">
 
                   
 
@@ -320,7 +322,7 @@ input[type=submit] {
           <li>
                <!--<h4>&nbsp&nbsp&nbspProjects</h4> -->
 
-          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+          <ul class="collapsible card-panel hoverable" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
           <li>
               <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
 
@@ -329,7 +331,7 @@ input[type=submit] {
               </h4>
 
               <div id="projects">
-                  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                  <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                       <li>
                 <div class="row">
                   <div class="input-field col s6">
@@ -363,7 +365,7 @@ input[type=submit] {
           </li>
           </ul>
 
-          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+          <ul class="collapsible card-panel hoverable" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
               <li>
 
                   <!-- <h4>&nbsp&nbsp&nbspExperience</h4>-->
@@ -375,7 +377,7 @@ input[type=submit] {
                   </h4>
 
                   <div id="experience">
-                      <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                      <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                           <li>
                     <div class="row">
                       <div class="input-field col s3">
@@ -385,7 +387,7 @@ input[type=submit] {
                         </div>
                       <div class="input-field col s3">
                           <!--<label class="blue-text text-darken-2" for="cjob">Job</label>-->
-                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="job">
+                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="Job">
                     </div>
                     <div class="input-field col s3">
                         <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
@@ -417,7 +419,7 @@ input[type=submit] {
                       </h4>
 
                       <div id="education">
-                          <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                          <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                               <li>
                         <div class="row">
                           <div class="input-field col s3">
@@ -456,7 +458,7 @@ input[type=submit] {
                           </h4>
 
                           <div id="language">
-                              <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                              <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                                   <li>
                             <div class="row">
                               <div class="input-field col s6">
@@ -483,9 +485,9 @@ input[type=submit] {
                       <div class="input-field col s12">
                           <select class="icons">
                             <option value="" disabled selected>Choose your Theme</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 1</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 2</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 3</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 1</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 2</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 3</option>
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
