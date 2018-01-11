@@ -7,6 +7,158 @@
 
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
+    <script type="text/javascript">
+      function validateForm() {
+    var avatar = document.myform.avatar;
+    var name   = document.myform.name;
+    var job    = document.myform.job;
+    var email  = document.myform.email;
+    var github = document.myform.github;
+    var linkedin = document.myform.linkedin;
+    var facebook = document.myform.facebook;
+    var twitter  = document.myform.twitter;
+    var website  = document.myform.website;
+    var namep  = document.myform.namep;
+    var link   = document.myform.link;
+    var bio1   = document.myform.bio1;
+    var cname  = document.myform.cname;
+    var cjob   = document.myform.cjob;
+    var csdate = document.myform.csdate;
+    var cedate = document.myform.cedate;
+    var ename  = document.myform.ename;
+    var ecourse= document.myform.ecourse;
+    var esdate = document.myform.esdate;
+    var eedate = document.myform.eedate;
+    var l1 = document.myform.l1;
+    var p1 = document.myform.p1;
+    
+    if (avatar.value == "") {
+        window.alert("AvatarUrl must be filled out");
+        avatar.focus;
+        return false;
+    }
+    if (name.value == "") {
+        window.alert("Name must be filled out");
+        name.focus;
+        return false;
+    }
+    if (job.value == "") {
+        window.alert("Job must be filled out");
+        job.focus;
+        return false;
+    }
+    if (email.value == "") {
+        window.alert("E-mail must be filled out");
+        email.focus;
+        return false;
+    }
+    if (email.value.indexOf("@", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf(".", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+    if (github.value == "") {
+        window.alert("Github must be filled out");
+        github.focus;
+        return false;
+    }
+    if (linkedin.value == "") {
+        window.alert("LinkedIn must be filled out");
+        linkedin.focus;
+        return false;
+    }
+    if (facebook.value == "") {
+        window.alert("Facebook must be filled out");
+        facebook.focus;
+        return false;
+    }
+    if (twitter.value == "") {
+        window.alert("Twitter must be filled out");
+        twitter.focus;
+        return false;
+    }
+    if (website.value == "") {
+        window.alert("Website must be filled out");
+        twitter.focus;
+        return false;
+    }
+    if (namep.value == "") {
+        window.alert("Name of project must be filled out");
+        namep.focus;
+        return false;
+    }
+    if (link.value == "") {
+        window.alert("Link must be filled out");
+        link.focus;
+        return false;
+    }
+    if (bio1.value == "") {
+        window.alert("Description must be filled out");
+        bio1.focus;
+        return false;
+    }
+    if (cname.value == "") {
+        window.alert("Company Name must be filled out");
+        cname.focus;
+        return false;
+    }
+    if (cjob.value == "") {
+        window.alert("Company Job must be filled out");
+        cjob.focus;
+        return false;
+    }
+    if (csdate.value == "") {
+        window.alert("AvatarUrl must be filled out");
+        csdate.focus;
+        return false;
+    }
+    if (cedate.value== "") {
+        window.alert("Company start date must be filled out");
+        cedate.focus;
+        return false;
+    }
+    if (ename.value == "") {
+        window.alert("Education must be filled out");
+        ename.focus;
+        return false;
+    }
+    if (ecourse.value == "") {
+        window.alert("Course must be filled out");
+        ecourse.focus;
+        return false;
+    }
+    if (esdate.value == "") {
+        window.alert("Start must be filled out");
+        esdate.focus;
+        return false;
+    }
+    if (eedate.value == "") {
+        window.alert("End must be filled out");
+        eedate.focus;
+        return false;
+    }
+    if (l1.value == "") {
+        window.alert("Language must be filled out");
+        l1.focus;
+        return false;
+    }
+    if (p1.value == "") {
+        window.alert("Percentage must be filled out");
+        p1.focus;
+        return false;
+    }
+    return true;
+}
+    </script>
+
     <style>
 
     @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
@@ -51,12 +203,35 @@ margin: 0 0.6em;
 font-size: 0.5em;
 }
 
+::placeholder{
+  color: #3e1dd1;
+}
+:-ms-input-placeholder { 
+   color: #6241f4;
+}
+
+::-ms-input-placeholder { 
+   color: #6241f4;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background: #1cbbd1; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 16px;
+}
+
+
     </style>
   </head>
   <body>
     <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">CV Maker</h1>
     <div class="row">
-        <form method="POST" class="col s12">
+
+        <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
+
             <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
             <li>
               <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
@@ -66,60 +241,77 @@ font-size: 0.5em;
 
           <div class="row">
             <div class="input-field col s4">
-                <input type="text" class="form-control" name="avatar" id="avatar">
-              <label class="blue-text text-darken-2" for="avatar">AvatarUrl</label>
+
+                <input type="text" class="form-control" name="avatar" id="avatar" placeholder="AvatarUrl" class= "text-darken-2"/>
+            <!--  <label class="blue-text text-darken-2" for="avatar"></label>-->
             </div>
             <div class="input-field col s4">
-                <input type="text" class="form-control" id="name" name="name">
-                <label class="blue-text text-darken-2" for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                <!--<label class="blue-text text-darken-2" for="name">Name</label>-->
             </div>
             <div class="input-field col s4">
-                <input type="text" class="form-control" name="job" id="job">
-                <label class="blue-text text-darken-2" for="job">Job/Specialization</label>
+                <input type="text" class="form-control" name="job" id="job" placeholder="Job/Specialization">
+                <!--<label class="blue-text text-darken-2" for="job">Job/Specialization</label>-->
             </div>
-          </div>
+        </div>
           <div class="row">
             <div class="input-field col s12">
-                <textarea class="materialize-textarea" id="bio" name="bio" rows="3"></textarea>
-                <label class="blue-text text-darken-2" for="bio">Bio</label>
-            </div>
+                <textarea class="materialize-textarea" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
+               <!-- <label class="blue-text text-darken-2" for="bio">Bio</label>-->
+
+                
           </div>
           <div class="row">
             <div class="input-field col s6">
-                <input type="email" class="form-control" name="email" id="email">
-                <label class="blue-text text-darken-2" for="emailid">Email address</label>
+
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
+                <!--<label class="blue-text text-darken-2" for="emailid">Email address</label>-->
             </div>
               <div class="input-field col s6">
-                  <label class="blue-text text-darken-2" for="github">Github Handle</label>
-                  <input type="text" class="form-control" name="github" id="github">
-                </div>
+                  <!--<label class="blue-text text-darken-2" for="github">Github Handle</label>-->
+                  <input type="text" class="form-control" name="github" id="github" placeholder="Github Handle">
+
+               
             </div>
           <div class="row">
                 <div class="input-field col s6">
-                    <label class="blue-text text-darken-2" for="linkedin">LinkedIn</label>
-                    <input type="text" class="form-control" name="linkedin" id="linkedin">
+
+                    <!--<label class="blue-text text-darken-2" for="linkedin">LinkedIn</label>-->
+                    <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">
                 </div>
               <div class="input-field col s6">
-                  <label class="blue-text text-darken-2" for="facebook">Facebook</label>
-                  <input type="text" class="form-control" name="facebook" id="facebook">
+                  <!--<label class="blue-text text-darken-2" for="facebook">Facebook</label>-->
+                  <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Facebook">
+
               </div>
             </div>
 
           <div class="row">
               <div class="input-field col s6">
-                  <label class="blue-text text-darken-2" for="twitter">Twitter</label>
-                  <input type="text" class="form-control" name="twitter" id="twitter">
+
+                  <!--<label class="blue-text text-darken-2" for="twitter">Twitter</label>-->
+                  <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter">
                </div>
               <div class="input-field col s6">
-                  <label class="blue-text text-darken-2" for="website">Website</label>
-                  <input type="text" class="form-control" name="website" id="website">
+                  <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
+                  <input type="text" class="form-control" name="website" id="website" placeholder="website">
+
+                  
+
             </div>
           </div>
           </li>
           </ul>
+
+          
+          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+          <li>
+               <!--<h4>&nbsp&nbsp&nbspProjects</h4> -->
+
           <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
           <li>
               <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
+
               <h4 class="styled-heading heading heading-correct-pronounciation">
                 <em>Projects</em>
               </h4>
@@ -129,25 +321,30 @@ font-size: 0.5em;
                       <li>
                 <div class="row">
                   <div class="input-field col s6">
-                      <label class="blue-text text-darken-2" for="namep">Project Name</label>
-                      <input type="text" class="form-control" id="namep" name="namep" value="">
+
+                     <!-- <label class="blue-text text-darken-2" for="namep">Project Name</label>-->
+                      <input type="text" class="form-control" id="namep" name="namep" value="" placeholder="Project Name">
                     </div>
                   <div class="input-field col s6">
-                      <label class="blue-text text-darken-2" for="link">Link to the project</label>
-                      <input type="text" class="form-control" id="link" name="link" value="">
+                      <!--<label class="blue-text text-darken-2" for="link">Link to the project</label>-->
+                      <input type="text" class="form-control" id="link" name="link" value="" placeholder="Link to the project">
 
-                </div>
+                      
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <label class="blue-text text-darken-2" for="bio1">Description</label>
-                        <textarea class="materialize-textarea" id="bio1" name="bio1" rows="1"></textarea>
-                    </div>
+
+                        <!--<label class="blue-text text-darken-2" for="bio1">Description</label>-->
+                        <textarea class="materialize-textarea" id="bio1" name="bio1" rows="1" placeholder="Description"></textarea>
+          
                     </div>
 
                 </div>
                 <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="projectfn();">Add
                   </button>
+
+                <!--<input type="submit" class="button" style="margin-left: 45%;" onclick="projectfn();" value="Add">-->
+
                   <br><br>
                   </li>
                   </ul>
@@ -156,7 +353,11 @@ font-size: 0.5em;
 
           <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
               <li>
+
+                  <!-- <h4>&nbsp&nbsp&nbspExperience</h4>-->
+
                   <!-- <h4>&nbsp&nbsp&nbspExperience</h4> -->
+
                   <h4 class="styled-heading heading heading-correct-pronounciation">
                     <em>Experience</em>
                   </h4>
@@ -166,20 +367,24 @@ font-size: 0.5em;
                           <li>
                     <div class="row">
                       <div class="input-field col s3">
-                          <label class="blue-text text-darken-2" for="cname">Company Name</label>
-                          <input type="text" class="form-control" id="cname" name="cname" value="">
+
+                          <!--<label class="blue-text text-darken-2" for="cname">Company Name</label>-->
+                          <input type="text" class="form-control" id="cname" name="cname" value="" placeholder="Company Name">
                         </div>
                       <div class="input-field col s3">
-                          <label class="blue-text text-darken-2" for="cjob">Job</label>
-                          <input type="text" class="form-control" id="cjob" name="cjob" value="">
+                          <!--<label class="blue-text text-darken-2" for="cjob">Job</label>-->
+                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="job">
                     </div>
                     <div class="input-field col s3">
-                        <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>
-                        <input type="text" class="form-control" id="csdate" name="csdate" value="">
+                        <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                        <input type="text" class="form-control" id="csdate" name="csdate" value="" placeholder="Start (YYYY)">
                       </div>
                       <div class="input-field col s3">
-                          <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>
-                          <input type="text" class="form-control" id="cedate" name="cedate" value="">
+                           <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                          <input type="text" class="form-control" id="cedate" name="cedate" value="" placeholder="End (YYYY)">
+
+                          
+
                         </div>
                     </div>
                     </div>
@@ -204,21 +409,23 @@ font-size: 0.5em;
                               <li>
                         <div class="row">
                           <div class="input-field col s3">
-                              <label class="blue-text text-darken-2" for="cname">Institute Name</label>
-                              <input type="text" class="form-control" id="ename" name="ename" value="">
+
+                              <!--<label class="blue-text text-darken-2" for="cname">Institute Name</label>-->
+                              <input type="text" class="form-control" id="ename" name="ename" value="" placeholder="Institute Name">
                             </div>
                           <div class="input-field col s3">
-                              <label class="blue-text text-darken-2" for="cjob">Course</label>
-                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="">
+                              <!--<label class="blue-text text-darken-2" for="cjob">Course</label>-->
+                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course">
                             </div>
                         <div class="input-field col s3">
-                            <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>
-                            <input type="text" class="form-control" id="esdate" name="esdate" value="">
+                            <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                            <input type="text" class="form-control" id="esdate" name="esdate" value="" placeholder="Start (YYYY)">
                           </div>
                           <div class="input-field col s3">
-                              <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>
-                              <input type="text" class="form-control" id="eedate" name="eedate" value="">
-                            </div>
+                              <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                              <input type="text" class="form-control" id="eedate" name="eedate" value="" placeholder="End (YYYY)">
+
+                             
                         </div>
                         </div>
                         <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="educationfn();">Add
@@ -241,15 +448,15 @@ font-size: 0.5em;
                                   <li>
                             <div class="row">
                               <div class="input-field col s6">
-                                  <label class="blue-text text-darken-2" for="cname">Language</label>
-                                  <input type="text" class="form-control" id="l1" name="l1" value="">
+
+                                  <!-- <label class="blue-text text-darken-2" for="cname">Language</label>-->
+                                  <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language">
                                 </div>
                               <div class="input-field col s6">
-                                  <label class="blue-text text-darken-2" for="cjob">Percentage</label>
-                                  <input type="text" class="form-control" id="p1" name="p1" value="">
-                                </div>
-                            </div>
-                            </div>
+                                  <!--<label class="blue-text text-darken-2" for="cjob">Percentage</label>-->
+                                  <input type="text" class="form-control" id="p1" name="p1" value="" placeholder="Percentage">
+
+                              </div>
                             <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="langfn();">Add
                               </button>
                               <br><br>
@@ -271,11 +478,18 @@ font-size: 0.5em;
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
 
-                      <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
-                        </button>
+
+                      <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
+                        </button>-->
+                      <input type="submit" class="button" style="margin-left: 45%;" value="Create">
+                    </ul>
+              </form>
+
+                      
                       </li>
                     </ul>
         </form>
+
       </div>
       <br>
       <footer class="footer center">
