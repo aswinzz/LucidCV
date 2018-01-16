@@ -5,9 +5,9 @@
      <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel='stylesheet' href='../public/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500i" rel="stylesheet">
+
     <script type="text/javascript">
       function validateForm() {
     var avatar = document.myform.avatar;
@@ -34,125 +34,125 @@
     var p1 = document.myform.p1;
     
     if (avatar.value == "") {
-        window.swal("Oops", "AvatarUrl must be filled out", "error");
+        window.alert("AvatarUrl must be filled out");
         avatar.focus;
         return false;
     }
     if (name.value == "") {
-        window.swal("Oops", "Name must be filled out", "error");
+        window.alert("Name must be filled out");
         name.focus;
         return false;
     }
     if (job.value == "") {
-        window.swal("Oops", "Job must be filled out", "error");
+        window.alert("Job must be filled out");
         job.focus;
         return false;
     }
     if (email.value == "") {
-        window.swal("Oops", "E-mail must be filled out", "error");
+        window.alert("E-mail must be filled out");
         email.focus;
         return false;
     }
     if (email.value.indexOf("@", 0) < 0)
     {
-        window.swal("Oops", "Please enter a valid e-mail address.", "error");
+        window.alert("Please enter a valid e-mail address.");
         email.focus();
         return false;
     }
     if (email.value.indexOf(".", 0) < 0)
     {
-        window.swal("Oops", "Please enter a valid e-mail address.", "error");
+        window.alert("Please enter a valid e-mail address.");
         email.focus();
         return false;
     }
 
     if (github.value == "") {
-        window.swal("Oops", "Github must be filled out", "error");
+        window.alert("Github must be filled out");
         github.focus;
         return false;
     }
     if (linkedin.value == "") {
-        window.swal("Oops", "LinkedIn must be filled out", "error");
+        window.alert("LinkedIn must be filled out");
         linkedin.focus;
         return false;
     }
     if (facebook.value == "") {
-        window.swal("Oops", "Facebook must be filled out", "error");
+        window.alert("Facebook must be filled out");
         facebook.focus;
         return false;
     }
     if (twitter.value == "") {
-        window.swal("Oops", "Twitter must be filled out", "error");
+        window.alert("Twitter must be filled out");
         twitter.focus;
         return false;
     }
     if (website.value == "") {
-        window.swal("Oops", "Website must be filled out", "error");
+        window.alert("Website must be filled out");
         twitter.focus;
         return false;
     }
     if (namep.value == "") {
-        window.swal("Oops", "Name of project must be filled out", "error");
+        window.alert("Name of project must be filled out");
         namep.focus;
         return false;
     }
     if (link.value == "") {
-        window.swal("Oops", "Oops", "Oops", "Link must be filled out", "error");
+        window.alert("Link must be filled out");
         link.focus;
         return false;
     }
     if (bio1.value == "") {
-        window.swal("Oops", "Oops", "Description must be filled out", "error");
+        window.alert("Description must be filled out");
         bio1.focus;
         return false;
     }
     if (cname.value == "") {
-        window.swal("Oops", "Company Name must be filled out", "error");
+        window.alert("Company Name must be filled out");
         cname.focus;
         return false;
     }
     if (cjob.value == "") {
-        window.swal("Oops", "Company Job must be filled out", "error");
+        window.alert("Company Job must be filled out");
         cjob.focus;
         return false;
     }
     if (csdate.value == "") {
-        window.swal("Oops", "AvatarUrl must be filled out", "error");
+        window.alert("AvatarUrl must be filled out");
         csdate.focus;
         return false;
     }
     if (cedate.value== "") {
-        window.swal("Oops", "Company start date must be filled out", "error");
+        window.alert("Company start date must be filled out");
         cedate.focus;
         return false;
     }
     if (ename.value == "") {
-        window.swal("Oops", "Education must be filled out", "error");
+        window.alert("Education must be filled out");
         ename.focus;
         return false;
     }
     if (ecourse.value == "") {
-        window.swal("Oops", "Course must be filled out", "error");
+        window.alert("Course must be filled out");
         ecourse.focus;
         return false;
     }
     if (esdate.value == "") {
-        window.swal("Oops", "Start must be filled out", "error");
+        window.alert("Start must be filled out");
         esdate.focus;
         return false;
     }
     if (eedate.value == "") {
-        window.swal("Oops", "End must be filled out", "error");
+        window.alert("End must be filled out");
         eedate.focus;
         return false;
     }
     if (l1.value == "") {
-        window.swal("Oops", "Language must be filled out", "error");
+        window.alert("Language must be filled out");
         l1.focus;
         return false;
     }
     if (p1.value == "") {
-        window.swal("Oops", "Percentage must be filled out", "error");
+        window.alert("Percentage must be filled out");
         p1.focus;
         return false;
     }
@@ -211,7 +211,8 @@ font-size: 0.5em;
 }
 
 ::placeholder{
-  color: #3e1dd1;
+  color: #586F7C;
+  font-family:'Roboto', sans-serif;
 }
 :-ms-input-placeholder { 
    color: #6241f4;
@@ -229,22 +230,6 @@ input[type=submit] {
     border-radius: 5px; 
     font-size: 16px;
 }
-::-webkit-scrollbar {
-    width: 17px;
-	background-color:black;
-}
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 15px;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #ED2553; 
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-}
 
 
     </style>
@@ -252,7 +237,7 @@ input[type=submit] {
   <body>
     <div>
       <div style="text-align: center;">
-        <img src="/images/lucidcv.png" alt="icon" height=100px>
+        <img src="../images/lucidcv.png" alt="icon" height=100px style="margin-top: -20px">
       </div>
       <hr class="line">
       <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1>   
@@ -261,21 +246,21 @@ input[type=submit] {
 
         <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
 
-            <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
+            <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
             <li>
               <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
                 <h4 class="styled-heading heading heading-correct-pronounciation">
                   <em>Basic Info</em>
                 </h4>
 
-          <div class="row">
+          <div class="row" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
             <div class="input-field col s4">
 
                 <input type="text" class="form-control" name="avatar" id="avatar" placeholder="AvatarUrl" class= "text-darken-2"/>
             <!--  <label class="blue-text text-darken-2" for="avatar"></label>-->
             </div>
             <div class="input-field col s4">
-                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 <!--<label class="blue-text text-darken-2" for="name">Name</label>-->
             </div>
             <div class="input-field col s4">
@@ -283,7 +268,7 @@ input[type=submit] {
                 <!--<label class="blue-text text-darken-2" for="job">Job/Specialization</label>-->
             </div>
         </div>
-          <div class="row">
+          <div class="row" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
             <div class="input-field col s12">
                 <textarea class="materialize-textarea" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
                <!-- <label class="blue-text text-darken-2" for="bio">Bio</label>-->
@@ -323,7 +308,7 @@ input[type=submit] {
                </div>
               <div class="input-field col s6">
                   <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
-                  <input type="text" class="form-control" name="website" id="website" placeholder="website">
+                  <input type="text" class="form-control" name="website" id="website" placeholder="Website">
 
                   
 
@@ -337,7 +322,7 @@ input[type=submit] {
           <li>
                <!--<h4>&nbsp&nbsp&nbspProjects</h4> -->
 
-          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+          <ul class="collapsible card-panel hoverable" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
           <li>
               <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
 
@@ -346,7 +331,7 @@ input[type=submit] {
               </h4>
 
               <div id="projects">
-                  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                  <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                       <li>
                 <div class="row">
                   <div class="input-field col s6">
@@ -380,7 +365,7 @@ input[type=submit] {
           </li>
           </ul>
 
-          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+          <ul class="collapsible card-panel hoverable" style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
               <li>
 
                   <!-- <h4>&nbsp&nbsp&nbspExperience</h4>-->
@@ -392,7 +377,7 @@ input[type=submit] {
                   </h4>
 
                   <div id="experience">
-                      <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                      <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                           <li>
                     <div class="row">
                       <div class="input-field col s3">
@@ -402,7 +387,7 @@ input[type=submit] {
                         </div>
                       <div class="input-field col s3">
                           <!--<label class="blue-text text-darken-2" for="cjob">Job</label>-->
-                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="job">
+                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="Job">
                     </div>
                     <div class="input-field col s3">
                         <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
@@ -434,7 +419,7 @@ input[type=submit] {
                       </h4>
 
                       <div id="education">
-                          <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                          <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                               <li>
                         <div class="row">
                           <div class="input-field col s3">
@@ -473,7 +458,7 @@ input[type=submit] {
                           </h4>
 
                           <div id="language">
-                              <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                              <ul style="margin-left:5%;margin-right:5%;" data-collapsible="accordion">
                                   <li>
                             <div class="row">
                               <div class="input-field col s6">
@@ -500,9 +485,9 @@ input[type=submit] {
                       <div class="input-field col s12">
                           <select class="icons">
                             <option value="" disabled selected>Choose your Theme</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 1</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 2</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 3</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 1</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 2</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 3</option>
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
