@@ -103,7 +103,7 @@ router.post('/', function(req, res, next) {
   });
   console.log(output);
   fs.writeFileSync('cv.json', output);  
-  res.render('resume',{out:JSON.parse(output)});
+  res.render('theme2',{out:JSON.parse(output)});
 });
 
 module.exports = router;
