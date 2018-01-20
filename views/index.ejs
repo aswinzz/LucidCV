@@ -30,19 +30,7 @@
     var facebook = document.myform.facebook;
     var twitter  = document.myform.twitter;
     var website  = document.myform.website;
-    var namep  = document.myform.namep;
-    var link   = document.myform.link;
-    var bio1   = document.myform.bio1;
-    var cname  = document.myform.cname;
-    var cjob   = document.myform.cjob;
-    var csdate = document.myform.csdate;
-    var cedate = document.myform.cedate;
-    var ename  = document.myform.ename;
-    var ecourse= document.myform.ecourse;
-    var esdate = document.myform.esdate;
-    var eedate = document.myform.eedate;
-    var l1 = document.myform.l1;
-    var p1 = document.myform.p1;
+   
 
     if (avatar.value == "") {
         window.swal("Oops", "AvatarUrl must be filled out", "error");
@@ -100,71 +88,6 @@
     if (website.value == "") {
         window.swal("Oops", "Website must be filled out", "error");
         twitter.focus;
-        return false;
-    }
-    if (namep.value == "") {
-        window.swal("Oops", "Name of project must be filled out", "error");
-        namep.focus;
-        return false;
-    }
-    if (link.value == "") {
-        window.swal("Oops", "Oops", "Oops", "Link must be filled out", "error");
-        link.focus;
-        return false;
-    }
-    if (bio1.value == "") {
-        window.swal("Oops", "Oops", "Description must be filled out", "error");
-        bio1.focus;
-        return false;
-    }
-    if (cname.value == "") {
-        window.swal("Oops", "Company Name must be filled out", "error");
-        cname.focus;
-        return false;
-    }
-    if (cjob.value == "") {
-        window.swal("Oops", "Company Job must be filled out", "error");
-        cjob.focus;
-        return false;
-    }
-    if (csdate.value == "") {
-        window.swal("Oops", "AvatarUrl must be filled out", "error");
-        csdate.focus;
-        return false;
-    }
-    if (cedate.value== "") {
-        window.swal("Oops", "Company start date must be filled out", "error");
-        cedate.focus;
-        return false;
-    }
-    if (ename.value == "") {
-        window.swal("Oops", "Education must be filled out", "error");
-        ename.focus;
-        return false;
-    }
-    if (ecourse.value == "") {
-        window.swal("Oops", "Course must be filled out", "error");
-        ecourse.focus;
-        return false;
-    }
-    if (esdate.value == "") {
-        window.swal("Oops", "Start must be filled out", "error");
-        esdate.focus;
-        return false;
-    }
-    if (eedate.value == "") {
-        window.swal("Oops", "End must be filled out", "error");
-        eedate.focus;
-        return false;
-    }
-    if (l1.value == "") {
-        window.swal("Oops", "Language must be filled out", "error");
-        l1.focus;
-        return false;
-    }
-    if (p1.value == "") {
-        window.swal("Oops", "Percentage must be filled out", "error");
-        p1.focus;
         return false;
     }
     return true;
@@ -264,7 +187,7 @@ input[type=submit] {
   <body>
     <div>
       <div style="text-align: center;">
-        <img src="../images/lucidcv.png" alt="icon" height=100px>
+        <img src="./images/lucidcv.png" alt="icon" height=100px>
       </div>
       <hr class="line">
       <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1>
