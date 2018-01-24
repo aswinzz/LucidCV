@@ -5,11 +5,22 @@
      <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
+    <link rel='stylesheet' href='../public/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
-      function validateForm() {
+      $.getJSON("../suggestion.json",function(data)
+      {
+        for(var i=0;i<data.suggest.institute.length;i++)
+        {
+          $('#json-institute').append('<option>'+data.suggest.institute[i]+'</option');
+        }
+        for(var j=0;j<data.suggest.course.length;j++)
+        {
+          $('#json-course').append('<option>'+data.suggest.course[j]+'</option');
+        }
+      });
+  function validateForm() {
     var avatar = document.myform.avatar;
     var name   = document.myform.name;
     var job    = document.myform.job;
@@ -81,6 +92,7 @@
     }
     return true;
 }
+ 
     </script>
 
     <style>
@@ -363,11 +375,13 @@ input[type=submit] {
                           <div class="input-field col s3">
 
                               <!--<label class="blue-text text-darken-2" for="cname">Institute Name</label>-->
-                              <input type="text" class="form-control" id="ename" name="ename" value="" placeholder="Institute Name">
+                              <input type="text" class="form-control" id="ename" list="json-institute" name="ename" value="" placeholder="Institute Name" autocomplete="on">
+                              <datalist id="json-institute"></datalist>
                             </div>
                           <div class="input-field col s3">
                               <!--<label class="blue-text text-darken-2" for="cjob">Course</label>-->
-                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course">
+                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course" autocomplete="on" list="json-course">
+                              <datalist id="json-course"></datalist>
                             </div>
                         <div class="input-field col s3">
                             <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
@@ -402,7 +416,40 @@ input[type=submit] {
                               <div class="input-field col s6">
 
                                   <!-- <label class="blue-text text-darken-2" for="cname">Language</label>-->
-                                  <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language">
+                                  <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language" autocomplete="on" list="lang">
+                                  <datalist id="lang">
+                                    <option>JavaScript</option>
+                                    <option>Java</option>
+                                    <option>Python</option>
+                                    <option>Ruby</option>
+                                    <option>CSS</option>
+                                    <option>PHP</option>
+                                    <option>C++</option>
+                                    <option>C</option>
+                                    <option>Shell</option>
+                                    <option>C#</option>
+                                    <option>Objective-C</option>
+                                    <option>R</option>
+                                    <option>VimL</option>
+                                    <option>Go</option>
+                                    <option>Perl</option>
+                                    <option>CoffeeScript</option>
+                                    <option>TeX</option>
+                                    <option>Scala</option>
+                                    <option>Haskell</option>
+                                    <option>Emacs Lisp</option>
+                                    <option>Visual Basic .NET</option>
+                                    <option>Ruby</option>
+                                    <option>Visual Basic</option>
+                                    <option>Delphi/Objective Pascal</option>
+                                    <option>F#</option>
+                                    <option>Pascal</option>
+                                    <option>Swift</option>
+                                    <option>MATLAB</option>
+                                    <option>PL/SQL</option>
+                                    <option>Clojure</option>
+                                    <option>TypeScript</option>
+                                  </datalist>
                                 </div>
                               <div class="input-field col s6">
                                   <!--<label class="blue-text text-darken-2" for="cjob">Percentage</label>-->
@@ -423,9 +470,9 @@ input[type=submit] {
                       <div class="input-field col s12">
                           <select class="icons">
                             <option value="" disabled selected>Choose your Theme</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 1</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 2</option>
-                            <option value="" data-icon="images/theme1.png" class="left circle">Theme 3</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 1</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 2</option>
+                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 3</option>
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
@@ -450,7 +497,7 @@ input[type=submit] {
                   <large class="copyright">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);" href="http://aswinzz.com" target="_blank">aswinzz</a></large>
           </div><!--//container-->
       </footer><!--//footer-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
     <script src="https://use.fontawesome.com/bf3ce4ee85.js"></script>
       <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -466,13 +513,14 @@ input[type=submit] {
 
     <script type="text/javascript">
     $(document).ready(function() {
+       
     $('select').material_select();
   });
       var room = 1;
       function projectfn() {
         if(room<3){
         room++;
-        var objTo = document.getElementById('projects')
+        var objTo = document.getElementById('projects');
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass"+room);
         var rdiv = 'removeclass'+room;
