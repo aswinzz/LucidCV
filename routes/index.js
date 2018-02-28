@@ -102,8 +102,14 @@ router.post('/', function(req, res, next) {
     });
   });
   console.log(output);
-  fs.writeFileSync('cv.json', output);  
-  res.render('theme2',{out:JSON.parse(output)});
+  fs.writeFileSync('cv.json', output);
+  if(req.body.theme == "theme1"){
+    res.render('theme1',{out:JSON.parse(output)});
+  }
+  else if(req.body.theme == "theme1"){
+    res.render('theme2',{out:JSON.parse(output)});
+  }
+  
 });
 
 module.exports = router;
