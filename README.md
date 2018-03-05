@@ -28,6 +28,4 @@ The user enters the data and after the form is submitted a json file is created 
 
 ## TODO
 
-* Add more themes
-* Make the CV downloadable
 * Add user feature to save the user data
