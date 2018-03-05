@@ -3,7 +3,7 @@
 <img align="right" title="CV" src="./lucidcv.png">
 
 LucidCV is a simple CV maker which collects data from the user and creates a CV for the user.
-It is under development so it doesnt have much features.I will be adding more features in the coming days.
+You can select the CV theme that you need and after creating the CV you can download a copy of it.
 Those who wish to contribute are welcome :smile: .
 
 ## How to setup locally
