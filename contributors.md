@@ -9,3 +9,4 @@
 - [Alnaz Inamdar](https://github.com/alnazinamdar)
 - [Shubhendra Singh Chauhan](https://github.com/withshubh)
 - [Kartik Agarwal](https://github.com/kartikag1)
+- [Radhika Verma](https://github.com/Radhikav30)
