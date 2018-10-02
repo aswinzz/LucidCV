@@ -8,4 +8,5 @@
 - [Tanmay Kumar Bisoi](https://github.com/PseudoNerd)
 - [Alnaz Inamdar](https://github.com/alnazinamdar)
 - [Shubhendra Singh Chauhan](https://github.com/withshubh)
-- [Arpit Verma](https://github.com/arpitv424)
+- [Kartik Agarwal](https://github.com/kartikag1)
+- [Zunaid Ahmed](https://github.com/Zunaid24)
