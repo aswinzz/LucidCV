@@ -11,3 +11,7 @@
 * Multiple Languages
 * Add Import from Linkedin directly
 * Add Import from Xing
+* Suggest jobs accordingly
+* Add cover letter
+* Add picture & signature
+* Multiple resume formats
