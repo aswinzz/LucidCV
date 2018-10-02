@@ -1,101 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CV-Maker</title>
-     <!-- Compiled and minified CSS -->
+
+<head>
+  <title>CV-Maker</title>
+  <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <link rel='stylesheet' href='./stylesheets/style.css' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript">
-      $.getJSON("./data/suggestion.json",function(data)
-      {
-        for(var i=0;i<data.suggest.institute.length;i++)
-        {
-          $('#json-institute').append('<option>'+data.suggest.institute[i]+'</option');
-        }
-        for(var j=0;j<data.suggest.course.length;j++)
-        {
-          $('#json-course').append('<option>'+data.suggest.course[j]+'</option');
-        }
-      });
-  function validateForm() {
-    var avatar = document.myform.avatar;
-    var name   = document.myform.name;
-    var job    = document.myform.job;
-    var email  = document.myform.email;
-    var github = document.myform.github;
-    var linkedin = document.myform.linkedin;
-    var facebook = document.myform.facebook;
-    var twitter  = document.myform.twitter;
-    var website  = document.myform.website;
+  <link rel='stylesheet' href='./stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+    $.getJSON("./data/suggestion.json", function (data) {
+      for (var i = 0; i < data.suggest.institute.length; i++) {
+        $('#json-institute').append('<option>' + data.suggest.institute[i] + '</option');
+      }
+      for (var j = 0; j < data.suggest.course.length; j++) {
+        $('#json-course').append('<option>' + data.suggest.course[j] + '</option');
+      }
+    });
+    function validateForm() {
+      var avatar = document.myform.avatar;
+      var name = document.myform.name;
+      var job = document.myform.job;
+      var email = document.myform.email;
+      var github = document.myform.github;
+      var linkedin = document.myform.linkedin;
+      var facebook = document.myform.facebook;
+      var twitter = document.myform.twitter;
+      var website = document.myform.website;
 
 
-    if (avatar.value == "") {
+      if (avatar.value == "") {
         window.swal("Oops", "AvatarUrl must be filled out", "error");
         avatar.focus;
         return false;
-    }
-    if (name.value == "") {
+      }
+      if (name.value == "") {
         window.swal("Oops", "Name must be filled out", "error");
         name.focus;
         return false;
-    }
-    if (job.value == "") {
+      }
+      if (job.value == "") {
         window.swal("Oops", "Job must be filled out", "error");
         job.focus;
         return false;
-    }
-    if (email.value == "") {
+      }
+      if (email.value == "") {
         window.swal("Oops", "E-mail must be filled out", "error");
         email.focus;
         return false;
-    }
-    if (email.value.indexOf("@", 0) < 0)
-    {
+      }
+      if (email.value.indexOf("@", 0) < 0) {
         window.swal("Oops", "Please enter a valid e-mail address.", "error");
         email.focus();
         return false;
-    }
-    if (email.value.indexOf(".", 0) < 0)
-    {
+      }
+      if (email.value.indexOf(".", 0) < 0) {
         window.swal("Oops", "Please enter a valid e-mail address.", "error");
         email.focus();
         return false;
-    }
+      }
 
-    if (github.value == "") {
+      if (github.value == "") {
         window.swal("Oops", "Github must be filled out", "error");
         github.focus;
         return false;
-    }
-    if (linkedin.value == "") {
+      }
+      if (linkedin.value == "") {
         window.swal("Oops", "LinkedIn must be filled out", "error");
         linkedin.focus;
         return false;
-    }
-    if (facebook.value == "") {
+      }
+      if (facebook.value == "") {
         window.swal("Oops", "Facebook must be filled out", "error");
         facebook.focus;
         return false;
-    }
-    if (twitter.value == "") {
+      }
+      if (twitter.value == "") {
         window.swal("Oops", "Twitter must be filled out", "error");
         twitter.focus;
         return false;
-    }
-    if (website.value == "") {
+      }
+      if (website.value == "") {
         window.swal("Oops", "Website must be filled out", "error");
         twitter.focus;
         return false;
+      }
+      return true;
     }
-    return true;
-}
 
-    </script>
+  </script>
 
-    <style>
+  <style>
 
     @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
 
@@ -110,27 +106,33 @@ text-align: center;
 position: relative;
 }
 .styled-heading{
-color: #3074cc;
-font-family: 'Cardo', serif;
-font-size: 1em;
+color: #ED2553;
+font-size: 0.8em;
 font-weight: normal;
 font-style: italic;
-letter-spacing: 0.1em;
 line-height: 2.2em;
 padding-bottom: 10px;
 
 }
+.card-panel{
+  background-color: #303030;
+  border: none;
+}
+.input-field{
+  color: white;
+}
+.collapsible{
+  border: none;
+}
 em {
-font-family: 'EB Garamond', serif;
 font-size: 3.5em;
 text-transform: uppercase;
 letter-spacing: 0.1em;
 display: block;
 font-style: normal;
 padding-top: 0.1em;
-text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
 }
-em::before,
+/* em::before,
 em::after {
 color:red;
 content: "§";
@@ -143,26 +145,23 @@ transform: rotate(90deg);
 opacity: 0.2;
 margin: 0 0.6em;
 font-size: 0.5em;
-}
+} */
 
 ::placeholder{
-  color: #3e1dd1;
+  color: rgba(255, 255, 255,0.5);
 }
 :-ms-input-placeholder {
-   color: #6241f4;
+   color: rgba(255, 255, 255,0.5);
 }
 
 ::-ms-input-placeholder {
-   color: #6241f4;
+   color: rgba(255, 255, 255,0.5);
 }
 input[type=submit] {
-    padding:5px 15px;
+    color: white;
     background: #1cbbd1;
-    border:0 none;
     cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    font-size: 16px;
+    font-size: 1em;
 }
 ::-webkit-scrollbar {
     width: 17px;
@@ -183,409 +182,417 @@ input[type=submit] {
 
 
     </style>
-  </head>
-  <body>
-    <div>
-      <div style="text-align: center;">
-        <img src="./images/lucidcv.png" alt="icon" height=100px>
-      </div>
-      <hr class="line">
-      <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1>
+</head>
+
+<body>
+  <div>
+    <div style="text-align: center;">
+      <img src="./images/lucidcv.png" alt="icon" height=100px>
     </div>
-    <div class="row">
+    <hr class="line">
+    <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1>
+  </div>
+  <div class="row">
 
-        <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
+    <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
 
-            <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
-            <li>
-              <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
-                <h4 class="styled-heading heading heading-correct-pronounciation">
-                  <em>Basic Info</em>
-                </h4>
+      <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
+        <li>
+          <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
+          <h4 class="styled-heading heading heading-correct-pronounciation">
+            <em>Basic Info</em>
+          </h4>
 
           <div class="row">
             <div class="input-field col s4">
 
-                <input type="text" class="form-control" name="avatar" id="avatar" placeholder="AvatarUrl" class= "text-darken-2"/>
-            <!--  <label class="blue-text text-darken-2" for="avatar"></label>-->
+              <input type="text" class="form-control" name="avatar" id="avatar" placeholder="AvatarUrl" class="text-darken-2" />
+              <!--  <label class="blue-text text-darken-2" for="avatar"></label>-->
             </div>
             <div class="input-field col s4">
-                <input type="text" class="form-control" id="name" name="name" placeholder="name">
-                <!--<label class="blue-text text-darken-2" for="name">Name</label>-->
+              <input type="text" class="form-control" id="name" name="name" placeholder="name">
+              <!--<label class="blue-text text-darken-2" for="name">Name</label>-->
             </div>
             <div class="input-field col s4">
-                <input type="text" class="form-control" name="job" id="job" placeholder="Job/Specialization">
-                <!--<label class="blue-text text-darken-2" for="job">Job/Specialization</label>-->
+              <input type="text" class="form-control" name="job" id="job" placeholder="Job/Specialization">
+              <!--<label class="blue-text text-darken-2" for="job">Job/Specialization</label>-->
             </div>
-        </div>
-          <div class="row">
-            <div class="input-field col s12">
-                <textarea class="materialize-textarea" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
-               <!-- <label class="blue-text text-darken-2" for="bio">Bio</label>-->
-
-
           </div>
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
+              <textarea class="materialize-textarea" id="bio" name="bio" rows="3" placeholder="Bio"></textarea>
+              <!-- <label class="blue-text text-darken-2" for="bio">Bio</label>-->
+
+
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
 
                 <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
                 <!--<label class="blue-text text-darken-2" for="emailid">Email address</label>-->
-            </div>
+              </div>
               <div class="input-field col s6">
-                  <!--<label class="blue-text text-darken-2" for="github">Github Handle</label>-->
-                  <input type="text" class="form-control" name="github" id="github" placeholder="Github Handle">
+                <!--<label class="blue-text text-darken-2" for="github">Github Handle</label>-->
+                <input type="text" class="form-control" name="github" id="github" placeholder="Github Handle">
 
 
-            </div>
-          <div class="row">
+              </div>
+              <div class="row">
                 <div class="input-field col s6">
 
-                    <!--<label class="blue-text text-darken-2" for="linkedin">LinkedIn</label>-->
-                    <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">
+                  <!--<label class="blue-text text-darken-2" for="linkedin">LinkedIn</label>-->
+                  <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">
                 </div>
-              <div class="input-field col s6">
+                <div class="input-field col s6">
                   <!--<label class="blue-text text-darken-2" for="facebook">Facebook</label>-->
                   <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Facebook">
 
+                </div>
               </div>
-            </div>
 
-          <div class="row">
+              <div class="row">
                 <div class="input-field col s6">
 
                   <!--<label class="blue-text text-darken-2" for="twitter">Twitter</label>-->
                   <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter">
-               </div>
-              <div class="input-field col s6">
+                </div>
+                <div class="input-field col s6">
                   <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
                   <input type="text" class="form-control" name="website" id="website" placeholder="Website">
+                </div>
               </div>
-          </div>
-          </li>
-          </ul>
+        </li>
+      </ul>
 
 
-        <!--  <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+      <!--  <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
           <li>
                <!--<h4>&nbsp&nbsp&nbspProjects</h4> -->
 
-          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
-          <li>
-              <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
+      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+        <li>
+          <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
 
-              <h4 class="styled-heading heading heading-correct-pronounciation">
-                <em>Projects</em>
-              </h4>
+          <h4 class="styled-heading heading heading-correct-pronounciation">
+            <em>Projects</em>
+          </h4>
 
-              <div id="projects">
-                  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
-                      <li>
+          <div id="projects">
+            <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+              <li>
                 <div class="row">
                   <div class="input-field col s6">
 
-                     <!-- <label class="blue-text text-darken-2" for="namep">Project Name</label>-->
-                      <input type="text" class="form-control" id="namep" name="namep" value="" placeholder="Project Name">
-                    </div>
+                    <!-- <label class="blue-text text-darken-2" for="namep">Project Name</label>-->
+                    <input type="text" class="form-control" id="namep" name="namep" value="" placeholder="Project Name">
+                  </div>
                   <div class="input-field col s6">
-                      <!--<label class="blue-text text-darken-2" for="link">Link to the project</label>-->
-                      <input type="text" class="form-control" id="link" name="link" value="" placeholder="Link to the project">
+                    <!--<label class="blue-text text-darken-2" for="link">Link to the project</label>-->
+                    <input type="text" class="form-control" id="link" name="link" value="" placeholder="Link to the project">
 
 
-                </div>
-                <div class="row">
+                  </div>
+                  <div class="row">
                     <div class="input-field col s12">
 
-                        <!--<label class="blue-text text-darken-2" for="bio1">Description</label>-->
-                        <textarea class="materialize-textarea" id="bio1" name="bio1" rows="1" placeholder="Description"></textarea>
+                      <!--<label class="blue-text text-darken-2" for="bio1">Description</label>-->
+                      <textarea class="materialize-textarea" id="bio1" name="bio1" rows="1" placeholder="Description"></textarea>
 
                     </div>
 
-                </div>
-                <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="projectfn();">Add
+                  </div>
+                  <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="projectfn();">Add
                   </button>
 
-                <!--<input type="submit" class="button" style="margin-left: 45%;" onclick="projectfn();" value="Add">-->
+                  <!--<input type="submit" class="button" style="margin-left: 45%;" onclick="projectfn();" value="Add">-->
 
                   <br><br>
-                  </li>
-                  </ul>
-          </li>
-          </ul>
-
-          <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
-              <li>
-
-                  <!-- <h4>&nbsp&nbsp&nbspExperience</h4>-->
-
-                  <!-- <h4>&nbsp&nbsp&nbspExperience</h4> -->
-
-                  <h4 class="styled-heading heading heading-correct-pronounciation">
-                    <em>Experience</em>
-                  </h4>
-
-                  <div id="experience">
-                      <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
-                          <li>
-                    <div class="row">
-                      <div class="input-field col s3">
-
-                          <!--<label class="blue-text text-darken-2" for="cname">Company Name</label>-->
-                          <input type="text" class="form-control" id="cname" name="cname" value="" placeholder="Company Name">
-                        </div>
-                      <div class="input-field col s3">
-                          <!--<label class="blue-text text-darken-2" for="cjob">Job</label>-->
-                          <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="job">
-                    </div>
-                    <div class="input-field col s3">
-                        <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
-                        <input type="date" class="form-control" id="csdate" name="csdate" value="" placeholder="Start (YYYY)">
-                      </div>
-                      <div class="input-field col s3">
-                           <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
-                          <input type="date" class="form-control" id="cedate" name="cedate" value="" placeholder="End (YYYY)">
-
-
-
-                        </div>
-                    </div>
-                    </div>
-                    <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="experiencefn();">Add
-                      </button>
-                      <br><br>
-                      </li>
-                      </ul>
               </li>
-              </ul>
+            </ul>
+        </li>
+      </ul>
+
+      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+        <li>
+
+          <!-- <h4>&nbsp&nbsp&nbspExperience</h4>-->
+
+          <!-- <h4>&nbsp&nbsp&nbspExperience</h4> -->
+
+          <h4 class="styled-heading heading heading-correct-pronounciation">
+            <em>Experience</em>
+          </h4>
+
+          <div id="experience">
+            <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="row">
+                  <div class="input-field col s3">
+
+                    <!--<label class="blue-text text-darken-2" for="cname">Company Name</label>-->
+                    <input type="text" class="form-control" id="cname" name="cname" value="" placeholder="Company Name">
+                  </div>
+                  <div class="input-field col s3">
+                    <!--<label class="blue-text text-darken-2" for="cjob">Job</label>-->
+                    <input type="text" class="form-control" id="cjob" name="cjob" value="" placeholder="job">
+                  </div>
+                  <div class="input-field col s3">
+                    <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                    <input type="date" class="form-control" id="csdate" name="csdate" value="" placeholder="Start (YYYY)">
+                  </div>
+                  <div class="input-field col s3">
+                    <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                    <input type="date" class="form-control" id="cedate" name="cedate" value="" placeholder="End (YYYY)">
 
 
-              <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
-                  <li>
-                      <!-- <h4>&nbsp&nbsp&nbspEducation</h4> -->
-                      <h4 class="styled-heading heading heading-correct-pronounciation">
-                        <em>Education</em>
-                      </h4>
 
-                      <div id="education">
-                          <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
-                              <li>
-                        <div class="row">
-                          <div class="input-field col s3">
-
-                              <!--<label class="blue-text text-darken-2" for="cname">Institute Name</label>-->
-                              <input type="text" class="form-control" id="ename" list="json-institute" name="ename" value="" placeholder="Institute Name" autocomplete="on">
-                              <datalist id="json-institute"></datalist>
-                            </div>
-                          <div class="input-field col s3">
-                              <!--<label class="blue-text text-darken-2" for="cjob">Course</label>-->
-                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course" autocomplete="on" list="json-course">
-                              <datalist id="json-course"></datalist>
-                            </div>
-                        <div class="input-field col s3">
-                            <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
-                            <input type="date" class="form-control" id="esdate" name="esdate" value="" placeholder="Start (YYYY)">
-                          </div>
-                          <div class="input-field col s3">
-                              <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
-                              <input type="date" class="form-control" id="eedate" name="eedate" value="" placeholder="End (YYYY)">
+                  </div>
+                </div>
+          </div>
+          <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="experiencefn();">Add
+          </button>
+          <br><br>
+        </li>
+      </ul>
+      </li>
+      </ul>
 
 
-                        </div>
-                        </div>
-                        <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="educationfn();">Add
-                          </button>
-                          <br><br>
-                          </li>
-                          </ul>
-                  </li>
-                  </ul>
+      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+        <li>
+          <!-- <h4>&nbsp&nbsp&nbspEducation</h4> -->
+          <h4 class="styled-heading heading heading-correct-pronounciation">
+            <em>Education</em>
+          </h4>
 
-                  <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
-                      <li>
-                          <!-- <h4>&nbsp&nbsp&nbspLanguages</h4> -->
-                          <h4 class="styled-heading heading heading-correct-pronounciation">
-                            <em>Language</em>
-                          </h4>
+          <div id="education">
+            <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="row">
+                  <div class="input-field col s3">
 
-                          <div id="language">
-                              <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
-                                  <li>
-                            <div class="row">
-                              <div class="input-field col s6">
-
-                                  <!-- <label class="blue-text text-darken-2" for="cname">Language</label>-->
-                                  <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language" autocomplete="on" list="lang">
-                                  <datalist id="lang">
-                                    <option>JavaScript</option>
-                                    <option>Java</option>
-                                    <option>Python</option>
-                                    <option>Ruby</option>
-                                    <option>CSS</option>
-                                    <option>PHP</option>
-                                    <option>C++</option>
-                                    <option>C</option>
-                                    <option>Shell</option>
-                                    <option>C#</option>
-                                    <option>Objective-C</option>
-                                    <option>R</option>
-                                    <option>VimL</option>
-                                    <option>Go</option>
-                                    <option>Perl</option>
-                                    <option>CoffeeScript</option>
-                                    <option>TeX</option>
-                                    <option>Scala</option>
-                                    <option>Haskell</option>
-                                    <option>Emacs Lisp</option>
-                                    <option>Visual Basic .NET</option>
-                                    <option>Ruby</option>
-                                    <option>Visual Basic</option>
-                                    <option>Delphi/Objective Pascal</option>
-                                    <option>F#</option>
-                                    <option>Pascal</option>
-                                    <option>Swift</option>
-                                    <option>MATLAB</option>
-                                    <option>PL/SQL</option>
-                                    <option>Clojure</option>
-                                    <option>TypeScript</option>
-                                  </datalist>
-                                </div>
-                              <div class="input-field col s6">
-                                  <!--<label class="blue-text text-darken-2" for="cjob">Percentage</label>-->
-                                  <input type="text" class="form-control" id="p1" name="p1" value="" placeholder="Percentage">
-
-                              </div>
-                            <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="langfn();">Add
-                              </button>
-                              <br><br>
-                              </li>
-                              </ul>
-                      </li>
-                      </ul>
-                      <br>
-                      <br>
-                      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
-                        <li>
-                      <div class="input-field col s12">
-                          <select class="icons">
-                            <option value="" disabled selected>Choose your Theme</option>
-                            <option value="" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
-                            <option value="" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
-                            <option value="" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
-                          </select>
-                          <label class="blue-text text-darken-2">Theme</label>
-                        </div>
+                    <!--<label class="blue-text text-darken-2" for="cname">Institute Name</label>-->
+                    <input type="text" class="form-control" id="ename" list="json-institute" name="ename" value=""
+                      placeholder="Institute Name" autocomplete="on">
+                    <datalist id="json-institute"></datalist>
+                  </div>
+                  <div class="input-field col s3">
+                    <!--<label class="blue-text text-darken-2" for="cjob">Course</label>-->
+                    <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course"
+                      autocomplete="on" list="json-course">
+                    <datalist id="json-course"></datalist>
+                  </div>
+                  <div class="input-field col s3">
+                    <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                    <input type="date" class="form-control" id="esdate" name="esdate" value="" placeholder="Start (YYYY)">
+                  </div>
+                  <div class="input-field col s3">
+                    <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                    <input type="date" class="form-control" id="eedate" name="eedate" value="" placeholder="End (YYYY)">
 
 
-                      <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
-                        </button>-->
-                      <input type="submit" class="button" style="margin-left: 45%;" value="Create">
-                    </ul>
-              </form>
+                  </div>
+                </div>
+                <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="educationfn();">Add
+                </button>
+                <br><br>
+              </li>
+            </ul>
+        </li>
+      </ul>
 
+      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+        <li>
+          <!-- <h4>&nbsp&nbsp&nbspLanguages</h4> -->
+          <h4 class="styled-heading heading heading-correct-pronounciation">
+            <em>Language</em>
+          </h4>
 
-                      </li>
-                    </ul>
-        </form>
+          <div id="language">
+            <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="row">
+                  <div class="input-field col s6">
 
-      </div>
+                    <!-- <label class="blue-text text-darken-2" for="cname">Language</label>-->
+                    <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language"
+                      autocomplete="on" list="lang">
+                    <datalist id="lang">
+                      <option>JavaScript</option>
+                      <option>Java</option>
+                      <option>Python</option>
+                      <option>Ruby</option>
+                      <option>CSS</option>
+                      <option>PHP</option>
+                      <option>C++</option>
+                      <option>C</option>
+                      <option>Shell</option>
+                      <option>C#</option>
+                      <option>Objective-C</option>
+                      <option>R</option>
+                      <option>VimL</option>
+                      <option>Go</option>
+                      <option>Perl</option>
+                      <option>CoffeeScript</option>
+                      <option>TeX</option>
+                      <option>Scala</option>
+                      <option>Haskell</option>
+                      <option>Emacs Lisp</option>
+                      <option>Visual Basic .NET</option>
+                      <option>Ruby</option>
+                      <option>Visual Basic</option>
+                      <option>Delphi/Objective Pascal</option>
+                      <option>F#</option>
+                      <option>Pascal</option>
+                      <option>Swift</option>
+                      <option>MATLAB</option>
+                      <option>PL/SQL</option>
+                      <option>Clojure</option>
+                      <option>TypeScript</option>
+                    </datalist>
+                  </div>
+                  <div class="input-field col s6">
+                    <!--<label class="blue-text text-darken-2" for="cjob">Percentage</label>-->
+                    <input type="text" class="form-control" id="p1" name="p1" value="" placeholder="Percentage">
+
+                  </div>
+                  <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="langfn();">Add
+                  </button>
+                  <br><br>
+              </li>
+            </ul>
+        </li>
+      </ul>
       <br>
-      <footer class="footer center">
-          <div class="text-center">
-                  <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-                  <large class="copyright">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);" href="http://aswinzz.com" target="_blank">aswinzz</a></large>
-          </div><!--//container-->
-      </footer><!--//footer-->
+      <br>
+      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+        <li>
+          <div class="input-field col s12">
+            <select class="icons">
+              <option value="" disabled selected>Choose your Theme</option>
+              <option value="" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
+              <option value="" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
+              <option value="" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+            </select>
+            <label class="white-text text-darken-2">Theme</label>
+          </div>
 
-    <script src="https://use.fontawesome.com/bf3ce4ee85.js"></script>
-      <!-- Compiled and minified JavaScript -->
+
+          <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
+                        </button>-->
+          <input type="submit" class="btn" style="margin-left: 45%;" value="Create">
+      </ul>
+    </form>
+
+
+    </li>
+    </ul>
+    </form>
+
+  </div>
+  <br>
+  <footer class="footer center">
+    <div class="text-center">
+      <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+      <large class="copyright">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);"
+          href="http://aswinzz.com" target="_blank">aswinzz</a></large>
+    </div>
+    <!--//container-->
+  </footer>
+  <!--//footer-->
+
+  <script src="https://use.fontawesome.com/bf3ce4ee85.js"></script>
+  <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322916-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322916-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'UA-112322916-1');
-</script>
+    gtag('config', 'UA-112322916-1');
+  </script>
 
-    <script type="text/javascript">
-    $(document).ready(function() {
+  <script type="text/javascript">
+    $(document).ready(function () {
 
-    $('select').material_select();
-  });
-      var room = 1;
-      function projectfn() {
-        if(room<3){
+      $('select').material_select();
+    });
+    var room = 1;
+    function projectfn() {
+      if (room < 3) {
         room++;
         var objTo = document.getElementById('projects');
         var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass"+room);
-        var rdiv = 'removeclass'+room;
-          divtest.innerHTML = ' <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="namep">Project Name</label> <input type="text" class="form-control" id="name'+room+'" name="name'+room+'" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="link">Link to the project</label> <input type="text" class="form-control" id="link" name="link'+room+'" value=""> </div></div><div class="row"> <div class="input-field col s12"> <label class="blue-text text-darken-2" for="bio1">Description</label> <textarea class="materialize-textarea" id="bio1" name="bio'+room+'" rows="1"></textarea> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_project('+ room +');">Remove </button> <br><br></li></ul>';
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML = ' <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="namep">Project Name</label> <input type="text" class="form-control" id="name' + room + '" name="name' + room + '" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="link">Link to the project</label> <input type="text" class="form-control" id="link" name="link' + room + '" value=""> </div></div><div class="row"> <div class="input-field col s12"> <label class="blue-text text-darken-2" for="bio1">Description</label> <textarea class="materialize-textarea" id="bio1" name="bio' + room + '" rows="1"></textarea> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_project(' + room + ');">Remove </button> <br><br></li></ul>';
 
-          objTo.appendChild(divtest)
+        objTo.appendChild(divtest)
       }
     }
-      function remove_project(rid) {
-        $('.removeclass'+rid).remove();
-        room--;
-      }
+    function remove_project(rid) {
+      $('.removeclass' + rid).remove();
+      room--;
+    }
 
-      var eroom=1;
-      function experiencefn() {
-        if(eroom<3){
+    var eroom = 1;
+    function experiencefn() {
+      if (eroom < 3) {
         eroom++;
         var objTo = document.getElementById('experience')
         var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass"+eroom);
-        var rdiv = 'removeclass'+eroom;
-          divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="csdate" name="csdate'+eroom+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="cedate" name="cedate'+eroom+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience('+ eroom +');">Remove </button> <br><br></li></ul>';
+        divtest.setAttribute("class", "form-group removeclass" + eroom);
+        var rdiv = 'removeclass' + eroom;
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="csdate" name="csdate' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="cedate" name="cedate' + eroom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience(' + eroom + ');">Remove </button> <br><br></li></ul>';
 
-          objTo.appendChild(divtest)
-        }
+        objTo.appendChild(divtest)
       }
-      function remove_experience(rid) {
-        $('.removeclass'+rid).remove();
-        eroom--;
+    }
+    function remove_experience(rid) {
+      $('.removeclass' + rid).remove();
+      eroom--;
 
-      }
+    }
 
-      var croom=1;
-      function educationfn() {
-        if(croom<3){
+    var croom = 1;
+    function educationfn() {
+      if (croom < 3) {
         croom++;
         var objTo = document.getElementById('education')
         var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass"+croom);
-        var rdiv = 'removeclass'+croom;
-          divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate'+'croom'+'" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate'+'croom'+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education('+ croom +');">Remove </button> <br><br></li></ul>';
+        divtest.setAttribute("class", "form-group removeclass" + croom);
+        var rdiv = 'removeclass' + croom;
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate' + 'croom' + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
 
-          objTo.appendChild(divtest)
-        }
+        objTo.appendChild(divtest)
       }
-      function remove_education(rid) {
-        $('.removeclass'+rid).remove();
-        croom--;
-      }
+    }
+    function remove_education(rid) {
+      $('.removeclass' + rid).remove();
+      croom--;
+    }
 
 
-      var lang=1;
-      function langfn() {
-        if(lang<10){
+    var lang = 1;
+    function langfn() {
+      if (lang < 10) {
         lang++;
         var objTo = document.getElementById('language')
         var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass"+lang);
-        var rdiv = 'removeclass'+lang;
-          divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="cname">Language</label> <input type="text" class="form-control" id="l1" name="l'+lang+'" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="cjob">Percentage</label> <input type="text" class="form-control" id="p1" name="p'+lang+'" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_lang('+ lang +');">Remove </button> <br><br></li></ul>';
+        divtest.setAttribute("class", "form-group removeclass" + lang);
+        var rdiv = 'removeclass' + lang;
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="cname">Language</label> <input type="text" class="form-control" id="l1" name="l' + lang + '" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="cjob">Percentage</label> <input type="text" class="form-control" id="p1" name="p' + lang + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_lang(' + lang + ');">Remove </button> <br><br></li></ul>';
 
-          objTo.appendChild(divtest)
-        }
+        objTo.appendChild(divtest)
       }
-      function remove_lang(rid) {
-        $('.removeclass'+rid).remove();
-        lang--;
-      }
-      </script>
-  </body>
+    }
+    function remove_lang(rid) {
+      $('.removeclass' + rid).remove();
+      lang--;
+    }
+  </script>
+</body>
+
 </html>
