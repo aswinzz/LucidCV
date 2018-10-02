@@ -5,3 +5,4 @@
 - [Anton Truong] (https://github.com/AntonTru3)
 - [Mohan Cm] (https://github.com/mohancm)
 - [Armandas Budrius](https://github.com/Racistpanda)
+- [Shubhendra Singh Chauhan](https://github.com/withshubh)
