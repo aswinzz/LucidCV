@@ -35,28 +35,28 @@ router.post('/', function(req, res, next) {
         language.push({lang: req.body.l2 ,perc: req.body.p2});
       }
       if(req.body.l3!=null){
-        language.push({lang: req.body.l3,perc: req.body.p3}); 
+        language.push({lang: req.body.l3,perc: req.body.p3});
       }
       if(req.body.l4!=null){
-        language.push({lang: req.body.l4,perc: req.body.p4}); 
+        language.push({lang: req.body.l4,perc: req.body.p4});
       }
       if(req.body.l5!=null){
-        language.push({lang: req.body.l5,perc: req.body.p5}); 
+        language.push({lang: req.body.l5,perc: req.body.p5});
       }
       if(req.body.l6!=null){
-        language.push({lang: req.body.l6,perc: req.body.p6}); 
+        language.push({lang: req.body.l6,perc: req.body.p6});
       }
       if(req.body.l7!=null){
-        language.push({lang: req.body.l7,perc: req.body.p7}); 
+        language.push({lang: req.body.l7,perc: req.body.p7});
       }
       if(req.body.l8!=null){
-        language.push({lang: req.body.l8,perc: req.body.p8}); 
+        language.push({lang: req.body.l8,perc: req.body.p8});
       }
       if(req.body.l9!=null){
-        language.push({lang: req.body.l9,perc: req.body.p9}); 
+        language.push({lang: req.body.l9,perc: req.body.p9});
       }
       if(req.body.l10!=null){
-        language.push({lang: req.body.l10,perc: req.body.p10}); 
+        language.push({lang: req.body.l10,perc: req.body.p10});
       }
         json.extract(language, 'lang', 'perc');
     });
@@ -70,7 +70,7 @@ router.post('/', function(req, res, next) {
         project.push({name: req.body.name2 ,link: req.body.link2 ,desc:req.body.bio1});
       }
       if(req.body.cname3!=null){
-        project.push({name: req.body.name3 ,link: req.body.link3 ,desc:req.body.bio1}); 
+        project.push({name: req.body.name3 ,link: req.body.link3 ,desc:req.body.bio1});
       }
         json.extract(project, 'name', 'link', 'desc');
     });
@@ -82,7 +82,7 @@ router.post('/', function(req, res, next) {
         experience.push({name: req.body.cname2 ,job: req.body.cjob2,date:{start: req.body.csdate2,end: req.body.cedate2}});
       }
       if(req.body.cname3!=null){
-        experience.push({name: req.body.cname3 ,job: req.body.cjob3,date:{start: req.body.csdate3,end: req.body.cedate3}}); 
+        experience.push({name: req.body.cname3 ,job: req.body.cjob3,date:{start: req.body.csdate3,end: req.body.cedate3}});
       }
          json.extract(experience, 'name','job', 'date');
     });
@@ -95,7 +95,7 @@ router.post('/', function(req, res, next) {
           edu.push({title: req.body.ename2 ,name: req.body.ecourse ,date:{start: req.body.esdate2,end: req.body.eedate2}});
         }
         if(req.body.ename3!=null){
-          edu.push({title: req.body.ename3 ,name: req.body.ecourse ,date:{start: req.body.esdate3,end: req.body.eedate3}}); 
+          edu.push({title: req.body.ename3 ,name: req.body.ecourse ,date:{start: req.body.esdate3,end: req.body.eedate3}});
         }
           json.extract(edu, 'title',  'name', 'date');
       });
@@ -103,13 +103,17 @@ router.post('/', function(req, res, next) {
   });
   console.log(output);
   fs.writeFileSync('cv.json', output);
-  if(req.body.theme == "theme1"){
-    res.render('theme1',{out:JSON.parse(output)});
+  if(req.body.theme === "theme1"){
+    res.render('resume',{out:JSON.parse(output)});
   }
-  else if(req.body.theme == "theme1"){
+  else if(req.body.theme === "theme2"){
     res.render('theme2',{out:JSON.parse(output)});
   }
-  
+  else{
+    // default
+    res.render('resume',{out:JSON.parse(output)});
+  }
+
 });
 
 module.exports = router;

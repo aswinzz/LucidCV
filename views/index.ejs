@@ -460,22 +460,131 @@ input[type=submit] {
                   </button>
                   <br><br>
               </li>
-            </ul>
-        </li>
-      </ul>
-      <br>
-      <br>
-      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
-        <li>
-          <div class="input-field col s12">
-            <select class="icons">
-              <option value="" disabled selected>Choose your Theme</option>
-              <option value="" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
-              <option value="" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
-              <option value="" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
-            </select>
-            <label class="white-text text-darken-2">Theme</label>
-          </div>
+              </ul>
+
+
+              <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                  <li>
+                      <!-- <h4>&nbsp&nbsp&nbspEducation</h4> -->
+                      <h4 class="styled-heading heading heading-correct-pronounciation">
+                        <em>Education</em>
+                      </h4>
+
+                      <div id="education">
+                          <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                              <li>
+                        <div class="row">
+                          <div class="input-field col s3">
+
+                              <!--<label class="blue-text text-darken-2" for="cname">Institute Name</label>-->
+                              <input type="text" class="form-control" id="ename" list="json-institute" name="ename" value="" placeholder="Institute Name" autocomplete="on">
+                              <datalist id="json-institute"></datalist>
+                            </div>
+                          <div class="input-field col s3">
+                              <!--<label class="blue-text text-darken-2" for="cjob">Course</label>-->
+                              <input type="text" class="form-control" id="ecourse" name="ecourse" value="" placeholder="Course" autocomplete="on" list="json-course">
+                              <datalist id="json-course"></datalist>
+                            </div>
+                        <div class="input-field col s3">
+                            <!--<label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label>-->
+                            <input type="date" class="form-control" id="esdate" name="esdate" value="" placeholder="Start (YYYY)">
+                          </div>
+                          <div class="input-field col s3">
+                              <!--<label class="blue-text text-darken-2" for="cedate">End (YYYY)</label>-->
+                              <input type="date" class="form-control" id="eedate" name="eedate" value="" placeholder="End (YYYY)">
+
+
+                        </div>
+                        </div>
+                        <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="educationfn();">Add
+                          </button>
+                          <br><br>
+                          </li>
+                          </ul>
+                  </li>
+                  </ul>
+
+                  <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                      <li>
+                          <!-- <h4>&nbsp&nbsp&nbspLanguages</h4> -->
+                          <h4 class="styled-heading heading heading-correct-pronounciation">
+                            <em>Language</em>
+                          </h4>
+
+                          <div id="language">
+                              <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion">
+                                  <li>
+                            <div class="row">
+                              <div class="input-field col s6">
+
+                                  <!-- <label class="blue-text text-darken-2" for="cname">Language</label>-->
+                                  <input type="text" class="form-control" id="l1" name="l1" value="" placeholder="Language" autocomplete="on" list="lang">
+                                  <datalist id="lang">
+                                    <option>JavaScript</option>
+                                    <option>Java</option>
+                                    <option>Python</option>
+                                    <option>Ruby</option>
+                                    <option>CSS</option>
+                                    <option>PHP</option>
+                                    <option>C++</option>
+                                    <option>C</option>
+                                    <option>Shell</option>
+                                    <option>C#</option>
+                                    <option>Objective-C</option>
+                                    <option>R</option>
+                                    <option>VimL</option>
+                                    <option>Go</option>
+                                    <option>Perl</option>
+                                    <option>CoffeeScript</option>
+                                    <option>TeX</option>
+                                    <option>Scala</option>
+                                    <option>Haskell</option>
+                                    <option>Emacs Lisp</option>
+                                    <option>Visual Basic .NET</option>
+                                    <option>Ruby</option>
+                                    <option>Visual Basic</option>
+                                    <option>Delphi/Objective Pascal</option>
+                                    <option>F#</option>
+                                    <option>Pascal</option>
+                                    <option>Swift</option>
+                                    <option>MATLAB</option>
+                                    <option>PL/SQL</option>
+                                    <option>Clojure</option>
+                                    <option>TypeScript</option>
+                                  </datalist>
+                                </div>
+                              <div class="input-field col s6">
+                                  <!--<label class="blue-text text-darken-2" for="cjob">Percentage</label>-->
+                                  <input type="text" class="form-control" id="p1" name="p1" value="" placeholder="Percentage">
+
+                              </div>
+                            <button class="btn waves-effect waves-light" style="margin-left: 45%;" type="button" onclick="langfn();">Add
+                              </button>
+                              <br><br>
+                              </li>
+                              </ul>
+                      </li>
+                      </ul>
+                      <br>
+                      <br>
+                      <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                        <li>
+                      <div class="input-field col s12">
+                          <select name="theme" class="icons">
+                            <option value="" disabled selected>Choose your Theme</option>
+                            <option value="theme1" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
+                            <option value="theme2" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
+                            <option value="theme3" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+                          </select>
+                          <label class="blue-text text-darken-2">Theme</label>
+                        </div>
+
+
+                      <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
+                        </button>-->
+                      <input type="submit" class="button" style="margin-left: 45%;" value="Create">
+                    </ul>
+              </form>
 
 
           <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
