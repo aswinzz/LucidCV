@@ -5,11 +5,11 @@
      <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <link rel='stylesheet' href='../public/stylesheets/style.css' />
+    <link rel='stylesheet' href='./stylesheets/style.css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
-      $.getJSON("../suggestion.json",function(data)
+      $.getJSON("./data/suggestion.json",function(data)
       {
         for(var i=0;i<data.suggest.institute.length;i++)
         {
@@ -92,7 +92,7 @@
     }
     return true;
 }
- 
+
     </script>
 
     <style>
@@ -258,7 +258,7 @@ input[type=submit] {
                </div>
               <div class="input-field col s6">
                   <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
-                  <input type="text" class="form-control" name="website" id="website" placeholder="website">
+                  <input type="text" class="form-control" name="website" id="website" placeholder="Website">
               </div>
           </div>
           </li>
@@ -467,9 +467,9 @@ input[type=submit] {
                       <div class="input-field col s12">
                           <select class="icons">
                             <option value="" disabled selected>Choose your Theme</option>
-                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 1</option>
-                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 2</option>
-                            <option value="" data-icon="../public/images/theme1.png" class="left circle">Theme 3</option>
+                            <option value="" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
+                            <option value="" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
+                            <option value="" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
@@ -494,7 +494,7 @@ input[type=submit] {
                   <large class="copyright">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);" href="http://aswinzz.com" target="_blank">aswinzz</a></large>
           </div><!--//container-->
       </footer><!--//footer-->
-    
+
     <script src="https://use.fontawesome.com/bf3ce4ee85.js"></script>
       <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -510,7 +510,7 @@ input[type=submit] {
 
     <script type="text/javascript">
     $(document).ready(function() {
-       
+
     $('select').material_select();
   });
       var room = 1;
