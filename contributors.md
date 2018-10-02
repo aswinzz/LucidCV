@@ -9,6 +9,7 @@
 - [Alnaz Inamdar](https://github.com/alnazinamdar)
 - [Shubhendra Singh Chauhan](https://github.com/withshubh)
 - [Kartik Agarwal](https://github.com/kartikag1)
+- [Rashi Srivastava](https://github.com/rashisr19)
 - [Bhawana Mishra](https://github.com/BhawanaMishra)
 - [Saurabh Tiwari](https://github.com/Studd116)
 - [amay indurkhya](https://github.com/amay28)
