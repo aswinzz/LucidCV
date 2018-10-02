@@ -9,3 +9,5 @@
 * Online Access and Synchronization
 * Data Protection
 * Multiple Languages
+* Add Import from Linkedin directly
+* Add Import from Xing
