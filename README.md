@@ -28,4 +28,8 @@ The user enters the data and after the form is submitted a json file is created 
 
 ## TODO
 
-* Add user feature to save the user data
+* See todo.md for features to be added
+
+## Contributors
+Anyone who wish to contribute to this repo can add yourself in the contributors.md and can start solving issues. You can also create issues for the problems that you came across in the project.
+
