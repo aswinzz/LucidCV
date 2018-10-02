@@ -8,3 +8,4 @@
 - [Tanmay Kumar Bisoi](https://github.com/PseudoNerd)
 - [Alnaz Inamdar](https://github.com/alnazinamdar)
 - [Shubhendra Singh Chauhan](https://github.com/withshubh)
+- [Kartik Agarwal](https://github.com/kartikag1)
