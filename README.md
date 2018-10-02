@@ -33,3 +33,10 @@ The user enters the data and after the form is submitted a json file is created 
 ## Contributors
 Anyone who wish to contribute to this repo can add yourself in the contributors.md and can start solving issues. You can also create issues for the problems that you came across in the project.
 
+##How to contribute?
+  * First, verify if there's no one already working on solving the issue.
+  * Star and Fork the repository to start working on it.
+  * Clone the repository in your local machine using $ git clone git@github.com:YOUR-GITHUB-USER-NAME/LucidCV.git
+  * Visit your fork on (https://github.com/YOUR-USER-NAME/LucidCV) and create a pull request for your changes.
+  * Make sure your pull request describes what you changed and references the issue that you're fixing.
+
