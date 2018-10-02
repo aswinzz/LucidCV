@@ -9,6 +9,7 @@
 - [Alnaz Inamdar](https://github.com/alnazinamdar)
 - [Shubhendra Singh Chauhan](https://github.com/withshubh)
 - [Kartik Agarwal](https://github.com/kartikag1)
+- [Muskan Sanghai](https://github.com/sanghaimuskan)
 - [Irfan Sener](https://github.com/irfansener)
 - [Radhika Verma](https://github.com/Radhikav30)
 - [Rashi Srivastava](https://github.com/rashisr19)
