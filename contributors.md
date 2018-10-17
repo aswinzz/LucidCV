@@ -21,5 +21,6 @@
 - [Sidharth Gupta](https://github.com/guptasidharth1)
 - [Arpit Verma](https://github.com/arpitv424)
 - [Archit](https://github.com/gargarchit)
+- [Manan Goel](https://github.com/manan012)
 - [paridhi](https://github.com/paridhijain212)
 - [shradha](https://github.com/shradha14)
