@@ -1,18 +1,31 @@
+Thank you for submitting this PR. You are awesome!
 
 **Checklist**
 
-- [ Yes ] My branch is up-to-date with the upstream `master` branch.
-- [ Yes ] I have added necessary documentation (if appropriate).
+- [ ] My branch is up-to-date with the upstream `master` branch.
+- [ ] I have added necessary documentation (if appropriate).
 
 **Which issue does this PR fix?**:
-fixes: issue #1
+fixes: #
 
-Adds validation to the education and experience dates in the form. 
-Validation is added to the extra rows of input generated on the click of "Add" button as well.
-Fixed a bug in educationfn() where croom variable was not properly concatenated with html elements for the name tag.
-
-
+<!-- Brief description of what this PR does.
+Add issue number here. If you do not solve the issue entirely, please change the message e.g. "First steps for issues #IssueNumber" -->
 
 **Why do we need this PR?**:
 
-Date validation is necessary to prevent users from accidentaly entering incorrect data.
+If relevant, please include a screenshot.
+
+**Demo (optional)**:
+
+Some tips for you to write the instructions:
+
+- Prefer bulleted description
+- Start after checking out this branch
+- Include any setup required, such as migrating databases, etc.
+
+**Testing instructions:**
+
+If there is any work still left to do, please add it here.
+
+**TODOs (if any)**:
+
