@@ -29,6 +29,50 @@
       var twitter = document.myform.twitter;
       var website = document.myform.website;
 
+      //Obtaining date objects from the form for comparison
+      var experience_start_date = document.myform.csdate;
+      var experience_end_date = document.myform.cedate;
+      var es_date = new Date(experience_start_date.value);
+      var ee_date = new Date(experience_end_date.value);
+
+      var education_start_date = document.myform.esdate;
+      var education_end_date = document.myform.eedate;
+      var eds_date = new Date(education_start_date.value);
+      var ede_date = new Date(education_end_date.value);
+
+
+      //validation for extra experiences added using "Add" button
+      if(es_date.getTime() > ee_date.getTime()){
+        window.swal("Oops","Experience starting and ending date do not consitute a valid duration!","error");
+        return false;
+      }
+
+      //Obtains each starting and ending year of experience added using Add button and validates it.
+      for(var i=2;i<=eroom;i++){
+        var a = document.myform["csdate"+i];
+        var b = document.myform["cedate"+i];
+        if(a.value > b.value){
+          window.swal("Oops","Ending year cannot be before starting year in added experience information","error");
+          return false;
+        }
+      }
+
+      //validation for extra education details added using "Add" button
+      if(eds_date.getTime() > ede_date.getTime()){
+        window.swal("Oops","Education starting and ending date do not consitute a valid duration!","error");
+        return false;
+      }
+
+      //Obtains each starting and ending year of education added using Add button and validates it.
+      for(var i=2;i<=croom;i++){
+        var a = document.myform["esdate"+i];
+        var b = document.myform["eedate"+i];
+        if(a.value > b.value){
+          window.swal("Oops","Ending year cannot be before starting year in added education information","error");
+          return false;
+        }
+      }
+      
 
       if (avatar.value == "") {
         window.swal("Oops", "AvatarUrl must be filled out", "error");
@@ -563,7 +607,7 @@ input[type=submit] {
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + croom);
         var rdiv = 'removeclass' + croom;
-        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate' + 'croom' + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + croom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + croom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate' + croom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate' + croom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
 
         objTo.appendChild(divtest)
       }
