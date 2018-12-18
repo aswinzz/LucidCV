@@ -21,7 +21,7 @@ The user enters the data and after the form is submitted a json file is created 
 
 - File Structure :
   * The folder `Public` contains the css,javascripts and images needed for the website
-  * The folder `Views` contains the code of homepage and cv templates,they are in ejs format(embedded javascript). 
+  * The folder `Views` contains the code of homepage and cv templates,they are in ejs format(embedded javascript).
     - index.ejs : contains the code for homepage which contains the form that takes the details of the users.I have used materialize css as the frontend framework.
     - resume.ejs : What this code does is, format the json data obtained from the user into a CV.
   * The folder `routes` contains a file `index.js` this file creates the json file when the user submits the form using a POST request and formats the resume.ejs file.
@@ -30,7 +30,7 @@ The user enters the data and after the form is submitted a json file is created 
 
 * See todo.md for features to be added
 
-Happy Contributing 😊 
+Happy Contributing 😊
 =======
 Anyone who wish to contribute to this repo can add yourself in the contributors.md and can start solving issues. You can also create issues for the problems that you came across in the project.
 
@@ -41,4 +41,10 @@ Anyone who wish to contribute to this repo can add yourself in the contributors.
   * Visit your fork on (https://github.com/YOUR-USER-NAME/LucidCV) and create a pull request for your changes.
   * Make sure your pull request describes what you changed and references the issue that you're fixing.
 
-
+## How to integrate theme into website ?
+  * First , create a file in views folder name as theme1(2,3..).ejs for reference you can use resume.ejs.
+  * Goto index.ejs file and a option of your file just like given example below
+  <img align="right" title="CV" src="./readmeImg/options.png">
+  * Now integrate your theme into website by going to routes->index.js and configure the portion shown below with your theme
+  <img align="right" title="CV" src="./readmeImg/addFile.png">
+  * Congrats you integrated your theme to website !
