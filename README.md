@@ -44,12 +44,14 @@ Anyone who wish to contribute to this repo can add yourself in the contributors.
 ## How to integrate theme into website ?
   * First , create a file in views folder name as theme1(2,3..).ejs for reference you can use resume.ejs.
   * Goto index.ejs file and a option of your file just like given example below.
+   <div style="margin:auto">
+   <img align="center" title="Options" src="./readmeImg/options.PNG">
+   </div>
   * Now integrate your theme into website by going to routes->index.js and configure the portion shown below with your theme
+  <div style="margin:auto">
+  <img align="center" title="addFile" src="./readmeImg/addFile.PNG">
+  </div>
   * Congrats you integrated your theme to website !
 
- <div>
-  <img align="center" title="Options" src="./readmeImg/options.PNG">
- </div>
- <div>
-  <img align="center" title="addFile" src="./readmeImg/addFile.PNG">
- </div>
+
+ 
