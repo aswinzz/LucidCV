@@ -48,8 +48,8 @@ Anyone who wish to contribute to this repo can add yourself in the contributors.
   * Congrats you integrated your theme to website !
 
  <div>
-  <img align="center" title="Options" src="./readmeImg/options.png">
+  <img align="center" title="Options" src="./readmeImg/options.PNG">
  </div>
  <div>
-  <img align="center" title="addFile" src="./readmeImg/addFile.png">
+  <img align="center" title="addFile" src="./readmeImg/addFile.PNG">
  </div>
