@@ -51,7 +51,10 @@
       for(var i=2;i<=eroom;i++){
         var a = document.myform["csdate"+i];
         var b = document.myform["cedate"+i];
-        if(a.value > b.value){
+        var starting_date = new Date(a.value);
+        var ending_date = new Date(b.value);
+
+        if(starting_date.getTime() > ending_date.getTime()){
           window.swal("Oops","Ending year cannot be before starting year in added experience information","error");
           return false;
         }
@@ -67,7 +70,10 @@
       for(var i=2;i<=croom;i++){
         var a = document.myform["esdate"+i];
         var b = document.myform["eedate"+i];
-        if(a.value > b.value){
+        var starting_date = new Date(a.value);
+        var ending_date = new Date(b.value);
+        
+        if(starting_date.getTime() > ending_date.getTime()){
           window.swal("Oops","Ending year cannot be before starting year in added education information","error");
           return false;
         }
@@ -769,7 +775,7 @@ input[type=submit] {
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + eroom);
         var rdiv = 'removeclass' + eroom;
-        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="csdate" name="csdate' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="cedate" name="cedate' + eroom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience(' + eroom + ');">Remove </button> <br><br></li></ul>';
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob' + eroom + '" value=""> </div><div class="input-field col s3"><input type="date" class="form-control" id="csdate" name="csdate' + eroom + '" value=""> </div><div class="input-field col s3"><input type="date" class="form-control" id="cedate" name="cedate' + eroom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience(' + eroom + ');">Remove </button> <br><br></li></ul>';
 
         objTo.appendChild(divtest)
       }
@@ -788,7 +794,7 @@ input[type=submit] {
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + croom);
         var rdiv = 'removeclass' + croom;
-        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + croom + '" value="" list="json-institute"> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + croom + '" value="" list="json-course"> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate' + croom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate' + croom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + croom + '" value="" list="json-institute"> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + croom + '" value="" list="json-course"> </div><div class="input-field col s3"><input type="date" class="form-control" id="esdate" name="esdate' + croom + '" value=""> </div><div class="input-field col s3"><input type="date" class="form-control" id="eedate" name="eedate' + croom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
 
         objTo.appendChild(divtest)
       }
