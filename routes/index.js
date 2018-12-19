@@ -109,9 +109,12 @@ router.post('/', function(req, res, next) {
   else if(req.body.theme === "theme2"){
     res.render('theme2',{out:JSON.parse(output)});
   }
+  else if(req.body.theme ==="theme3"){
+    res.render('theme3',{out:JSON.parse(output)});
+  }
   else{
-    // default
-    res.render('resume',{out:JSON.parse(output)});
+    //default
+      res.render('resume',{out:JSON.parse(output)});
   }
 
 });
