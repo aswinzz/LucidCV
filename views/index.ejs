@@ -28,6 +28,7 @@
       var facebook = document.myform.facebook;
       var twitter = document.myform.twitter;
       var website = document.myform.website;
+      var phone = document.myform.phone;
 
       //Obtaining date objects from the form for comparison
       var experience_start_date = document.myform.csdate;
@@ -134,6 +135,11 @@
       if (website.value == "") {
         window.swal("Oops", "Website must be filled out", "error");
         twitter.focus;
+        return false;
+      }
+        if (phone.value == "") {
+        window.swal("Oops", "Phone no. must be filled out", "error");
+        phone.focus;
         return false;
       }
       return true;
@@ -339,6 +345,14 @@ input[type=submit] {
                 <div class="input-field col s6">
                   <!--<label class="blue-text text-darken-2" for="website">Website</label>-->
                   <input type="text" class="form-control" name="website" id="website" placeholder="Website">
+                </div>
+              </div>
+                
+                 <div class="row">
+                <div class="input-field col s6">
+
+                  <!--<label class="blue-text text-darken-2" for="phone.no">Phone no.</label>-->
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone No.">
                 </div>
               </div>
         </li>
