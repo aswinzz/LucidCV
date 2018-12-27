@@ -72,13 +72,13 @@
         var b = document.myform["eedate"+i];
         var starting_date = new Date(a.value);
         var ending_date = new Date(b.value);
-        
+
         if(starting_date.getTime() > ending_date.getTime()){
           window.swal("Oops","Ending year cannot be before starting year in added education information","error");
           return false;
         }
       }
-      
+
 
       if (avatar.value == "") {
         window.swal("Oops", "AvatarUrl must be filled out", "error");
@@ -603,6 +603,8 @@ input[type=submit] {
                             <option value="theme1" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
                             <option value="theme2" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
                             <option value="theme3" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+                            <option value="theme4" data-icon="./images/theme1.png" class="left circle">Theme 4</option>
+                            <option value="theme5" data-icon="./images/theme1.png" class="left circle">Theme 5</option>
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
