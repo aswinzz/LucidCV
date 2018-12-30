@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LucidCV</title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta charset="UTF-8">
+
+<link type="text/css" rel="stylesheet" href="style.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+<style>
+  html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+  border:0;
+  font:inherit;
+  font-size:100%;
+  margin:0;
+  padding:0;
+  vertical-align:baseline;
+  }
+
+  article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display:block;
+  }
+
+  html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+
+  .clear {clear: both;}
+
+  p {
+  	font-size: 1em;
+  	line-height: 1.4em;
+  	margin-bottom: 20px;
+  	color: #444;
+  }
+
+  #cv {
+  	width: 90%;
+  	max-width: 800px;
+  	background: #f3f3f3;
+  	margin: 30px auto;
+  }
+
+  .mainDetails {
+  	padding: 25px 35px;
+  	border-bottom: 2px solid #cf8a05;
+  	background: #ededed;
+  }
+
+  #name h1 {
+  	font-size: 2.5em;
+  	font-weight: 700;
+  	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  	margin-bottom: -6px;
+  }
+
+  #name h2 {
+  	font-size: 2em;
+  	margin-left: 2px;
+  	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  }
+
+  #mainArea {
+  	padding: 0 40px;
+  }
+
+  #headshot {
+  	width: 12.5%;
+  	float: left;
+  	margin-right: 30px;
+  }
+
+  #headshot img {
+  	width: 100%;
+  	height: auto;
+  	-webkit-border-radius: 50px;
+  	border-radius: 50px;
+  }
+
+  #name {
+  	float: left;
+  }
+
+  #contactDetails {
+  	float: right;
+  }
+
+  #contactDetails ul {
+  	list-style-type: none;
+  	font-size: 0.9em;
+  	margin-top: 2px;
+  }
+
+  #contactDetails ul li {
+  	margin-bottom: 3px;
+  	color: #444;
+  }
+
+  #contactDetails ul li a, a[href^=tel] {
+  	color: #444;
+  	text-decoration: none;
+  	-webkit-transition: all .3s ease-in;
+  	-moz-transition: all .3s ease-in;
+  	-o-transition: all .3s ease-in;
+  	-ms-transition: all .3s ease-in;
+  	transition: all .3s ease-in;
+  }
+
+  #contactDetails ul li a:hover {
+  	color: #cf8a05;
+  }
+
+
+  section {
+  	border-top: 1px solid #dedede;
+  	padding: 20px 0 0;
+  }
+
+  section:first-child {
+  	border-top: 0;
+  }
+
+  section:last-child {
+  	padding: 20px 0 10px;
+  }
+
+  .sectionTitle {
+  	float: left;
+  	width: 25%;
+  }
+
+  .sectionContent {
+  	float: right;
+  	width: 72.5%;
+  }
+
+  .sectionTitle h1 {
+  	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  	font-style: italic;
+  	font-size: 1.5em;
+  	color: #cf8a05;
+  }
+
+  .sectionContent h2 {
+  	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  	font-size: 1.5em;
+  	margin-bottom: -2px;
+  }
+
+  .subDetails {
+  	font-size: 0.8em;
+  	font-style: italic;
+  	margin-bottom: 3px;
+  }
+
+  .keySkills {
+  	list-style-type: none;
+  	-moz-column-count:3;
+  	-webkit-column-count:3;
+  	column-count:3;
+  	margin-bottom: 20px;
+  	font-size: 1em;
+  	color: #444;
+  }
+
+  .keySkills ul li {
+  	margin-bottom: 3px;
+  }
+
+  @media all and (min-width: 602px) and (max-width: 800px) {
+  	#headshot {
+  		display: none;
+  	}
+
+  	.keySkills {
+  	-moz-column-count:2;
+  	-webkit-column-count:2;
+  	column-count:2;
+  	}
+  }
+
+  @media all and (max-width: 601px) {
+  	#cv {
+  		width: 95%;
+  		margin: 10px auto;
+  		min-width: 280px;
+  	}
+
+  	#headshot {
+  		display: none;
+  	}
+
+  	#name, #contactDetails {
+  		float: none;
+  		width: 100%;
+  		text-align: center;
+  	}
+
+  	.sectionTitle, .sectionContent {
+  		float: none;
+  		width: 100%;
+  	}
+
+  	.sectionTitle {
+  		margin-left: -2px;
+  		font-size: 1.25em;
+  	}
+
+  	.keySkills {
+  		-moz-column-count:2;
+  		-webkit-column-count:2;
+  		column-count:2;
+  	}
+  }
+
+  @media all and (max-width: 480px) {
+  	.mainDetails {
+  		padding: 15px 15px;
+  	}
+
+  	section {
+  		padding: 15px 0 0;
+  	}
+
+  	#mainArea {
+  		padding: 0 25px;
+  	}
+
+
+  	.keySkills {
+  	-moz-column-count:1;
+  	-webkit-column-count:1;
+  	column-count:1;
+  	}
+
+  	#name h1 {
+  		line-height: .8em;
+  		margin-bottom: 4px;
+  	}
+  }
+
+  @media print {
+      #cv {
+          width: 100%;
+      }
+  }
+
+  @-webkit-keyframes reset {
+  	0% {
+  		opacity: 0;
+  	}
+  	100% {
+  		opacity: 0;
+  	}
+  }
+
+  @-webkit-keyframes fade-in {
+  	0% {
+  		opacity: 0;
+  	}
+  	40% {
+  		opacity: 0;
+  	}
+  	100% {
+  		opacity: 1;
+  	}
+  }
+
+  @-moz-keyframes reset {
+  	0% {
+  		opacity: 0;
+  	}
+  	100% {
+  		opacity: 0;
+  	}
+  }
+
+  @-moz-keyframes fade-in {
+  	0% {
+  		opacity: 0;
+  	}
+  	40% {
+  		opacity: 0;
+  	}
+  	100% {
+  		opacity: 1;
+  	}
+  }
+
+  @keyframes reset {
+  	0% {
+  		opacity: 0;
+  	}
+  	100% {
+  		opacity: 0;
+  	}
+  }
+
+  @keyframes fade-in {
+  	0% {
+  		opacity: 0;
+  	}
+  	40% {
+  		opacity: 0;
+  	}
+  	100% {
+  		opacity: 1;
+  	}
+  }
+
+  .instaFade {
+      -webkit-animation-name: reset, fade-in;
+      -webkit-animation-duration: 1.5s;
+      -webkit-animation-timing-function: ease-in;
+
+  	-moz-animation-name: reset, fade-in;
+      -moz-animation-duration: 1.5s;
+      -moz-animation-timing-function: ease-in;
+
+  	animation-name: reset, fade-in;
+      animation-duration: 1.5s;
+      animation-timing-function: ease-in;
+  }
+
+  .quickFade {
+      -webkit-animation-name: reset, fade-in;
+      -webkit-animation-duration: 2.5s;
+      -webkit-animation-timing-function: ease-in;
+
+  	-moz-animation-name: reset, fade-in;
+      -moz-animation-duration: 2.5s;
+      -moz-animation-timing-function: ease-in;
+
+  	animation-name: reset, fade-in;
+      animation-duration: 2.5s;
+      animation-timing-function: ease-in;
+  }
+
+  .delayOne {
+  	-webkit-animation-delay: 0, .5s;
+  	-moz-animation-delay: 0, .5s;
+  	animation-delay: 0, .5s;
+  }
+
+  .delayTwo {
+  	-webkit-animation-delay: 0, 1s;
+  	-moz-animation-delay: 0, 1s;
+  	animation-delay: 0, 1s;
+  }
+
+  .delayThree {
+  	-webkit-animation-delay: 0, 1.5s;
+  	-moz-animation-delay: 0, 1.5s;
+  	animation-delay: 0, 1.5s;
+  }
+
+  .delayFour {
+  	-webkit-animation-delay: 0, 2s;
+  	-moz-animation-delay: 0, 2s;
+  	animation-delay: 0, 2s;
+  }
+
+  .delayFive {
+  	-webkit-animation-delay: 0, 2.5s;
+  	-moz-animation-delay: 0, 2.5s;
+  	animation-delay: 0, 2.5s;
+  }
+
+</style>
+<link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.css">
+<link id="theme-style" rel="stylesheet" href="./stylesheets/cv.css">
+<style>
+  .main-wrapper{
+    box-sizing: border-box;
+    width:100%;
+    background-color: inherit;
+  }
+  #headshot{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+  }
+  #headshot img{
+    box-sizing: border-box;
+  }
+  .main-wrapper div h2{
+    color:#8B4513;
+  }
+</style>
+</head>
+<body id="top">
+<div id="cv" class="instaFade">
+	<div class="hero-box">
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+          <img class="profile"src="<%= out.header.avatar %>" style="max-height:200px;max-width:150px;margin-left:300px;" alt="" />
+          <h1 class="name" id="name" ><%= out.header.name %></h1>
+          <h3 class="tagline"><%= out.header.job %></h3>
+          <ul class="list-unstyled contact-list">
+              <li class="email"><i class="fa fa-envelope"></i><a href="mailto: <%= out.header.email %>">Email</a></li>
+              <li class="website"><i class="fa fa-globe"></i><a href="<%= out.header.icon.website %>" target="_blank">Website</a></li>
+              <li class="linkedin"><i class="fa fa-linkedin"></i><a href="<%= out.header.icon.linkdin %>" target="_blank">LinkedIn</a></li>
+              <li class="github"><i class="fa fa-github"></i><a href="<%= out.header.icon.github %>" target="_blank">Github</a></li>
+              <li class="twitter"><i class="fa fa-twitter"></i><a href="<%= out.header.icon.twitter %>" target="_blank">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-9">
+        </div>
+    </div>
+    </div>
+    </div>
+    <hr>
+
+	<div id="mainArea" class="quickFade delayFive">
+    <div class="main-wrapper">
+
+        <section class="section summary-section">
+            <h2 class="section-title" style="color:green"><i class="fa fa-user" style="background-color:green"></i>Career Profile</h2>
+            <div class="summary">
+                <p><%= out.header.bio %></p>
+            </div><!--//summary-->
+        </section><!--//section-->
+
+        <section class="section experiences-section">
+            <h2 class="section-title" style="color:green"><i class="fa fa-briefcase" style="background-color:green"></i>Experiences</h2>
+            <% for(var i=0;i<out.experience.length;i++){ %>
+              <% if(out.experience[i]){ %>
+            <div class="item">
+                <div class="meta">
+                    <div class="upper-row">
+                        <h3 class="job-title"><%= out.experience[i].job %></h3>
+                        <div class="time"><%= out.experience[i].date.start %> - <%= out.experience[i].date.end %></div>
+                    </div><!--//upper-row-->
+                    <div class="company"><%= out.experience[i].name %></div>
+                </div><!--//meta-->
+            </div><!--//item-->
+            <% } %>
+            <% } %>
+
+        </section><!--//section-->
+
+        <section class="section projects-section">
+            <h2 class="section-title" style="color:green"><i class="fa fa-archive" style="background-color:green"></i>Projects</h2>
+            <div class="intro">
+                <p>The Projects that i have done</p>
+              </div><!--//intro-->
+                <% for(var i=0;i<out.experience.length;i++){ %>
+            <div class="item">
+                <span class="project-title"><a href="<%= out.projects[i].link %>"><%= out.projects[i].name %></a></span> - <span class="project-tagline"><%= out.projects[i].desc %></span>
+            </div><!--//item-->
+                <% } %>
+
+        </section><!--//section-->
+
+        <section class="skills-section section">
+            <h2 class="section-title" style="color:green"><i style="background-color:green" class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+            <div class="skillset">
+                    <% for(var i=0;i<out.language.length;i++){ %>
+                <div class="item">
+                    <h3 class="level-title"><%= out.language[i].lang %></h3>
+                    <div class="level-bar">
+                        <div style="background-color:green" class="level-bar-inner" data-level="<%= out.language[i].perc %>">
+                        </div>
+                    </div><!--//level-bar-->
+                </div><!--//item-->
+                    <% } %>
+
+            </div>
+        </section><!--//skills-section-->
+
+    </div><!--//main-body-->
+  </div>
+
+	</div>
+</div>
+<style>
+h3{
+  color:green;
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<!-- custom js -->
+<script type="text/javascript" src="./javascripts/main.js"></script>
+<script type="text/javascript">
+
+(function () {
+   var
+    form = $('.wrapper'),
+    cache_width = form.width(),
+    a4 = [595.28, 841.89]; // for a4 size paper width and height
+
+   $('#create_pdf').on('click', function () {
+
+       var name =$('#name').html();
+
+       $('body').scrollTop(0);
+       createPDF(name);
+   });
+   //create pdf
+   function createPDF(name) {
+       getCanvas().then(function (canvas) {
+           var
+            img = canvas.toDataURL("image/png"),
+            doc = new jsPDF({
+                unit: 'px',
+                format: 'a4'
+            });
+           doc.addImage(img, 'JPEG', 20, 20);
+
+           doc.save('LucidCV - ' + name+ '.pdf');
+           form.width(cache_width);
+       });
+   }
+
+   // create canvas object
+   function getCanvas() {
+       form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+       return html2canvas(form, {
+           imageTimeout: 2000,
+           removeContainer: true
+       });
+   }
+
+}());
+/*
+* jQuery helper plugin for examples and tests
+*/
+(function ($) {
+   $.fn.html2canvas = function (options) {
+       var date = new Date(),
+       $message = null,
+       timeoutTimer = false,
+       timer = date.getTime();
+       html2canvas.logging = options && options.logging;
+       html2canvas.Preload(this[0], $.extend({
+           complete: function (images) {
+               var queue = html2canvas.Parse(this[0], images, options),
+               $canvas = $(html2canvas.Renderer(queue, options)),
+               finishTime = new Date();
+
+               $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+               $canvas.siblings().toggle();
+
+               $(window).click(function () {
+                   if (!$canvas.is(':visible')) {
+                       $canvas.toggle().siblings().toggle();
+                       throwMessage("Canvas Render visible");
+                   } else {
+                       $canvas.siblings().toggle();
+                       $canvas.toggle();
+                       throwMessage("Canvas Render hidden");
+                   }
+               });
+               throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+           }
+       }, options));
+
+       function throwMessage(msg, duration) {
+           window.clearTimeout(timeoutTimer);
+           timeoutTimer = window.setTimeout(function () {
+               $message.fadeOut(function () {
+                   $message.remove();
+               });
+           }, duration || 2000);
+           if ($message)
+               $message.remove();
+           $message = $('<div ></div>').html(msg).css({
+               margin: 0,
+               padding: 10,
+               background: "#000",
+               opacity: 0.7,
+               position: "fixed",
+               top: 10,
+               right: 10,
+               fontFamily: 'Tahoma',
+               color: '#fff',
+               fontSize: 12,
+               borderRadius: 12,
+               width: 'auto',
+               height: 'auto',
+               textAlign: 'center',
+               textDecoration: 'none'
+           }).hide().fadeIn().appendTo('body');
+       }
+   };
+})(jQuery);
+
+</script>
+<style>
+h2{
+  color:#cf8a05;
+}
+.section-title{
+  style="color:#cf8a05"
+}
+#cv{
+  box-shadow: 0.7px 0.5px 0.7px 0.5px #000;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid green;
+    margin: 1em 0;
+    padding: 0;
+}
+.hero-box{
+  padding:20px;
+}
+</style>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3753241-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
