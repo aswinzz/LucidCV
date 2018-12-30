@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
     <title>CV Maker</title>
     <!-- Meta -->
@@ -9,26 +9,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="images/favicon.ico">  
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css">
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.css">
-    
-    <!-- Theme CSS -->  
+
+    <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="./stylesheets/theme2.css">
     <script type="text/javascript" src="./plugins/jquery-1.11.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+    <style>
+      #small-header{
+        display: flex;
+        flex-flow: row;
+        margin-bottom: 30px;
+      }
+      .forms{
+        margin-left :20px;
+      }
+      #submit-button{
+        border-radius: 5px;
+        background-color:inherit;
+        color:#000;
+        border : 1px solid #000;
+
+      }
+      .icons{
+        height:20px;
+        border : 1px solid #000;
+        border-radius : 5px;
+      }
+    </style>
 </head>
 <body>
-<input type="button" id="create_pdf" value="Generate PDF" class="btn btn-primary">
+  <div id="small-header">
+    <input type="button" id="create_pdf" value="Generate PDF" class="btn btn-primary">
+    <div class="forms">
+      <!------------CHANGE THEME DIV---------------->
+      <form method="post" onsubmit="changeTheme()">
+        <select name="theme" class="icons" id="select-theme">
+          <option value="" disabled selected>Choose your Theme</option>
+          <option value="theme1" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
+          <option value="theme2" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
+          <option value="theme3" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+          <option value="theme4" data-icon="./images/theme1.png" class="left circle">Theme 4</option>
+          <option value="theme5" data-icon="./images/theme1.png" class="left circle">Theme 5</option>
+        </select>
+        <button id="submit-button">change</button>
+      </form>
+    </div>
+  </div>
   <div class="wrapper">
     <!-- Introduction Part -->
     <div class="Intro">
@@ -47,13 +85,13 @@
             <li class="github"><i class="fa fa-github"></i><a href="<%= out.header.icon.github %>" target="_blank">Github</a></li>
             <li class="twitter"><i class="fa fa-twitter"></i><a href="<%= out.header.icon.twitter %>" target="_blank">Twitter</a></li>
         </ul>
-        
+
         </div>
       </div>
     </div>
 
 
-     
+
     <div class="main-wrapper">
       <!-- Eduaction -->
       <section class="Education">
@@ -79,7 +117,7 @@
           <p><%= out.header.bio %></p>
         </div>
       </section>
-    
+
     <!-- About Ends here -->
 
     <!-- Experience -->
@@ -133,108 +171,120 @@
     </div>
   </div>
   </div>
-</body> 
+</body>
 <script type="text/javascript">
 
-(function () {  
-        var  
-         form = $('.wrapper'),  
-         cache_width = form.width(),  
-         a4 = [595.28, 841.89]; // for a4 size paper width and height  
-  
-        $('#create_pdf').on('click', function () { 
-        
+(function () {
+        var
+         form = $('.wrapper'),
+         cache_width = form.width(),
+         a4 = [595.28, 841.89]; // for a4 size paper width and height
+
+        $('#create_pdf').on('click', function () {
+
             var name =$('#name').html();
-                
-            $('body').scrollTop(0);  
-            createPDF(name);  
-        });  
-        //create pdf  
-        function createPDF(name) {  
-            getCanvas().then(function (canvas) {  
-                var  
-                 img = canvas.toDataURL("image/png"),  
-                 doc = new jsPDF({  
-                     unit: 'px',  
-                     format: 'a4'  
-                 });  
+
+            $('body').scrollTop(0);
+            createPDF(name);
+        });
+        //create pdf
+        function createPDF(name) {
+            getCanvas().then(function (canvas) {
+                var
+                 img = canvas.toDataURL("image/png"),
+                 doc = new jsPDF({
+                     unit: 'px',
+                     format: 'a4'
+                 });
                 doc.addImage(img, 'JPEG', 20, 20);
 
-                doc.save('LucidCV - ' + name+ '.pdf');  
-                form.width(cache_width);  
-            });  
-        }  
-  
-        // create canvas object  
-        function getCanvas() {  
-            form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');  
-            return html2canvas(form, {  
-                imageTimeout: 2000,  
-                removeContainer: true  
-            });  
-        }  
-  
-    }());  
-    /* 
- * jQuery helper plugin for examples and tests 
- */  
-    (function ($) {  
-        $.fn.html2canvas = function (options) {  
-            var date = new Date(),  
-            $message = null,  
-            timeoutTimer = false,  
-            timer = date.getTime();  
-            html2canvas.logging = options && options.logging;  
-            html2canvas.Preload(this[0], $.extend({  
-                complete: function (images) {  
-                    var queue = html2canvas.Parse(this[0], images, options),  
-                    $canvas = $(html2canvas.Renderer(queue, options)),  
-                    finishTime = new Date();  
-  
-                    $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);  
-                    $canvas.siblings().toggle();  
-  
-                    $(window).click(function () {  
-                        if (!$canvas.is(':visible')) {  
-                            $canvas.toggle().siblings().toggle();  
-                            throwMessage("Canvas Render visible");  
-                        } else {  
-                            $canvas.siblings().toggle();  
-                            $canvas.toggle();  
-                            throwMessage("Canvas Render hidden");  
-                        }  
-                    });  
-                    throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);  
-                }  
-            }, options));  
-  
-            function throwMessage(msg, duration) {  
-                window.clearTimeout(timeoutTimer);  
-                timeoutTimer = window.setTimeout(function () {  
-                    $message.fadeOut(function () {  
-                        $message.remove();  
-                    });  
-                }, duration || 2000);  
-                if ($message)  
-                    $message.remove();  
-                $message = $('<div ></div>').html(msg).css({  
-                    margin: 0,  
-                    padding: 10,  
-                    background: "#000",  
-                    opacity: 0.7,  
-                    position: "fixed",  
-                    top: 10,  
-                    right: 10,  
-                    fontFamily: 'Tahoma',  
-                    color: '#fff',  
-                    fontSize: 12,  
-                    borderRadius: 12,  
-                    width: 'auto',  
-                    height: 'auto',  
-                    textAlign: 'center',  
-                    textDecoration: 'none'  
-                }).hide().fadeIn().appendTo('body');  
-            }  
-        };  
-    })(jQuery); 
+                doc.save('LucidCV - ' + name+ '.pdf');
+                form.width(cache_width);
+            });
+        }
+
+        // create canvas object
+        function getCanvas() {
+            form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+            return html2canvas(form, {
+                imageTimeout: 2000,
+                removeContainer: true
+            });
+        }
+
+    }());
+    /*
+ * jQuery helper plugin for examples and tests
+ */
+    (function ($) {
+        $.fn.html2canvas = function (options) {
+            var date = new Date(),
+            $message = null,
+            timeoutTimer = false,
+            timer = date.getTime();
+            html2canvas.logging = options && options.logging;
+            html2canvas.Preload(this[0], $.extend({
+                complete: function (images) {
+                    var queue = html2canvas.Parse(this[0], images, options),
+                    $canvas = $(html2canvas.Renderer(queue, options)),
+                    finishTime = new Date();
+
+                    $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+                    $canvas.siblings().toggle();
+
+                    $(window).click(function () {
+                        if (!$canvas.is(':visible')) {
+                            $canvas.toggle().siblings().toggle();
+                            throwMessage("Canvas Render visible");
+                        } else {
+                            $canvas.siblings().toggle();
+                            $canvas.toggle();
+                            throwMessage("Canvas Render hidden");
+                        }
+                    });
+                    throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+                }
+            }, options));
+
+            function throwMessage(msg, duration) {
+                window.clearTimeout(timeoutTimer);
+                timeoutTimer = window.setTimeout(function () {
+                    $message.fadeOut(function () {
+                        $message.remove();
+                    });
+                }, duration || 2000);
+                if ($message)
+                    $message.remove();
+                $message = $('<div ></div>').html(msg).css({
+                    margin: 0,
+                    padding: 10,
+                    background: "#000",
+                    opacity: 0.7,
+                    position: "fixed",
+                    top: 10,
+                    right: 10,
+                    fontFamily: 'Tahoma',
+                    color: '#fff',
+                    fontSize: 12,
+                    borderRadius: 12,
+                    width: 'auto',
+                    height: 'auto',
+                    textAlign: 'center',
+                    textDecoration: 'none'
+                }).hide().fadeIn().appendTo('body');
+            }
+        };
+    })(jQuery);
+</script>
+<script>
+  function changeTheme(){
+    console.log("CLICKED");
+    var value = document.getElementById('select-theme').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", '/', true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify({
+      "theme" : value
+    }));
+  }
 </script>

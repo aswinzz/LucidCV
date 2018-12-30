@@ -24,11 +24,48 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      #small-header{
+        display: flex;
+        flex-flow: row;
+        margin-bottom: 30px;
+      }
+      .forms{
+        margin-left :20px;
+      }
+      #submit-button{
+        border-radius: 5px;
+        background-color:inherit;
+        color:#000;
+        border : 1px solid #000;
+
+      }
+      .icons{
+        height:20px;
+        border : 1px solid #000;
+        border-radius : 5px;
+      }
+    </style>
 </head>
 
 <body>
-<input type="button" id="create_pdf" value="Generate PDF" class="btn btn-primary">
-
+<div id="small-header">
+  <input type="button" id="create_pdf" value="Generate PDF" class="btn btn-primary">
+  <div class="forms">
+    <!------------CHANGE THEME DIV---------------->
+    <form method="post" onsubmit="changeTheme()">
+      <select name="theme" class="icons" id="select-theme">
+        <option value="" disabled selected>Choose your Theme</option>
+        <option value="theme1" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
+        <option value="theme2" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
+        <option value="theme3" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+        <option value="theme4" data-icon="./images/theme1.png" class="left circle">Theme 4</option>
+        <option value="theme5" data-icon="./images/theme1.png" class="left circle">Theme 5</option>
+      </select>
+      <button id="submit-button">change</button>
+    </form>
+  </div>
+</div>
     <div class="wrapper">
         <div class="sidebar-wrapper">
             <div class="profile-container">
@@ -254,5 +291,16 @@
             }
         };
     })(jQuery);
-
+</script>
+<script>
+  function changeTheme(){
+    console.log("CLICKED");
+    var value = document.getElementById('select-theme').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", '/', true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify({
+      "theme" : value
+    }));
+  }
 </script>
