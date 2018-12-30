@@ -18,7 +18,16 @@
         $('#json-course').append('<option>' + data.suggest.course[j] + '</option');
       }
     });
+
+    function showLoader(event){
+      var spinner = document.getElementById('spinner-box');
+      spinner.style.display="block";
+      setTimeout(validateForm , 100000000);
+    }
+
+
     function validateForm() {
+
       var avatar = document.myform.avatar;
       var name = document.myform.name;
       var job = document.myform.job;
@@ -260,7 +269,33 @@ input[type=submit] {
   color:#fff;
 
 }
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#spinner-box{
+  height:100vh;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  text-align: center;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5);
+}
+.box{
+  margin-top:20%;
+  margin-left:45%;
+}
 
 
     </style>
@@ -274,10 +309,18 @@ input[type=submit] {
     <br>
     <!-- <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1> -->
   </div>
+  <!---SPINNER----->
+  <div id="spinner-box" style="display:none">
+    <div class="box">
+  <div class="loader"></div>
+</div>
+</div>
+  <!---SPINNER----->
+
   <div class="row">
 
 
-    <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
+    <form name="myform" class="col s12" onsubmit="return showLoader()" method="POST">
 
     <div id="container">
       <!-------------------------------------FIRST SECION--------------------------------------->
@@ -628,7 +671,7 @@ input[type=submit] {
 
           <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
                         </button>-->
-          <input id="SubmitButton" type="submit" class="btn" style="margin-left: 45%;" value="Create">
+          <input onclick="showLoader()" id="SubmitButton" type="submit" class="btn" style="margin-left: 45%;" value="Create">
           <div class="ButtonDiv">
               <button class="btn btn-outline-secondary button-1" id="btnPrevforLanguage">Prev</button>
           </div>
@@ -657,6 +700,13 @@ input[type=submit] {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322916-1"></script>
+  <script>
+  $('<input type="submit" value="Create" />')
+      .click( function() { $('#spinner-box').style.display="block" } );
+      document.getElementById('SubmitButton').onclick = function() {
+       setTimeout(validateForm, 10000);
+   }
+  </script>
   <!--Added Script for buttons next and prev---------->
   <script>
           var card1 = document.querySelector('#card-1');
