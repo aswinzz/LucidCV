@@ -18,7 +18,16 @@
         $('#json-course').append('<option>' + data.suggest.course[j] + '</option');
       }
     });
+
+    function showLoader(event){
+      var spinner = document.getElementById('spinner-box');
+      spinner.style.display="block";
+      setTimeout(validateForm , 100000000);
+    }
+
+
     function validateForm() {
+
       var avatar = document.myform.avatar;
       var name = document.myform.name;
       var job = document.myform.job;
@@ -28,6 +37,57 @@
       var facebook = document.myform.facebook;
       var twitter = document.myform.twitter;
       var website = document.myform.website;
+      var phone = document.myform.phone;
+
+      //Obtaining date objects from the form for comparison
+      var experience_start_date = document.myform.csdate;
+      var experience_end_date = document.myform.cedate;
+      var es_date = new Date(experience_start_date.value);
+      var ee_date = new Date(experience_end_date.value);
+
+      var education_start_date = document.myform.esdate;
+      var education_end_date = document.myform.eedate;
+      var eds_date = new Date(education_start_date.value);
+      var ede_date = new Date(education_end_date.value);
+
+
+      //validation for extra experiences added using "Add" button
+      if(es_date.getTime() > ee_date.getTime()){
+        window.swal("Oops","Experience starting and ending date do not consitute a valid duration!","error");
+        return false;
+      }
+
+      //Obtains each starting and ending year of experience added using Add button and validates it.
+      for(var i=2;i<=eroom;i++){
+        var a = document.myform["csdate"+i];
+        var b = document.myform["cedate"+i];
+        var starting_date = new Date(a.value);
+        var ending_date = new Date(b.value);
+
+        if(starting_date.getTime() > ending_date.getTime()){
+          window.swal("Oops","Ending year cannot be before starting year in added experience information","error");
+          return false;
+        }
+      }
+
+      //validation for extra education details added using "Add" button
+      if(eds_date.getTime() > ede_date.getTime()){
+        window.swal("Oops","Education starting and ending date do not consitute a valid duration!","error");
+        return false;
+      }
+
+      //Obtains each starting and ending year of education added using Add button and validates it.
+      for(var i=2;i<=croom;i++){
+        var a = document.myform["esdate"+i];
+        var b = document.myform["eedate"+i];
+        var starting_date = new Date(a.value);
+        var ending_date = new Date(b.value);
+
+        if(starting_date.getTime() > ending_date.getTime()){
+          window.swal("Oops","Ending year cannot be before starting year in added education information","error");
+          return false;
+        }
+      }
 
 
       if (avatar.value == "") {
@@ -86,6 +146,11 @@
         twitter.focus;
         return false;
       }
+        if (phone.value == "") {
+        window.swal("Oops", "Phone no. must be filled out", "error");
+        phone.focus;
+        return false;
+      }
       return true;
     }
 
@@ -112,11 +177,18 @@ font-weight: normal;
 font-style: italic;
 line-height: 2.2em;
 padding-bottom: 10px;
-
+background-color: #010101;
+width: 102.7%;
+margin-top: -25px;
+padding: 20px;
+border-radius: 5px 5px 0px 0px;
 }
 .card-panel{
-  background-color: #303030;
+  background-color: #050505;
+  border-radius: 5px;
   border: none;
+  width: 75%;
+  margin-left: 12.5%;
 }
 .input-field{
   color: white;
@@ -164,7 +236,7 @@ input[type=submit] {
     font-size: 1em;
 }
 ::-webkit-scrollbar {
-    width: 17px;
+    width: 7px;
 	background-color:black;
 }
 ::-webkit-scrollbar-track {
@@ -179,6 +251,51 @@ input[type=submit] {
 ::-webkit-scrollbar-thumb:hover {
     background: #b30000;
 }
+.ButtonDiv{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.button-1{
+  margin-left:5%;
+  background-color: inherit;
+  color:#fff;
+}
+.button-2{
+  margin-left:auto;
+  margin-right: 5%;
+  background-color: inherit;
+  color:#fff;
+
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#spinner-box{
+  height:100vh;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  text-align: center;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5);
+}
+.box{
+  margin-top:20%;
+  margin-left:45%;
+}
 
 
     </style>
@@ -186,16 +303,28 @@ input[type=submit] {
 
 <body>
   <div>
-    <div style="text-align: center;">
-      <img src="./images/lucidcv.png" alt="icon" height=100px>
+    <div class="logo" align="center">
+      <img src="./images/lucidcv.png" alt="icon" height="200px">
     </div>
-    <hr class="line">
-    <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1>
+    <br>
+    <!-- <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1> -->
   </div>
+  <!---SPINNER----->
+  <div id="spinner-box" style="display:none">
+    <div class="box">
+  <div class="loader"></div>
+</div>
+</div>
+  <!---SPINNER----->
+
   <div class="row">
 
-    <form name="myform" class="col s12" onsubmit="return validateForm()" method="POST">
 
+    <form name="myform" class="col s12" onsubmit="return showLoader()" method="POST">
+
+    <div id="container">
+      <!-------------------------------------FIRST SECION--------------------------------------->
+      <div id="card-1">
       <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
         <li>
           <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
@@ -261,14 +390,30 @@ input[type=submit] {
                   <input type="text" class="form-control" name="website" id="website" placeholder="Website">
                 </div>
               </div>
-        </li>
-      </ul>
+                
+                 <div class="row">
+                <div class="input-field col s6">
 
+                  <!--<label class="blue-text text-darken-2" for="phone.no">Phone no.</label>-->
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone No.">
+                </div>
+              </div>
+        </li>
+            <div class="ButtonDiv">
+                <button class="btn btn-outline-secondary button-2" id="btnNextforProjects">Next</button>
+            </div>
+      </ul>
+    </div>
+      <!-------------------------------------FIRST SECION ENDS--------------------------------------->
+
+
+
+      <!-------------------------------------SECOND SECION--------------------------------------->
 
       <!--  <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
           <li>
                <!--<h4>&nbsp&nbsp&nbspProjects</h4> -->
-
+    <div id="card-2">
       <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
         <li>
           <!-- <h4>&nbsp&nbsp&nbspProjects</h4> -->
@@ -310,8 +455,18 @@ input[type=submit] {
               </li>
             </ul>
         </li>
+        <div class="ButtonDiv">
+            <button class="btn btn-outline-secondary button-1" id="btnPrevforBasicInfo">Prev</button>
+            <button class="btn btn-outline-secondary button-2" id="btnNextforExperience">Next</button>
+        </div>
       </ul>
+</div>
+      <!-------------------------------------SECOND SECION END--------------------------------------->
 
+
+
+      <!-------------------------------------THIRD SECION--------------------------------------->
+      <div id="card-3">
       <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
         <li>
 
@@ -353,11 +508,20 @@ input[type=submit] {
           </button>
           <br><br>
         </li>
+        <div class="ButtonDiv">
+            <button class="btn btn-outline-secondary button-1" id="btnPrevforProjects">Prev</button>
+            <button class="btn btn-outline-secondary button-2" id="btnNextforEducation">Next</button>
+        </div>
       </ul>
       </li>
       </ul>
+    </div>
+      <!-------------------------------------THIRD SECION END--------------------------------------->
 
 
+
+      <!-------------------------------------FOURTH SECION--------------------------------------->
+      <div id="card-4">
       <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
         <li>
           <!-- <h4>&nbsp&nbsp&nbspEducation</h4> -->
@@ -399,8 +563,17 @@ input[type=submit] {
               </li>
             </ul>
         </li>
+        <div class="ButtonDiv">
+            <button class="btn btn-outline-secondary button-1" id="btnPrevforExperience">Prev</button>
+            <button class="btn btn-outline-secondary button-2" id="btnNextforLanguage">Next</button>
+        </div>
       </ul>
+    </div>
+      <!-------------------------------------FOURTH SECION ENDS--------------------------------------->
 
+
+      <!-------------------------------------FIFTH SECION--------------------------------------->
+      <div id="card-5">
       <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
         <li>
           <!-- <h4>&nbsp&nbsp&nbspLanguages</h4> -->
@@ -461,12 +634,25 @@ input[type=submit] {
                   <br><br>
               </li>
               </ul>
- 		</li>
+ 		         </li>
+             <div class="ButtonDiv">
+                 <button class="btn btn-outline-secondary button-1" id="btnPrevforEducation">Prev</button>
+                 <button class="btn btn-outline-secondary button-2" id="btnNextforChooseTheme">Next</button>
+             </div>
               </ul>
+            </div>
+              <!-------------------------------------FIFTH SECION ENDS--------------------------------------->
+
+              <!-------------------------------------SIXTH SECION--------------------------------------->
 
                       <br>
                       <br>
+                <div id="card-6">
+
                       <ul class="collapsible card-panel hoverable" data-collapsible="accordion">
+                        <h4 class="styled-heading heading heading-correct-pronounciation">
+                          <em>Choose your Theme</em>
+                        </h4>
                         <li>
                       <div class="input-field col s12">
                           <select name="theme" class="icons">
@@ -474,6 +660,8 @@ input[type=submit] {
                             <option value="theme1" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
                             <option value="theme2" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
                             <option value="theme3" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+                            <option value="theme4" data-icon="./images/theme1.png" class="left circle">Theme 4</option>
+                            <option value="theme5" data-icon="./images/theme1.png" class="left circle">Theme 5</option>
                           </select>
                           <label class="blue-text text-darken-2">Theme</label>
                         </div>
@@ -483,8 +671,15 @@ input[type=submit] {
 
           <!--<button class="btn waves-effect waves-light" style="margin-left: 45%;" type="submit">Create
                         </button>-->
-          <input type="submit" class="btn" style="margin-left: 45%;" value="Create">
+          <input onclick="showLoader()" id="SubmitButton" type="submit" class="btn" style="margin-left: 45%;" value="Create">
+          <div class="ButtonDiv">
+              <button class="btn btn-outline-secondary button-1" id="btnPrevforLanguage">Prev</button>
+          </div>
       </ul>
+    </div><!---CARD-6------>
+      <!---SIXTH SECION ENDS--------------------------------------->
+
+    </div><!---Div------>
     </form>
 
 
@@ -493,8 +688,8 @@ input[type=submit] {
   <footer class="footer center">
     <div class="text-center">
       <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-      <large class="copyright">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);"
-          href="http://aswinzz.com" target="_blank">aswinzz</a></large>
+      <b><large class="copyright"><div class="footer">Designed with <i style="color:red;" class="fa fa-heart"></i> by <a style="color:rgb(255, 255, 255);"
+          href="http://aswinzz.com" target="_blank">aswinzz</a></large></b></div>
     </div>
     <!--//container-->
   </footer>
@@ -505,6 +700,108 @@ input[type=submit] {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322916-1"></script>
+  <script>
+  $('<input type="submit" value="Create" />')
+      .click( function() { $('#spinner-box').style.display="block" } );
+      document.getElementById('SubmitButton').onclick = function() {
+       setTimeout(validateForm, 10000);
+   }
+  </script>
+  <!--Added Script for buttons next and prev---------->
+  <script>
+          var card1 = document.querySelector('#card-1');
+          var card2 = document.querySelector('#card-2');
+          var card3 = document.querySelector('#card-3');
+          var card4 = document.querySelector('#card-4');
+          var card5 = document.querySelector('#card-5');
+          var card6 = document.querySelector('#card-6');
+          card2.style.display="none";
+          card3.style.display="none";
+          card4.style.display="none";
+          card5.style.display="none";
+          card6.style.display="none";
+
+          var btnNextforProjects = document.querySelector('#btnNextforProjects');
+          var btnNextforExperience = document.querySelector('#btnNextforExperience');
+          var btnNextforEducation = document.querySelector('#btnNextforEducation');
+          var btnNextforLanguage = document.querySelector('#btnNextforLanguage');
+          var btnNextforChooseTheme = document.querySelector('#btnNextforChooseTheme');
+
+          var btnPrevforBasicInfo = document.querySelector('#btnPrevforBasicInfo');
+          var btnPrevforProjects = document.querySelector('#btnPrevforProjects');
+          var btnPrevforExperience = document.querySelector('#btnPrevforExperience');
+          var btnPrevforEducation = document.querySelector('#btnPrevforEducation');
+          var btnPrevforLanguage = document.querySelector('#btnPrevforLanguage');
+
+          btnNextforProjects.addEventListener("click",function(event){
+            event.preventDefault();
+            var show = validateForm();
+            if(show)
+            {
+              card2.style.display="block";
+              card1.style.display="none";
+            }
+          });
+
+          btnNextforExperience.addEventListener("click",function(event){
+            event.preventDefault();
+              card3.style.display="block";
+              card2.style.display="none";
+          });
+
+          btnNextforEducation.addEventListener("click",function(event){
+            event.preventDefault();
+              card4.style.display="block";
+              card3.style.display="none";
+
+          });
+
+          btnNextforLanguage.addEventListener("click",function(event){
+            event.preventDefault();
+              card5.style.display="block";
+              card4.style.display="none";
+          });
+
+          btnNextforChooseTheme.addEventListener("click",function(event){
+            event.preventDefault();
+              card6.style.display="block";
+              card5.style.display="none";
+
+          });
+
+          btnPrevforBasicInfo.addEventListener("click",function(event){
+            event.preventDefault();
+              card1.style.display="block";
+              card2.style.display="none";
+          });
+
+
+        btnPrevforProjects.addEventListener("click",function(event){
+            event.preventDefault();
+              card2.style.display="block";
+              card3.style.display="none";
+          });
+
+          btnPrevforExperience.addEventListener("click",function(event){
+            event.preventDefault();
+              card3.style.display="block";
+              card4.style.display="none";
+          });
+
+          btnPrevforEducation.addEventListener("click",function(event){
+            event.preventDefault();
+              card4.style.display="block";
+              card5.style.display="none";
+          });
+
+          btnPrevforLanguage.addEventListener("click",function(event){
+            event.preventDefault();
+              card5.style.display="block";
+              card6.style.display="none";
+          });
+
+
+  </script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -544,7 +841,7 @@ input[type=submit] {
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + eroom);
         var rdiv = 'removeclass' + eroom;
-        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="csdate" name="csdate' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="cedate" name="cedate' + eroom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience(' + eroom + ');">Remove </button> <br><br></li></ul>';
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Company Name</label> <input type="text" class="form-control" id="cname" name="cname' + eroom + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Job</label> <input type="text" class="form-control" id="cjob" name="cjob' + eroom + '" value=""> </div><div class="input-field col s3"><input type="date" class="form-control" id="csdate" name="csdate' + eroom + '" value=""> </div><div class="input-field col s3"><input type="date" class="form-control" id="cedate" name="cedate' + eroom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_experience(' + eroom + ');">Remove </button> <br><br></li></ul>';
 
         objTo.appendChild(divtest)
       }
@@ -563,7 +860,7 @@ input[type=submit] {
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + croom);
         var rdiv = 'removeclass' + croom;
-        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="csdate">Start (YYYY)</label> <input type="text" class="form-control" id="esdate" name="esdate' + 'croom' + '" value=""> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cedate">End (YYYY)</label> <input type="text" class="form-control" id="eedate" name="eedate' + 'croom' + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s3"> <label class="blue-text text-darken-2" for="cname">Institute Name</label> <input type="text" class="form-control" id="ename" name="ename' + croom + '" value="" list="json-institute"> </div><div class="input-field col s3"> <label class="blue-text text-darken-2" for="cjob">Course</label> <input type="text" class="form-control" id="ecourse" name="ecourse' + croom + '" value="" list="json-course"> </div><div class="input-field col s3"><input type="date" class="form-control" id="esdate" name="esdate' + croom + '" value=""> </div><div class="input-field col s3"><input type="date" class="form-control" id="eedate" name="eedate' + croom + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_education(' + croom + ');">Remove </button> <br><br></li></ul>';
 
         objTo.appendChild(divtest)
       }
@@ -582,7 +879,7 @@ input[type=submit] {
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + lang);
         var rdiv = 'removeclass' + lang;
-        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="cname">Language</label> <input type="text" class="form-control" id="l1" name="l' + lang + '" value=""> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="cjob">Percentage</label> <input type="text" class="form-control" id="p1" name="p' + lang + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_lang(' + lang + ');">Remove </button> <br><br></li></ul>';
+        divtest.innerHTML = '  <ul style="margin-left:5%;margin-right:5%;" class="collapsible" data-collapsible="accordion"> <li> <div class="row"> <div class="input-field col s6"> <label class="blue-text text-darken-2" for="cname">Language</label> <input type="text" class="form-control" id="l1" name="l' + lang + '" value="" list="lang"> </div><div class="input-field col s6"> <label class="blue-text text-darken-2" for="cjob">Percentage</label> <input type="text" class="form-control" id="p1" name="p' + lang + '" value=""> </div></div></div><button class="btn waves-effect waves-light" style="margin-left: 43%;" type="button" onclick="remove_lang(' + lang + ');">Remove </button> <br><br></li></ul>';
 
         objTo.appendChild(divtest)
       }
@@ -592,6 +889,7 @@ input[type=submit] {
       lang--;
     }
   </script>
+
 </body>
 
 </html>

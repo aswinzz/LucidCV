@@ -1,13 +1,30 @@
 @import (css) "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
 body {
-  background-image: url("https://ak7.picdn.net/shutterstock/videos/11752277/thumb/1.jpg");
+  background-image: url("https://i.imgur.com/4g9PtII.jpg");
   background-position: center;
-  background-size: cover;
+  /*background-size: cover;*/
+  background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 100vh;
   font-family: 'Raleway', sans-serif;
   padding: 50px;
   font-weight: 300;
+}
+
+.logo{
+	background-color: #010101;
+	border-radius: 5px;
+	width: 73.5%;
+	margin-left: 13.25%;
+}
+
+.footer{
+	background-color:#050505;
+	color: white;
+	border-radius: 5px;
+	width: 73%;
+	margin-left: 13.25%;
+	padding: 10px;
 }
 
 a {

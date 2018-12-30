@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Resume</title>
+<link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.css">
+<link id="theme-style" rel="stylesheet" href="./stylesheets/cv.css">
+    <style>
+        @charset "UTF-8";
+/* RESET */
+/* ----------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+.clear {
+	clear:both;
+}
+
+
+/* LAYOUT */
+/* ----------------------------------------- */
+
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	background-color: #e1e0db;
+	background-image: url(../images/bg.jpg);
+	background-repeat: repeat;
+	font-size:13px;
+	line-height: 17px;
+	color:#000;
+}
+
+.contact {
+	background-image: none;
+	background-color:#e9e9e9;
+}
+
+a, a:visited, a:active {
+	color:#709399;
+	text-decoration: none;
+}
+
+a:hover {
+	color:#709399;
+	text-decoration: underline;
+}
+
+/* DOSSIER BACKGROUND */
+/* ----------------------------------------- */
+
+#wrapper {
+	width:969px;
+	margin:0 auto;
+	margin-top:60px;
+	margin-bottom:100px;
+}
+
+.wrapper-top {
+	width:969px;
+	height:19px;
+	margin:0 auto;
+	background-image:url(../images/btop.jpg);
+	background-repeat:no-repeat;
+}
+
+.wrapper-mid {
+	width:969px;
+	margin:0 auto;
+	background-image:url(../images/bmid.jpg);
+	background-repeat: repeat-y;
+	padding-bottom:40px;
+}
+
+.wrapper-bottom {
+	width:969px;
+	height:22px;
+	padding:0;
+	margin:0 auto;
+	background-image:url(../images/bbottom.jpg);
+	background-repeat:no-repeat;
+}
+
+/* PAPER BACKGROUND */
+/* ----------------------------------------- */
+
+#paper {
+	width:828px;
+	margin:0 auto;
+}
+
+.paper-top {
+	width:828px;
+	margin:0 auto;
+	background-image:url(../images/ptop.jpg);
+	background-repeat:no-repeat;
+	height:126px;
+}
+
+#paper-mid {
+	width:828px;
+	margin:0 auto;
+	background-image:url(../images/pmid.jpg);
+	background-repeat:repeat-y;
+	display:block;
+	padding:0;
+	overflow: hidden;
+	padding-bottom:75px;
+	padding-top:7px;
+}
+
+.paper-bottom {
+	width:828px;
+	height:18px;
+	margin:0 auto;
+	background-image:url(../images/pbottom.jpg);
+	background-repeat:no-repeat;
+}
+
+/* ENTRIES */
+/* ----------------------------------------- */
+
+.entry {
+	width:720px;
+	display: block;
+	padding-top:55px;
+	clear: both;
+	margin-left:4px;
+}
+
+h1  {
+	width:250px;
+	font-size:42px;
+	color:#315a60;
+	margin-bottom:3px;
+	clear:both;
+}
+
+h1 span {
+	font-size:21px;
+	display:block;
+	color:#315a60;
+	margin-top:-5px;
+}
+
+h2 {
+	width:180px;
+	height: 23px;
+	text-align: right;
+	float:left;
+	padding:0;
+	margin:0;
+	clear:both;
+	font-size:22px;
+	color:#315a60;
+	margin-bottom:-12px;
+}
+
+p {
+	width:500px;
+	margin-left:40px;
+	float:right;
+}
+
+p img {
+	float:right;
+	margin-left:20px;
+	padding-left:10px;
+}
+
+div.content {
+	clear: both;
+	padding:0;
+	margin:0;
+	overflow: hidden;
+	display:block;
+	padding-top:32px;
+}
+
+h3 {
+	width:180px;
+	text-align: right;
+	float:left;
+	padding:0;
+	clear:both;
+	font-size: 13px;
+	color:#709399;
+}
+
+h4 {
+	width:180px;
+	text-align: right;
+	float:left;
+	padding:0;
+	clear:both;
+	font-size: 11px;
+	color:#709399;
+}
+
+h5 {
+	width:180px;
+	text-align: right;
+	float:left;
+	padding:0;
+	clear:both;
+	font-size: 10px;
+	color:#709399;
+}
+
+h6 {
+	width:180px;
+	text-align: right;
+	float:left;
+	padding:0;
+	clear:both;
+	font-size: 9px;
+	color:#709399;
+}
+
+em {
+	font-family: Georgia, "Times New Roman", serif;
+	font-style: italic;
+	color:#777777;
+	font-size:12px;
+	display: block;
+	padding-top:3px;
+}
+
+
+ol {
+	float:right;
+	width:500px;
+	margin-left:40px;
+	list-style: decimal;
+
+}
+
+ol li {
+	width:500px;
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+
+dl {
+	float:right;
+	width:500px;
+	margin-left:40px;
+
+}
+
+dt {
+	float:left;
+	display: block;
+	width:500px;
+		color:#709399;
+}
+
+dd {
+	float:left;
+	display: block;
+	width:480px;
+	text-indent:20px;
+}
+
+ul.unordered {
+	float:right;
+	width:500px;
+	margin-left:40px;
+
+}
+
+ul.unordered li {
+	margin:0;
+	padding:0;
+	float:left;
+	display: block;
+	width:500px;
+	background-image:url(../images/bullet.gif);
+	background-repeat: no-repeat;
+	padding-left:10px;
+	background-position: 0 .5em;
+	margin-top:0;
+}
+
+ul.info {
+	float:right;
+	width:500px;
+	margin-left:40px;
+	list-style-type: none;
+}
+
+ul.info li {
+	margin:0;
+	padding:0;
+	float:left;
+	display: block;
+	width:500px;
+	background-image:url(../images/bullet.gif);
+	background-repeat: no-repeat;
+	padding-left:10px;
+	background-position: 0 .5em;
+	margin-top:12px;
+}
+
+ul.skills {
+	margin:0;
+	padding:0;
+	float:right;
+	width:500px;
+	margin-left:40px;
+	margin-top:-6px;
+	list-style-type: none;
+
+}
+
+ul.skills li {
+	margin:0;
+	padding:0;
+	float:left;
+	width:156px;
+	background-image:url(../images/bullet.gif);
+	background-repeat: no-repeat;
+	padding-left:10px;
+	background-position: 0 .5em;
+	margin-top:6px;
+}
+
+ul.works {
+	margin:0;
+	padding:0;
+	float:right;
+	width:500px;
+	margin-left:40px;
+	list-style-type: none;
+}
+
+ul.works li {
+	margin:0;
+	padding:0;
+	float:left;
+}
+
+ul.works li img {
+	padding:4px;
+	background-color:#fff;
+	width:95px;
+	height:95px;
+	border:1px solid #b7c9cc;
+	margin-right:20px;
+	margin-bottom:16px;
+}
+
+ul.works li img:hover {
+	border:1px solid #315a60;
+	cursor: pointer;
+}
+
+img.portrait {
+	background-image:url(../images/frame.jpg);
+	background-repeat: no-repeat;
+	width:109px;
+	height:109px;
+	padding-top:20px;
+	padding-left:11px;
+	padding-right:11px;
+	padding-bottom:36px;
+	margin-left:50px;
+	float:left;
+
+}
+
+
+/* SELF INFORMATION */
+/* ----------------------------------------- */
+
+.self {
+	width:250px;
+	float:left;
+	padding-top:11px;
+	margin-left:38px;
+	margin-bottom:15px;
+}
+
+.self ul {
+	padding-top: 10px;
+}
+
+.self ul li.ad {
+	background-image:url(../images/icn-ad.gif);
+}
+
+.self ul li.mail {
+	background-image:url(../images/icn-mail.gif);
+}
+
+.self ul li.tel {
+	background-image:url(../images/icn-tel.gif);
+}
+
+.self ul li.web {
+	background-image:url(../images/icn-web.gif);
+}
+
+.self ul li {
+	background-repeat: no-repeat;
+	padding-left:26px;
+	background-position: 0 .1em;
+	height:25px;
+	display:block;
+	margin-top:-2px;
+}
+
+/* SOCIAL ICONS */
+/* ----------------------------------------- */
+
+.social {
+	width:135px;
+	float:right;
+	padding-top:10px;
+}
+
+.social ul {
+	list-style: none;
+}
+
+.social ul li {
+	float:left;
+	width:21px;
+	height:24px;
+	margin:0;
+	padding:0;
+	margin-left:6px;
+}
+
+/* TIPSY */
+/* ----------------------------------------- */
+
+.tipsy { padding: 5px; font-size: 10px; background-repeat: no-repeat;  background-image: url(../images/tipsy.gif); }
+.tipsy-inner { padding: 5px 8px 4px 8px; background-color: #1c363a; color: #fff; max-width: 200px; text-align: center; }
+.tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-north { background-position: top center; }
+.tipsy-south { background-position: bottom center; margin-bottom:20px; }
+.tipsy-east { background-position: right center; }
+.tipsy-west { background-position: left center; }
+
+
+/* COLORBOX */
+/* ----------------------------------------- */
+
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative; overflow:hidden;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
+#cboxTitle{margin:0; display:none;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+
+#cboxOverlay{background:#666;}
+
+#colorBox{}
+#cboxTopLeft{width:25px; height:25px; background:url(../images/border1.png) 0 0 no-repeat;}
+#cboxTopCenter{height:25px; background:url(../images/border1.png) 0 -50px repeat-x;}
+#cboxTopRight{width:25px; height:25px; background:url(../images/border1.png) -25px 0 no-repeat;}
+#cboxBottomLeft{width:25px; height:25px; background:url(../images/border1.png) 0 -25px no-repeat;}
+#cboxBottomCenter{height:25px; background:url(../images/border1.png) 0 -75px repeat-x;}
+#cboxBottomRight{width:25px; height:25px; background:url(../images/border1.png) -25px -25px no-repeat;}
+#cboxMiddleLeft{width:25px; background:url(../images/border2.png) 0 0 repeat-y;}
+#cboxMiddleRight{width:25px; background:url(../images/border2.png) -25px 0 repeat-y;}
+#cboxContent{background:#fff;}
+#cboxLoadedContent{margin-bottom:20px;}
+#cboxTitle{position:absolute; bottom:0px; left:0; text-align:center; width:100%; color:#315a60;}
+#cboxCurrent{position:absolute; bottom:0px; left:100px; color:#000;}
+#cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}
+#cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}
+#cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
+#cboxLoadingOverlay{background:url(../images/loading.gif) 5px 5px no-repeat #fff;}
+#cboxClose{position:absolute; bottom:0; right:0; display:block; color:#444;}
+
+
+/* GO TO TOP */
+/* ----------------------------------------- */
+
+#message {
+	display: block;
+	display: none;
+	z-index: 999;
+	opacity: .8;
+	position: fixed;
+	top: 100%;
+	margin-top: -40px;
+	right: 0%;
+	margin-right:10px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	width: 77px;
+	line-height: 20px;
+	height: 20px;
+	padding: 5px;
+	background-color: #1c363a;
+	font-size: 11px;
+	text-align: center;
+}
+
+#message a {
+	color: #fff;
+}
+
+/* ELEMENTS */
+/* ----------------------------------------- */
+
+table {
+	width: 500px;
+	margin-left:40px;
+	float:right;
+	border-collapse: collapse;
+	border-bottom:1px dashed #999;
+	border-top:1px dashed #999;
+}
+
+table td {
+	padding: 10px;
+	padding-top:0;
+	border-right:1px dashed #999;
+}
+
+table td:hover {
+	background-color: #f2f2f2;
+}
+
+table th {
+	padding: 10px;
+	padding-top:0;
+	color:#709399;
+	text-align: left;
+	border-right:1px dashed #999;
+}
+
+table td.center {
+	text-align: center;
+}
+
+table td.last {
+	background: none;
+}
+
+table th.center {
+	text-align: center;
+}
+
+table th.last {
+	background: none;
+}
+
+table tr {
+	border-left:1px dashed #999;
+	border-top:1px dashed #999;
+}
+
+table tr.caption {
+	border-left:1px dashed #999;
+}
+
+blockquote {
+	border-left:3px solid #709399;
+	padding-left:8px;
+	width:489px;
+	margin-left:40px;
+	float:right;
+}
+
+abbr, acronym {
+	border-bottom:1px dashed #709399;
+}
+
+strong {
+	font-weight: bold;
+}
+
+small {
+	font-size:70%;
+}
+
+big {
+	font-size:1.2em;
+}
+
+
+/* CONTACT */
+
+fieldset, legend {
+	float:right;
+	width:500px;
+	padding:0;
+	margin:0;
+	margin-left:40px;
+}
+
+h1.warn {
+	color:#315a60;
+	font-size:18px;
+	margin-top:30px;
+	padding:50px;
+	text-align: center;
+}
+
+#contactform {
+	width:320px;
+	height:370px;
+	margin:0 auto;
+	padding:50px;
+	overflow: hidden;
+}
+
+label {
+	float:left;
+	width:40px;
+	height:28px;
+	margin-bottom:10px;
+	clear:both;
+	color:#315a60;
+}
+
+input {
+	width:228px;
+	float:right;
+	height:18px;
+	margin-bottom:10px;
+	border-top:1px solid #c8c8c8;
+	border-left:1px solid #c8c8c8;
+	border-right:1px solid #dadada;
+	border-bottom:1px solid #f2f2f2;
+	background-color: #e4e4e4;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding:5px;
+	outline: none;
+}
+
+input:focus {
+	background-color: #dddddd;
+	border-top:1px solid #c8c8c8;
+	border-left:1px solid #c8c8c8;
+	border-right:1px solid #dadada;
+	border-bottom:1px solid #f2f2f2;
+}
+
+textarea {
+	border-top:1px solid #c8c8c8;
+	border-left:1px solid #c8c8c8;
+	border-right:1px solid #dadada;
+	border-bottom:1px solid #f2f2f2;
+	background-color: #e4e4e4;
+	width:228px;
+	float:right;
+	margin-bottom:10px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding:5px;
+	outline: none;
+}
+
+textarea:focus {
+	background-color: #dddddd;
+	border-top:1px solid #c8c8c8;
+	border-left:1px solid #c8c8c8;
+	border-right:1px solid #dadada;
+	border-bottom:1px solid #f2f2f2;
+}
+
+.submit-button {
+	background: transparent url(../images/submit.jpg) no-repeat 0 0;
+	display: block;
+	clear: both;
+	width:90px;
+	height: 33px;
+	border:none;
+	float:left;
+	margin-left: 80px;
+	text-indent: -9999px;
+	outline: 0;
+	cursor: pointer;
+	padding:0;
+}
+
+.submit-button:hover {
+	background: transparent url(../images/submit.jpg) no-repeat 0 -33px;
+	outline: 0;
+	border: none;
+}
+
+label.error {
+	clear: both;
+	padding:0;
+	margin-top:-5px;
+	color:#709399;
+	font-size: 1.0em;
+	font-style: italic;
+	font-weight: normal;
+	margin-left:80px;
+	width:238px;
+}
+#wrapper{
+  border:2pc solid #000;
+}
+img.portrait{
+  padding:0px;
+  margin:0px;
+  box-sizing:content-box;
+  height:200px;
+  width:200px;
+  border-radius:100px;
+}
+body{
+  font-size:1.2rem;
+}
+    </style>
+    <style>
+      #small-header{
+        margin: 30px;
+        display: flex;
+        flex-flow: row;
+        margin-bottom: 30px;
+        height :50px;
+      }
+      .forms{
+        margin-left :20px;
+      }
+      #submit-button{
+        border-radius: 5px;
+        background-color:inherit;
+        color:#000;
+        border : 1px solid #000;
+        height:30px;
+
+      }
+      .icons{
+        height:30px;
+        border : 1px solid #000;
+        border-radius : 5px;
+      }
+      #create_pdf{
+        height : 100%;
+      }
+    </style>
+
+</head>
+<body>
+  <div id="small-header">
+    <input type="button" id="create_pdf" value="Generate PDF" class="btn btn-primary">
+    <div class="forms">
+      <!------------CHANGE THEME DIV---------------->
+      <form method="post" onsubmit="changeTheme()">
+        <select name="theme" class="icons" id="select-theme">
+          <option value="" disabled selected>Choose your Theme</option>
+          <option value="theme1" data-icon="./images/theme1.png" class="left circle">Theme 1</option>
+          <option value="theme2" data-icon="./images/theme1.png" class="left circle">Theme 2</option>
+          <option value="theme3" data-icon="./images/theme1.png" class="left circle">Theme 3</option>
+          <option value="theme4" data-icon="./images/theme1.png" class="left circle">Theme 4</option>
+          <option value="theme5" data-icon="./images/theme1.png" class="left circle">Theme 5</option>
+        </select>
+        <button id="submit-button">change</button>
+      </form>
+    </div>
+  </div>
+<!-- Begin Wrapper -->
+<div id="wrapper">
+
+  <div class="wrapper-top"></div>
+  <div class="wrapper-mid">
+    <!-- Begin Paper -->
+    <div id="paper">
+      <div class="paper-top"></div>
+      <div id="paper-mid">
+        <div class="entry">
+          <!-- Begin Image -->
+          <img class="portrait" src="<%= out.header.avatar %>" alt="John Smith" />
+          <!-- End Image -->
+          <!-- Begin Personal Information -->
+          <div class="self">
+            <h1 class="name"><%= out.header.name %> <br>
+                <br>
+              <span><%= out.header.job %></span></h1>
+          </div>
+          <!-- End Personal Information -->
+          <!-- Begin Social -->
+          <div class="social">
+               <ul class="list-unstyled contact-list">
+              <li class="email"><i class="fa fa-envelope"></i><a href="mailto: <%= out.header.email %>"></a></li>
+              <li class="website"><i class="fa fa-globe"></i><a href="<%= out.header.icon.website %>" target="_blank"></a></li>
+              <li class="linkedin"><i class="fa fa-linkedin"></i><a href="<%= out.header.icon.linkdin %>" target="_blank"></a></li>
+              <li class="github"><i class="fa fa-github"></i><a href="<%= out.header.icon.github %>" target="_blank"></a></li>
+              <li class="twitter"><i class="fa fa-twitter"></i><a href="<%= out.header.icon.twitter %>" target="_blank"></a></li>
+          </ul>
+          </div>
+          <!-- End Social -->
+        </div>
+        <!-- Begin 1st Row -->
+        <div class="entry">
+          <h2>BIO</h2>
+          <p><%= out.header.bio %></p>
+        </div>
+        <!-- End 1st Row -->
+
+        <!-- Begin 3rd Row -->
+        <div class="entry">
+          <h2>EXPERIENCE</h2>
+          <div class="content">
+            <% for(var i=0;i<out.experience.length;i++){ %>
+              <% if(out.experience[i]){ %>
+                <div class="content">
+          <h3><%= out.experience[i].date.start %> - <%= out.experience[i].date.end %></h3>
+          <p><%= out.experience[i].name %> <br />
+            <em><%= out.experience[i].job %></em></p>
+        </div>
+            <% } %>
+            <% } %>
+          </div>
+        </div>
+        <!-- End 3rd Row -->
+        <!-- Begin 4th Row -->
+          <section class="skills-section section">
+        <div class="entry">
+          <h2>SKILLS</h2>
+            <div>
+              <div class="content">
+                <% for(var i=0;i<out.language.length;i++){ %>
+
+                    <div class="content">
+              <h3<%= out.experience[i].date.start %> - <%= out.experience[i].date.end %></h3>
+              <p><%= out.language[i].lang %> <br />
+                <em><%= out.language[i].perc %>%</em></p>
+            </div>
+                <% } %>
+        </div>
+        </div>
+          </section>
+        <!-- End 4th Row -->
+         <!-- Begin 5th Row -->
+        <div class="entry">
+        <h2>WORKS</h2>
+        <div>
+          <div class="content">
+           <% for(var i=0;i<out.experience.length;i++){ %>
+
+                <div class="content">
+        <h2 class="project-title"><a href="<%= out.projects[i].link %>"><%= out.projects[i].name %></a></h2>
+          <br>
+          <p><%= out.projects[i].desc %> <br></p>
+        </div>
+            <% } %>
+    </div>
+    </div>
+        <!-- Begin 5th Row -->
+      </div>
+      <div class="clear"></div>
+      <div class="paper-bottom"></div>
+    </div>
+    <!-- End Paper -->
+  </div>
+  <div class="wrapper-bottom"></div>
+</div>
+<div id="message"><a href="#top" id="top-link">Go to Top</a></div>
+<!-- End Wrapper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<!-- custom js -->
+<script type="text/javascript" src="./javascripts/main.js"></script>
+<script type="text/javascript">
+
+(function () {
+   var
+    form = $('.wrapper'),
+    cache_width = form.width(),
+    a4 = [595.28, 841.89]; // for a4 size paper width and height
+
+   $('#create_pdf').on('click', function () {
+
+       var name =$('#name').html();
+
+       $('body').scrollTop(0);
+       createPDF(name);
+   });
+   //create pdf
+   function createPDF(name) {
+       getCanvas().then(function (canvas) {
+           var
+            img = canvas.toDataURL("image/png"),
+            doc = new jsPDF({
+                unit: 'px',
+                format: 'a4'
+            });
+           doc.addImage(img, 'JPEG', 20, 20);
+
+           doc.save('LucidCV - ' + name+ '.pdf');
+           form.width(cache_width);
+       });
+   }
+
+   // create canvas object
+   function getCanvas() {
+       form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+       return html2canvas(form, {
+           imageTimeout: 2000,
+           removeContainer: true
+       });
+   }
+
+}());
+/*
+* jQuery helper plugin for examples and tests
+*/
+(function ($) {
+   $.fn.html2canvas = function (options) {
+       var date = new Date(),
+       $message = null,
+       timeoutTimer = false,
+       timer = date.getTime();
+       html2canvas.logging = options && options.logging;
+       html2canvas.Preload(this[0], $.extend({
+           complete: function (images) {
+               var queue = html2canvas.Parse(this[0], images, options),
+               $canvas = $(html2canvas.Renderer(queue, options)),
+               finishTime = new Date();
+
+               $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+               $canvas.siblings().toggle();
+
+               $(window).click(function () {
+                   if (!$canvas.is(':visible')) {
+                       $canvas.toggle().siblings().toggle();
+                       throwMessage("Canvas Render visible");
+                   } else {
+                       $canvas.siblings().toggle();
+                       $canvas.toggle();
+                       throwMessage("Canvas Render hidden");
+                   }
+               });
+               throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+           }
+       }, options));
+
+       function throwMessage(msg, duration) {
+           window.clearTimeout(timeoutTimer);
+           timeoutTimer = window.setTimeout(function () {
+               $message.fadeOut(function () {
+                   $message.remove();
+               });
+           }, duration || 2000);
+           if ($message)
+               $message.remove();
+           $message = $('<div ></div>').html(msg).css({
+               margin: 0,
+               padding: 10,
+               background: "#000",
+               opacity: 0.7,
+               position: "fixed",
+               top: 10,
+               right: 10,
+               fontFamily: 'Tahoma',
+               color: '#fff',
+               fontSize: 12,
+               borderRadius: 12,
+               width: 'auto',
+               height: 'auto',
+               textAlign: 'center',
+               textDecoration: 'none'
+           }).hide().fadeIn().appendTo('body');
+       }
+   };
+})(jQuery);
+
+</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3753241-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script>
+  function changeTheme(){
+    console.log("CLICKED");
+    var value = document.getElementById('select-theme').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", '/', true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify({
+      "theme" : value
+    }));
+  }
+</script>
+</body>
+</html>
