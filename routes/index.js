@@ -5,9 +5,30 @@ const fs = require('fs');
 
 /* GET home page. */
 
+/*-----Since we are storing data of user thats why homepage would be sign in page---------*/
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('signIn', { title: 'SignIn' });
 });
+
+/*------router for signup page--------------*/
+router.get('/signUp', function(req, res, next) {
+  console.log(req);
+      res.render('signUp', { title: 'SignUp' });
+});
+
+/*-------router for storing info of user-------*/
+router.post('/cv', function(req, res, next) {
+  var user = req.body;
+  console.log("USER " , user);
+  res.send({
+    text : "success"
+  });
+  // res.render('index', { title: 'Express' });
+});
+
+
+
+
 
 //making output var global
   var output = null;
