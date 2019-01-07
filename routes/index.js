@@ -256,6 +256,12 @@ router.post('/LucidCV', function(req, res, next) {
   else if(req.body.theme ==="theme5"){
     res.render('theme5',{out:JSON.parse(output)});
   }
+  else if(req.body.theme ==="theme6"){
+    res.render('theme6',{out:JSON.parse(output)});
+  }
+  else if(req.body.theme ==="theme7"){
+    res.render('theme7',{out:JSON.parse(output)});
+  }
   else{
     //default
       res.render('resume',{out:JSON.parse(output)});
