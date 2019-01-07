@@ -1,19 +1,119 @@
 var express = require('express');
 var router = express.Router();
 var jbuilder = require('jbuilder');
+const axios = require('axios');
 const fs = require('fs');
-
-/* GET home page. */
-
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
+/*Making it public so can be accessed in future because we want to update it*/
+let userData ;//for storing data of user and updating purpose
+var users;//for storing users
+let userKey;//for storing key of the user
 //making output var global
   var output = null;
   var theme = null;
 
-router.post('/', function(req, res, next) {
+
+/* GET home page. */
+
+/*-----Since we are storing data of user thats why homepage would be sign in page---------*/
+router.get('/', function(req, res, next) {
+  res.render('signIn', { title: 'SignIn' });
+});
+
+/*------router for signup page--------------*/
+router.get('/signUp', function(req, res, next) {
+  console.log(req);
+      res.render('signUp', { title: 'SignUp' });
+});
+
+/*route for cv page*/
+router.get('/LucidCV', function(req, res, next) {
+      res.render('index', { title: 'LucidCV' });
+});
+
+
+/*-------router for storing info of user-------*/
+router.post('/cv', function(req, res, next) {
+  var user = req.body;
+  console.log("--------------------USER-------------------------------- " , user);
+  /*Creaating JSON object to be sent to firebase*/
+   userData ={
+    name : user.username,
+    password : user.password,
+    cv : {}
+  };
+  console.log("userData",userData);
+  if(req.body.for ==='signUp')
+  {
+    /* making a post request  to firebase for storing data of user */
+      axios.post('https://lucidcv-ae651.firebaseio.com/users.json',userData)
+        .then(response=>{
+          console.log("--------------------------SUCCESS----------------",response);
+          userKey=response.data.name;
+          res.send({
+            text : "Success"
+          });
+        })
+        .catch(error=>{
+          console.log("ERROR",error);
+          res.send({
+            text : "failure"
+          });
+        })
+  }
+
+  else if(req.body.for ==='signIn')
+  {
+    let foundUser = false;
+    /* making a post request  to firebase for checking data of user */
+    axios.get('https://lucidcv-ae651.firebaseio.com/users.json')
+    .then(response=>{
+        /*Storing users in a variable*/
+        users = response.data;
+        console.log(users);
+        /*Converting the object into in array*/
+        const arrayUsers = Object.keys(users);
+        /*Searching for user in the database if exist set userFound to true*/
+            for(let i in arrayUsers)
+              {
+                let key = arrayUsers[i];
+                console.log("key",key);
+                console.log("user[key]",users[key]);
+                if(users[key].username === userData.username && users[key].password === userData.password)
+                {
+                  userData.cv = users[key].cv;
+                  output = userData.cv;
+                  userKey = key;
+                  res.send({
+                    text : "Success"
+                  });
+                  foundUser=true;
+                  break;
+                }
+              }
+              if(!foundUser)
+              {
+                res.send({
+                  text : "failure"
+                });
+              }
+    })
+    .catch(e=>{
+      console.log(e);
+      res.send({
+        text : "failure"
+      });
+    })
+  }
+
+});
+
+
+
+
+
+
+
+router.post('/LucidCV', function(req, res, next) {
   if(output===null)
   {
     output = jbuilder.encode(function(json) {
@@ -112,6 +212,9 @@ router.post('/', function(req, res, next) {
 
   }
 
+  /*In output variable the user data will be stored so if the user so we need to define a function that update the userData variable and update the database*/
+  updateUserDataAndDatabase();
+
   // console.log(output);
   console.log("req body",req.body.theme);
 
@@ -165,5 +268,23 @@ router.post('/', function(req, res, next) {
 router.get('*', function(req, res, next) {
   res.render("404");
 });
+
+/*function for updating user*/
+const updateUserDataAndDatabase =()=>{
+  userData.cv = output;
+  var url = "https://lucidcv-ae651.firebaseio.com/users/"+userKey+".json";
+  console.log(url);
+  axios.patch(url,userData)
+  .then(response=>{
+    console.log("-------RESPONSE FROM DB -----Success",response);
+  })
+  .catch(e=>{
+    console.log("ERROR");
+  })
+}
+
+
+
+
 
 module.exports = router;
