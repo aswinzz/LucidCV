@@ -114,6 +114,11 @@ router.post('/cv', function(req, res, next) {
 
 
 router.post('/LucidCV', function(req, res, next) {
+//making output var global
+  var output = null;
+  var theme = null;
+
+router.post('/', function(req, res, next) {
   if(output===null)
   {
     output = jbuilder.encode(function(json) {
