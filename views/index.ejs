@@ -296,7 +296,11 @@ input[type=submit] {
   margin-top:20%;
   margin-left:45%;
 }
-
+.LiveDiv{
+  position: absolute;
+  left:-100;
+  top:25;
+}
 
     </style>
 </head>
@@ -321,7 +325,9 @@ input[type=submit] {
 
 
     <form name="myform" class="col s12" onsubmit="return showLoader()" method="POST">
-
+      <div class="LiveDiv">
+          <button class="btn btn-outline-primary button-2">Live</button>
+      </div>
     <div id="container">
       <!-------------------------------------FIRST SECION--------------------------------------->
       <div id="card-1">

@@ -34,7 +34,7 @@ router.get('/LucidCV', function(req, res, next) {
 /*-------router for storing info of user-------*/
 router.post('/cv', function(req, res, next) {
   var user = req.body;
-  console.log("--------------------USER-------------------------------- " , user);
+  // console.log("--------------------USER-------------------------------- " , user);
   /*Creaating JSON object to be sent to firebase*/
   console.log("name : ",user.username);
   console.log("name : ",user.password);
@@ -49,14 +49,14 @@ router.post('/cv', function(req, res, next) {
     /* making a post request  to firebase for storing data of user */
       axios.post('https://lucidcv-ae651.firebaseio.com/users.json',userData)
         .then(response=>{
-          console.log("--------------------------SUCCESS----------------",response);
+          // console.log("--------------------------SUCCESS----------------",response);
           userKey=response.data.name;
           res.send({
             text : "Success"
           });
         })
         .catch(error=>{
-          console.log("ERROR",error);
+          // console.log("ERROR",error);
           res.send({
             text : "failure"
           });
@@ -78,8 +78,8 @@ router.post('/cv', function(req, res, next) {
             for(let i in arrayUsers)
               {
                 let key = arrayUsers[i];
-                console.log("key",key);
-                console.log("user[key]",users[key]);
+                // console.log("key",key);
+                // console.log("user[key]",users[key]);
                 if(users[key].username === userData.username && users[key].password === userData.password)
                 {
                   console.log("--------------------USER FOUND-----------------------------");
@@ -116,14 +116,23 @@ router.post('/cv', function(req, res, next) {
 
 
 
-router.post('/LucidCV', function(req, res, next) {
+
 //making output var global
   var output = null;
   var theme = null;
 
-router.post('/', function(req, res, next) {
-  if(output===null)
+router.post('/LucidCV', function(req, res, next) {
+  var tempOutput = null;
+  if(output !== null)
   {
+    console.log("-------------SETTING TEMP OUTPUT-------------------");
+    tempOutput = output;
+  }
+  else{
+    console.log("---------------------SETTING OUTPUT TO NULL-----------");
+    output = null;
+  }
+
     output = jbuilder.encode(function(json) {
 
      json.set('header', function(json) {
@@ -215,39 +224,47 @@ router.post('/', function(req, res, next) {
        });
      });
    });
-   // console.log(output);
-   fs.writeFileSync('cv.json', output);
-
-  }
-
-  /*In output variable the user data will be stored so if the user so we need to define a function that update the userData variable and update the database*/
-  updateUserDataAndDatabase();
 
   // console.log(output);
-  console.log("req body",req.body.theme);
+  console.log("---------------------req body theme---------------------------",req.body.theme);
+  console.log("OUTPUT VARIALBE BEFORE THEME CHANGE---------",output);
+  console.log("TEMP OUTPUT VARIABLE BEFORE THEME CHANGE -------------",tempOutput);
+
 
   /*Adding logic for storing theme to a variable and then using it !*/
   /*This will store the value when we will first submit the form */
   if(theme === null && req.body.theme)
   {
-    console.log("-----------ENTER THE BOTH NULL CASE !--------- ");
+    console.log("--------------CASE 1 --------------");
+    // console.log("-----------ENTER THE BOTH NULL CASE !--------- ");
     theme = req.body.theme ;
   }
 
 /* store the value when we will update the value from the theme*/
   if(theme !== null && req.body.theme)
   {
-    console.log("-----------SETTING THEME FOR THE SECOND TIME------------------------");
+    console.log("--------------CASE 2 --------------");
+    // console.log("-----------SETTING THEME FOR THE SECOND TIME------------------------");
+    output = tempOutput;
     theme = req.body.theme;
   }
 /*when the second request is made this makes req.body.theme undefined so it will store the value in it */
   if (theme !== null && !(req.body.theme))
   {
-    console.log("---------------SETTING REQ>THEME to THEME------------------------------");
+    console.log("--------------CASE 3 --------------");
+    // console.log("---------------SETTING REQ>THEME to THEME------------------------------");
     req.body.theme = theme;
   }
 
+  // console.log(output);
+  fs.writeFileSync('cv.json', output);
 
+
+ /*In output variable the user data will be stored so if the user so we need to define a function that update the userData variable and update the database*/
+  // updateUserDataAndDatabase();
+
+  console.log("OUTPUT VARIALBE AFTER THEME CHANGE---------",output);
+  console.log("TEMP OUTPUT VARIABLE AFTER THEME CHANGE -------------",tempOutput);
   if(req.body.theme === "theme1"){
     res.render('resume',{out:JSON.parse(output)});
   }
@@ -290,7 +307,7 @@ const updateUserDataAndDatabase =()=>{
   console.log(url);
   axios.patch(url,userData)
   .then(response=>{
-    console.log("-------RESPONSE FROM DB -----Success",response);
+    console.log("-------RESPONSE FROM DB -----Success");
   })
   .catch(e=>{
     console.log("ERROR");
