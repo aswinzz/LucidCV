@@ -18,7 +18,13 @@
         $('#json-course').append('<option>' + data.suggest.course[j] + '</option');
       }
     });
+
+
+
+
+
     function validateForm() {
+
       var avatar = document.myform.avatar;
       var name = document.myform.name;
       var job = document.myform.job;
@@ -29,47 +35,61 @@
       var twitter = document.myform.twitter;
       var website = document.myform.website;
       var phone = document.myform.phone;
+
+
       //Obtaining date objects from the form for comparison
       var experience_start_date = document.myform.csdate;
       var experience_end_date = document.myform.cedate;
       var es_date = new Date(experience_start_date.value);
       var ee_date = new Date(experience_end_date.value);
+
       var education_start_date = document.myform.esdate;
       var education_end_date = document.myform.eedate;
       var eds_date = new Date(education_start_date.value);
       var ede_date = new Date(education_end_date.value);
+
+
       //validation for extra experiences added using "Add" button
       if(es_date.getTime() > ee_date.getTime()){
         window.swal("Oops","Experience starting and ending date do not consitute a valid duration!","error");
         return false;
       }
+
       //Obtains each starting and ending year of experience added using Add button and validates it.
       for(var i=2;i<=eroom;i++){
         var a = document.myform["csdate"+i];
         var b = document.myform["cedate"+i];
         var starting_date = new Date(a.value);
         var ending_date = new Date(b.value);
+
+
+
         if(starting_date.getTime() > ending_date.getTime()){
           window.swal("Oops","Ending year cannot be before starting year in added experience information","error");
           return false;
         }
       }
+
       //validation for extra education details added using "Add" button
       if(eds_date.getTime() > ede_date.getTime()){
         window.swal("Oops","Education starting and ending date do not consitute a valid duration!","error");
         return false;
       }
+
       //Obtains each starting and ending year of education added using Add button and validates it.
       for(var i=2;i<=croom;i++){
         var a = document.myform["esdate"+i];
         var b = document.myform["eedate"+i];
         var starting_date = new Date(a.value);
         var ending_date = new Date(b.value);
+        
         if(starting_date.getTime() > ending_date.getTime()){
           window.swal("Oops","Ending year cannot be before starting year in added education information","error");
           return false;
         }
       }
+
+
       if (avatar.value == "") {
         window.swal("Oops", "AvatarUrl must be filled out", "error");
         avatar.focus;
@@ -100,6 +120,7 @@
         email.focus();
         return false;
       }
+
       if (github.value == "") {
         window.swal("Oops", "Github must be filled out", "error");
         github.focus;
@@ -132,10 +153,13 @@
       }
       return true;
     }
+
   </script>
 
   <style>
+
     @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+
 hr.line{
 border: 0;
 height: 1px;
@@ -194,12 +218,15 @@ opacity: 0.2;
 margin: 0 0.6em;
 font-size: 0.5em;
 } */
+
 ::placeholder{
   color: rgba(255, 255, 255,0.5);
 }
 :-ms-input-placeholder {
    color: rgba(255, 255, 255,0.5);
 }
+
+
 ::-ms-input-placeholder {
    color: rgba(255, 255, 255,0.5);
 }
@@ -241,6 +268,8 @@ input[type=submit] {
   margin-right: 5%;
   background-color: inherit;
   color:#fff;
+
+
 }
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
@@ -250,6 +279,9 @@ input[type=submit] {
   height: 120px;
   animation: spin 2s linear infinite;
 }
+
+
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -279,6 +311,9 @@ input[type=submit] {
 .submitButton:hover{
   background-color:green;
 }
+
+
+
     </style>
 </head>
 
@@ -355,6 +390,9 @@ input[type=submit] {
         username : name,
         password : password
       }
+
+
+
       $.post("/cv", data).done(function (data)
       {
         console.log("DATA____",data);
@@ -368,6 +406,8 @@ input[type=submit] {
         }
       }
       );
+
+
     }
   </script>
 

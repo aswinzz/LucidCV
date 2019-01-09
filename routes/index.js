@@ -36,6 +36,8 @@ router.post('/cv', function(req, res, next) {
   var user = req.body;
   // console.log("--------------------USER-------------------------------- " , user);
   /*Creaating JSON object to be sent to firebase*/
+  console.log("name : ",user.username);
+  console.log("name : ",user.password);
    userData ={
     name : user.username,
     password : user.password,
@@ -80,6 +82,7 @@ router.post('/cv', function(req, res, next) {
                 // console.log("user[key]",users[key]);
                 if(users[key].username === userData.username && users[key].password === userData.password)
                 {
+                  console.log("--------------------USER FOUND-----------------------------");
                   userData.cv = users[key].cv;
                   output = userData.cv;
                   userKey = key;
