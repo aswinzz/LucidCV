@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CV-Maker</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <link rel='stylesheet' href='./stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+    $.getJSON("./data/suggestion.json", function (data) {
+      for (var i = 0; i < data.suggest.institute.length; i++) {
+        $('#json-institute').append('<option>' + data.suggest.institute[i] + '</option');
+      }
+      for (var j = 0; j < data.suggest.course.length; j++) {
+        $('#json-course').append('<option>' + data.suggest.course[j] + '</option');
+      }
+    });
+
+
+
+
+    function validateForm() {
+
+      var avatar = document.myform.avatar;
+      var name = document.myform.name;
+      var job = document.myform.job;
+      var email = document.myform.email;
+      var github = document.myform.github;
+      var linkedin = document.myform.linkedin;
+      var facebook = document.myform.facebook;
+      var twitter = document.myform.twitter;
+      var website = document.myform.website;
+      var phone = document.myform.phone;
+
+      //Obtaining date objects from the form for comparison
+      var experience_start_date = document.myform.csdate;
+      var experience_end_date = document.myform.cedate;
+      var es_date = new Date(experience_start_date.value);
+      var ee_date = new Date(experience_end_date.value);
+
+      var education_start_date = document.myform.esdate;
+      var education_end_date = document.myform.eedate;
+      var eds_date = new Date(education_start_date.value);
+      var ede_date = new Date(education_end_date.value);
+
+
+      //validation for extra experiences added using "Add" button
+      if(es_date.getTime() > ee_date.getTime()){
+        window.swal("Oops","Experience starting and ending date do not consitute a valid duration!","error");
+        return false;
+      }
+
+      //Obtains each starting and ending year of experience added using Add button and validates it.
+      for(var i=2;i<=eroom;i++){
+        var a = document.myform["csdate"+i];
+        var b = document.myform["cedate"+i];
+        var starting_date = new Date(a.value);
+        var ending_date = new Date(b.value);
+
+        if(starting_date.getTime() > ending_date.getTime()){
+          window.swal("Oops","Ending year cannot be before starting year in added experience information","error");
+          return false;
+        }
+      }
+
+      //validation for extra education details added using "Add" button
+      if(eds_date.getTime() > ede_date.getTime()){
+        window.swal("Oops","Education starting and ending date do not consitute a valid duration!","error");
+        return false;
+      }
+
+      //Obtains each starting and ending year of education added using Add button and validates it.
+      for(var i=2;i<=croom;i++){
+        var a = document.myform["esdate"+i];
+        var b = document.myform["eedate"+i];
+        var starting_date = new Date(a.value);
+        var ending_date = new Date(b.value);
+
+        if(starting_date.getTime() > ending_date.getTime()){
+          window.swal("Oops","Ending year cannot be before starting year in added education information","error");
+          return false;
+        }
+      }
+
+
+      if (avatar.value == "") {
+        window.swal("Oops", "AvatarUrl must be filled out", "error");
+        avatar.focus;
+        return false;
+      }
+      if (name.value == "") {
+        window.swal("Oops", "Name must be filled out", "error");
+        name.focus;
+        return false;
+      }
+      if (job.value == "") {
+        window.swal("Oops", "Job must be filled out", "error");
+        job.focus;
+        return false;
+      }
+      if (email.value == "") {
+        window.swal("Oops", "E-mail must be filled out", "error");
+        email.focus;
+        return false;
+      }
+      if (email.value.indexOf("@", 0) < 0) {
+        window.swal("Oops", "Please enter a valid e-mail address.", "error");
+        email.focus();
+        return false;
+      }
+      if (email.value.indexOf(".", 0) < 0) {
+        window.swal("Oops", "Please enter a valid e-mail address.", "error");
+        email.focus();
+        return false;
+      }
+
+      if (github.value == "") {
+        window.swal("Oops", "Github must be filled out", "error");
+        github.focus;
+        return false;
+      }
+      if (linkedin.value == "") {
+        window.swal("Oops", "LinkedIn must be filled out", "error");
+        linkedin.focus;
+        return false;
+      }
+      if (facebook.value == "") {
+        window.swal("Oops", "Facebook must be filled out", "error");
+        facebook.focus;
+        return false;
+      }
+      if (twitter.value == "") {
+        window.swal("Oops", "Twitter must be filled out", "error");
+        twitter.focus;
+        return false;
+      }
+      if (website.value == "") {
+        window.swal("Oops", "Website must be filled out", "error");
+        twitter.focus;
+        return false;
+      }
+        if (phone.value == "") {
+        window.swal("Oops", "Phone no. must be filled out", "error");
+        phone.focus;
+        return false;
+      }
+      return true;
+    }
+
+  </script>
+
+  <style>
+
+    @import url(https://fonts.googleapis.com/css?family=EB+Garamond|Cardo:400italic);
+
+hr.line{
+border: 0;
+height: 1px;
+background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+.heading-correct-pronounciation {
+margin: auto;
+text-align: center;
+position: relative;
+}
+.styled-heading{
+color: #ED2553;
+font-size: 0.8em;
+font-weight: normal;
+font-style: italic;
+line-height: 2.2em;
+padding-bottom: 10px;
+background-color: #010101;
+width: 102.7%;
+margin-top: -25px;
+padding: 20px;
+border-radius: 5px 5px 0px 0px;
+}
+.card-panel{
+  background-color: #050505;
+  border-radius: 5px;
+  border: none;
+  width: 75%;
+  margin-left: 12.5%;
+}
+.input-field{
+  color: white;
+}
+.collapsible{
+  border: none;
+}
+em {
+font-size: 3.5em;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+display: block;
+font-style: normal;
+padding-top: 0.1em;
+}
+/* em::before,
+em::after {
+color:red;
+content: "§";
+display: inline-block;
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+-o-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+transform: rotate(90deg);
+opacity: 0.2;
+margin: 0 0.6em;
+font-size: 0.5em;
+} */
+
+::placeholder{
+  color: rgba(255, 255, 255,0.5);
+}
+:-ms-input-placeholder {
+   color: rgba(255, 255, 255,0.5);
+}
+
+::-ms-input-placeholder {
+   color: rgba(255, 255, 255,0.5);
+}
+input[type=submit] {
+    color: white;
+    background: #1cbbd1;
+    cursor:pointer;
+    font-size: 1em;
+}
+::-webkit-scrollbar {
+    width: 7px;
+	background-color:black;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 15px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ED2553;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+.ButtonDiv{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.button-1{
+  margin-left:5%;
+  background-color: inherit;
+  color:#fff;
+}
+.button-2{
+  margin-left:auto;
+  margin-right: 5%;
+  background-color: inherit;
+  color:#fff;
+
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#spinner-box{
+  height:100vh;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  text-align: center;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5);
+}
+.box{
+  margin-top:20%;
+  margin-left:45%;
+}
+#signUpLink:hover{
+  cursor:pointer;
+}
+.submitButton{
+  height:30px;
+  background-color:aqua;
+  border-radius:5px;
+}
+.submitButton:hover{
+  background-color:green;
+}
+
+    </style>
+</head>
+
+<body>
+  <div>
+    <div class="logo" align="center">
+      <img src="./images/lucidcv.png" alt="icon" height="200px">
+    </div>
+    <br>
+    <!-- <h1 align="center" style="width: 100%;float: center;line-height: 46px;font-size: 50px;font-weight: 700;letter-spacing: 2px;color: #ED2553;position: relative;">LucidCV</h1> -->
+  </div>
+  <!---SPINNER----->
+  <div id="spinner-box" style="display:none">
+    <div class="box">
+  <div class="loader"></div>
+</div>
+</div>
+  <!---SPINNER----->
+
+  <div class="row">
+
+
+    <form name="myform" class="col s12" onsubmit="return showLoader()" method="POST">
+
+    <div id="container">
+      <!-------------------------------------FIRST SECION--------------------------------------->
+      <div id="card-1">
+      <ul class="collapsible  card-panel hoverable" data-collapsible="accordion">
+        <li>
+          <!-- <h4>&nbsp;&nbsp;&nbsp;Basic Info</h4> -->
+          <h4 class="styled-heading heading heading-correct-pronounciation">
+            <em>Basic Info</em>
+          </h4>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            </div>
+            <div class="input-field col s12">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="input-field col s12">
+              <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password">
+            </div>
+            <div id="box" class="input-field col s12" style="color:red">
+            </div>
+            <div class="input-field col s12" style="text-align : center;">
+                <input type="submit" class="submitButton" value="Sign In" />
+                <p id="signUpLink" onclick="signInPage()" style="text-align : center;">Registered User</p>
+            </div>
+          </div>
+
+    </div><!---Div------>
+    </form>
+
+
+  </div>
+  <script src="https://use.fontawesome.com/bf3ce4ee85.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322916-1"></script>
+  <script>
+    function signInPage(){
+      window.location.href="/";
+    }
+    function showLoader(){
+      event.preventDefault();
+      const loader = document.getElementById('spinner-box');
+      loader.style.display="block";
+      const box = document.getElementById('box');
+      var name = document.getElementById('name').value;
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('cpassword').value;
+      if(name.trim().length === 0 || name.trim().length < 4)
+      {
+          box.innerHTML=('');
+          loader.style.display="none";
+          box.append('Invalid Name . Minimum 4 chars');
+          return;
+      }
+      if(confirmPassword !== password)
+      {
+          box.innerHTML=('');
+          loader.style.display="none";
+          box.append('Password is incorrect');
+          return;
+      }
+      if(password.trim().length === 0 || password.trim().length < 7)
+      {
+          box.innerHTML=('');
+          loader.style.display="none";
+          box.append('Password length is too short . Minimum 7 chars');
+          return;
+      }
+
+      var data = {
+        for : "signUp",
+        username : name,
+        password : password
+      }
+
+      $.post("/cv", data).done(function (data)
+      {
+        console.log("DATA____",data);
+        if(data.text === 'Success')
+        {
+          window.location.href="/LucidCV";
+        }
+        else{
+          loader.style.display="none";
+          box.append('Username or Password is incorrect');
+        }
+      }
+      );
+
+    }
+  </script>
+
+</body>
+
+</html>
