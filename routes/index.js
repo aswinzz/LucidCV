@@ -117,6 +117,11 @@ router.post('/cv', function(req, res, next) {
 
 
 router.post('/LucidCV', function(req, res, next) {
+//making output var global
+  var output = null;
+  var theme = null;
+
+router.post('/', function(req, res, next) {
   if(output===null)
   {
     output = jbuilder.encode(function(json) {
@@ -258,6 +263,12 @@ router.post('/LucidCV', function(req, res, next) {
   }
   else if(req.body.theme ==="theme5"){
     res.render('theme5',{out:JSON.parse(output)});
+  }
+  else if(req.body.theme ==="theme6"){
+    res.render('theme6',{out:JSON.parse(output)});
+  }
+  else if(req.body.theme ==="theme7"){
+    res.render('theme7',{out:JSON.parse(output)});
   }
   else{
     //default
